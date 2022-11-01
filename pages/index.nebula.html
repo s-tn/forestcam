@@ -1,10 +1,60 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="/style.css" /> 
-  </head>
-  <body>
-    <a href="/about"></a>
-    <script src="/script.js"></script>
-  </body>
+<html lang="en">
+<head>
+  <link rel="alternate" href="https://cameronbryzek.com/" hreflang="en"/>
+  <link rel="stylesheet" href="/style/style.css">
+  <link rel="stylesheet" href="/style/navbar.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Cameron Bryzek</title>
+  <meta name="description" content="Cameron Bryzek">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="site-content-main">
+  <div id="nav">
+    <a class="home-link" href="/"><img class="home-img" src="./favicon.ico" nebula-link></a>
+    <div id="nav-div-1"><a class="nav-link nav-link-now" href="/" nebula-link>Home</a><a class="nav-link" href="/gallery" nebula-link>Gallery</a><a class="nav-link" href="/music" nebula-link>Music</a><a class="nav-link" href="/progress" nebula-link>Progress Bars</a></div>
+    <a href="javascript:void(0);" class="icon">
+      <div class="hamburger-icon" id="icon">
+        <div class="icon-1" id="a"></div>
+        <div class="icon-2" id="b"></div>
+        <div class="icon-3" id="c"></div>
+        <div class="clear"></div>
+    </div>
+    </a>
+  </div>
+  <hr style="color:white;margin-bottom:0;margin-top:50px;width:calc(90% * 0.33);">
+  <div class="main-page-body">
+    <h1 class="body-greeting">Hullo, I'm Cameron!</h1>
+    <p class="body-text-body">
+      Greetings, traveller! Welcome to my website! I’m Cameron, an author of fantasy books and a leatherworker, along with many other things! If you’re interested in seeing some of the projects I’ve worked on, go visit the <a href="/gallery" class="bold-body-text" nebula-link>Gallery</a>, if you want to see my progress bars on future books and/or big leather projects, check out my <a href="/progress" class="bold-body-text" nebula-link>Progress Bars</a>, and if you’d like to hear music I’ve composed or some of my performances, visit <a href="/music" class="bold-body-text" nebula-link>Music</a>!
+    </p>
+    <p class="body-text-body-sub">And lastly, keep your eyes peeled, because this website will be constantly updated!</p>
+    <img src="/home.jpeg" style="border-radius: 3px;display: block;margin: auto;border:2px solid white;">
+  </div>
+  <div id="mobile-navmenu" style="display:none;height:0px;"><div><a href="/" class="nav-link-now" style="display:none;" nebula-link>Home</a><a href="/gallery" style="display:none;" nebula-link>Gallery</a><a href="/music" style="display:none;" nebula-link>Music</a><a href="/progress" style="display:none;" nebula-link>Progress Bars</a></div></div>
+  <span style="visibility:hidden">Do you hate getting things stuck to the roof of your mouth? You're not alone; you might have arachibutyrophobia. Arachibutyrophobia is the fear of getting peanut butter stuck to the roof of your mouth and being choked.</span>
+  </div>
+  <footer>
+    <div class="content">
+      <div class="left box">
+        <a href="//instagram.com/cameron_bryzek_author">@cameron_bryzek_author</a>
+        <br>
+        <a href="//instagram.com/by_lanterns_light">@by_lanterns_light</a>
+      </div>
+      <div class="middle box">
+        <hr style=color:white;margin-bottom:80px;width:90%;>
+        <br>
+        <img src="./favicon.ico" width=100>
+      </div>
+      <div class="right box">
+        <a href="mailto:cambryzek@gmail.com">cambryzek@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/socket.io/socket.io.js" nebula-static="1"></script>
+  <script src="/jquery.js" nebula-static="2"></script>
+  <script src="/script.js" nebula-static="3"></script>
+  <script src="/index.js"></script>
+</body>
 </html>

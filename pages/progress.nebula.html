@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="alternate" href="https://cameronbryzek.com/projects" hreflang="en"/>
+  <link rel="stylesheet" href="/style/projects.css">
+  <link rel="stylesheet" href="/style/navbar.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Bars - Cameron Bryzek</title>
+  <meta name="description" content="Cameron Bryzek">
+</head>
+<body>
+  <div id="nav">
+    <a class="home-link" href="/" nebula-link><img class="home-img" src="./favicon.ico"></a>
+    <div id="nav-div-1"><a class="nav-link" nebula-link href="/">Home</a><a class="nav-link" href="/gallery" nebula-link>Gallery</a><a class="nav-link" href="/music" nebula-link>Music</a><a class="nav-link nav-link-now" href="/progress" nebula-link>Progress Bars</a></div>
+    <a href="javascript:void(0);" class="icon">
+      <div class="hamburger-icon" id="icon">
+        <div class="icon-1" id="a"></div>
+        <div class="icon-2" id="b"></div>
+        <div class="icon-3" id="c"></div>
+        <div class="clear"></div>
+    </div>
+    </a>
+  </div>
+  <hr style="color:white;margin-bottom:0;margin-top:50px;width:calc(90% * 0.33);">
+  <h1 id="title">Progress Bars</h1>
+  <div id="bars"></div>
+  <div id="mobile-navmenu" style="display:none;height:0px;"><div><a href="/" style="display:none;" nebula-link>Home</a><a href="/gallery" style="display:none;" nebula-link>Gallery</a><a href="/music" style="display:none;" nebula-link>Music</a><a class="nav-link-now" href="/progress" style="display:none;" nebula-link>Progress Bars</a></div></div>
+  <footer>
+    <div class="content">
+      <div class="left box">
+        <a href="//instagram.com/cameron_bryzek_author">@cameron_bryzek_author</a>
+        <br>
+        <a href="//instagram.com/by_lanterns_light">@by_lanterns_light</a>
+      </div>
+      <div class="middle box">
+        <hr style=color:white;margin-bottom:80px;width:90%;>
+        <br>
+        <img src="./favicon.ico" width=100>
+      </div>
+      <div class="right box">
+        <a href="mailto:cambryzek@gmail.com">cambryzek@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/socket.io/socket.io.js" nebula-static="1"></script>
+  <script src="/jquery.js" nebula-static="2"></script>
+  <script src="/script.js" nebula-static="3"></script>
+  <script src="/bars.js"></script>
+</body>
+</html>

@@ -4,17 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node lib/cli/cli.js dev --port 8080 --server 'http server.js' --plugin socket.io"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^18.0.6",
+    "commander": "^9.4.0",
+    "express": "^4.18.1",
     "jsdom": "^20.0.0",
     "node-fetch": "^3.2.6",
     "node-static": "^0.7.11",
     "node-watch": "^0.7.3",
-    "pkg-dir": "^7.0.0"
+    "pkg-dir": "^7.0.0",
+    "socket-io": "^1.0.0",
+    "socket.io": "^4.5.1"
+  },
+  "bin": {
+    "nebula": "./lib/cli/cli.js"
   }
 }

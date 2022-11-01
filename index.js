@@ -1,17 +1,50 @@
-var Nebula = require('./lib');
-var static = require('node-static');
-var http = require('http');
-var file = new(static.Server)('public');
-var app = http.createServer();
+const express = require('express');
+var fs = require('fs');
+var qs = require('querystring');
 
-var nebula = new Nebula({
-  path: './pages',
-  mode: 'dev',
-  server: app,
+io.on('connection', (socket) => {
+  socket.join(socket.id)
+
+  socket.on('upload', (data, num, caption) => {
+    console.log(num, caption)
+    createImg(data, num, caption)
+  })
+
+  socket.on('removeBar', num => {
+    var data = JSON.parse(fs.readFileSync('progress.json', () => {}))
+    delete data.progress[num]
+    delete data.projects.splice(data.projects.indexOf(num), 1)
+    console.log(data)
+    fs.writeFileSync('progress.json', JSON.stringify(data), () => {})
+  })
+
+  socket.on('changeName', (value, num) => {
+    var data = JSON.parse(fs.readFileSync('progress.json', () => {}))
+    data.progress[num].name = value
+    fs.writeFileSync('progress.json', JSON.stringify(data), () => {})
+  })
+
+  socket.on('createPBar', (name, value) => {
+    createProgressBar(name, value)
+  })
+
+  socket.on('changeProgress', (value, num) => {
+    var data = JSON.parse(fs.readFileSync('progress.json', () => {}))
+    data.progress[num].progress = value
+    fs.writeFileSync('progress.json', JSON.stringify(data), () => {})
+  })
 });
 
-app.on('request', function (req, res) {
-  file.serve(req, res);
-});
+app.use(express.static('public'));
 
-app.listen(8080);
+app.use((req, res) => {
+  if (res.headersSent) return;
+  if (res.writableEnded) return;
+  
+  if (req.url=='/gallerydata') {
+    return res.end(fs.readFileSync('./gallery.json'))
+  }
+  if (req.url=='/progressdata') {
+    return res.end(fs.readFileSync('./progress.json'))
+  }
+});

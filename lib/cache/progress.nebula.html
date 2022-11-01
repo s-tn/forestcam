@@ -1,0 +1,426 @@
+<!DOCTYPE html><html lang="en"><head><script nebula-core="-8" src="/__neb/core/util.js"></script><script nebula-core="-9" src="/__neb/core/proxy.js"></script><script nebula-files="{&quot;404.nebula.html&quot;:&quot;<!DOCTYPE html><html><head>\n    <title>Nebula.js - Not Found</title>\n    <style>\n      body, html {\n        margin: 0;\n        background: black;\n      }\n    </style>\n  </head>\n\n  <body>\n    <h1>404</h1> <vr></vr> <img src=\&quot;/__neb/core/NebulaJS.png\&quot;>\n  \n</body></html>&quot;,&quot;about.nebula.html&quot;:&quot;<html><head></head><body>hillo\n<a href=\&quot;/\&quot; nebula-link=\&quot;\&quot;>Home</a>\n<script src=\&quot;/script.js\&quot; nebula-static=\&quot;3\&quot;></script></body></html>&quot;,&quot;gallery.nebula.html&quot;:&quot;<!DOCTYPE html><html><head>\n  <link rel=\&quot;alternate\&quot; href=\&quot;https://cameronbryzek.com/gallery\&quot; hreflang=\&quot;en\&quot;>\n  <style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;display=swap');\n\n@import url('https://fonts.googleapis.com/css2?family=Andada+Pro&amp;display=swap');\n\n@font-face {\n  font-family: \&quot;Garamond Pro\&quot;;\n  src: url('agaramondpro.otf')\n}\n\nbody {\n  background-color: #232f46 !important;\n  margin: 0;\n  text-align: center;\n  height: 100vh;\n  width: 100%;\n}\n\n#title {\n  color: white;\n  font-family: 'Lupa', serif;\n  font-size: 60px;\n}\n\n.gallery-img {\n  display: inline-block;\n  width: auto;\n  height: auto;\n}\n\n.gallery-entry {\n  width: 30%;\n}\n\n.gallery-caption {\n  color: white;\n  font-size: 30px;\n  display: block;\n}\n\n.gallery-over {\n  display: flex;\n  overflow-wrap: break-word; \n  flex-wrap: wrap;\n  text-align: center;\n  width: 100%;\n  margin: auto;\n}\n\n#gallery-1 {\n  width: 30%;\n}\n\n#gallery-2 {\n  width: 30%;\n}\n\n#gallery-3 {\n  width: 30%;\n}\n\n.gallery-caption {\n  white-space: normal;\n  max-width: 50%;\n  font-size: 20px;\n  margin: auto;\n  word-break: break-word;\n  text-align: left;\n}\n\n.gallery-container-complete {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  font-family: sans-serif;\n}\n.grid-container {\n  columns: 3 200px;\n  padding-top: 20px;\n  column-gap: 1.5rem;\n  width: 90%;\n  margin: 0 auto;\n}\n.grid-container div {\n  width: calc(100% - 20px);\n  margin: 0 1.5rem 1.5rem 0;\n  display: inline-block;\n  padding: 5px;\n  border-radius: 5px;\n  transition: all .25s ease-in-out;\n  animation: 0.5s width east-in-out;\n}\n.grid-container div img:hover {\n  box-shadow: 0px 0px 10px -1px;\n}\n.grid-container div:hover {\n  width: calc(100% - 15px);\n}\n.grid-container div img {\n  width: 100%;\n  border-radius: 5px;\n  box-shadow: 0px 0px 3px -1px;\n  transition: box-shadow 0.3s ease-in-out;\n}\n.grid-container p {\n  margin: 5px 0;\n  padding: 0;\n  width: 100%;\n  color: white;\n  text-align: left;\n  font-family: \&quot;Garamond Pro\&quot;, serif;\n}</style>\n  <style>body {\n  margin: 0;\n  overflow-x: hidden !important;\n}\n#site-content-main {\n  height: auto;\n}\n#site-navigation-footer {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  font-family: sans-serif;\n}\n\n#footer-div1 {\n  columns: 3 200px;\n  column-gap: 1.5rem;\n  width: 90%;\n  margin: 0 auto;\n}\n\n.home-link {\n  margin: 0;\n  position: absolute;\n  top: 7%;\n  left: 5%;\n  transition: height 0.5s ease-in-out;\n}\n\n.home-img {\n  width: auto;\n  animation: height 0.5s ease-in-out;\n  max-width: 100%;\n  max-height: 60px;\n}\n\n.home-img:hover {\n  max-height: 66px;\n}\n\n.icon-1, .icon-2, .icon-3 {\n    position: absolute;\n    left: 25%;\n    top: 50%;\n    width: 50%;\n    height: 3px;\n    background-color: white;\n    transition: all 400ms cubic-bezier(.84,.06,.52,1.8);\n}\n\n.icon-1 {\n  transform: translateY(-8px);\n  animation-delay: 100ms;\n}\n\n.icon-3 {\n  transform: translateY(8px);\n  animation-delay: 250ms;\n}\n\n.hamburger-icon {\n  position: absolute;\n  height: 60px;\n  width: 60px;\n  z-index: 1000;\n  cursor: pointer;\n  border-radius: 50%;\n  transition: all 0.2s ease-in-out;\n  background: transparent !important; /*rgba(255,255,255,0.2);*/\n}\n\n.hamburger-icon:hover {\n  transform: scale(1.2);\n}\n\n.icon-1.a {\n  transform: rotate(40deg);\n}\n.icon-3.b {\n  transform: rotate(-40deg);\n}\n.icon-2.c {\n  opacity: 0;\n}\n\n.clear {\n  clear: both;\n}\n\n@keyframes slideIn {\n  0% {\n    width: 0%;\n    opacity: 0;\n  }\n  \n  100% {\n    width: 50%;\n    opacity: 1;\n  }\n}\n\n#nav {\n  position: static;\n  top: 0;\n  left: 0;\n  background: none;\n  width: 100%;\n  height: 105px;\n}\n\n#nav a.icon {\n  background: transparent;\n  position: absolute;\n  right: 5%;\n  top: 5.5%;\n  display: none;\n  z-index: 999999999999999999;\n}\n\n#nav .icon {\n  color: white;\n  text-decoration: none;\n  font-size: 50px;\n  width: auto;\n  margin-right: 60px;\n  transform: rotate(0deg);\n}\n\n.spin {\n  transform: rotate(-90deg)\n}\n\n#nav-div-1 {\n  position: absolute;\n  width: auto;\n  right: 5%;\n  height: 20px;\n  top: 4%;\n  padding-top: 28px;\n  padding-bottom: 15px;\n}\n\n.nav-link {\n  margin-right: 25px;\n  color: white;\n  font-family: 'Andada Pro', serif;\n  text-decoration: none;\n  font-size: 30px;\n}\n\n.nav-link-now {\n  color: white;\n  font-weight: bold;\n}\n\n@media screen and (max-width: 1000px) {\n  #nav a.icon {\n    display: block;\n  }\n  .nav-link {\n    display: none;\n  }\n  .main-page-right {\n    float: initial;\n    margin: auto;\n    width: 100vw;\n    display: initial;\n  }\n  .main-page-left {\n    float: initial;\n    width: 100vw;\n    display: initial;\n  }\n  .home-link {\n    top: 5.5%;\n    left: 60px !important;\n  }\n  .home-img:hover {\n    max-height: 70px !important;\n  }\n  .home-img {\n    height: 70px !important;\n    top: 9% !important;\n  }\n  .body-greeting {\n    font-size: 50px !important;\n  }\n  footer {\n    margin-top: 140px;\n    display: none !important;\n  }\n  .body-text-body {\n    font-size: 25px;\n    width: 90%;\n    margin: auto;\n    margin-top: -10px;\n    padding: 0;\n  }\n  .body-text-body-sub {\n    margin-top: 40px !important;\n    font-size: 27px !important;\n    padding-bottom: 30px;\n    width: 90%;\n    margin-bottom: 50px;\n    margin: auto;\n  }\n}\n\n#mobile-navmenu {\n  background: #010101;\n  opacity: 0.9;\n  width: 100%;\n  height: 0;\n  padding: 10px 5px 10px 5px;\n  margin:auto;\n  position: absolute;\n  top:0;\n  transition: height 0.5s ease-in-out;\n}\n\n#mobile-navmenu div {\n  margin: auto;\n  position: absolute;\n  width: 400px;\n  height: 300px;\n  text-align: center;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n\n#mobile-navmenu a {\n  color: white;\n  width: auto;\n  font-family: \&quot;Anada Pro\&quot;, serif;\n  font-size: 50px;\n  text-decoration: none;\n  display: block;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotage(0deg)\n  }\n  100% {\n    transform: rotate(-90deg)\n  }\n}\n\n/*Footer Time*/\n\nfooter{\n  margin-top: 0;\n  width: 100%;\n  height: 180px;\n  padding-bottom: 80px;\n}\nfooter .left, .right {\n  padding: 140px 0 50px;\n  font-size: 36px;\n}\nfooter .right {\n  padding: 158px 0 50px;\n}\n\nfooter .right .a {\n  color: #646464;\n  border-bottom: 1px solid #fff;\n  padding-bottom: 2px;\n  text-decoration: none;\n}\n\nfooter .content{\n  width: 100%;\n  margin: auto;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\nfooter .content a {\n  color: #fff;\n  font-size: 25px;\n  text-decoration: none;\n}\nfooter .content a {\n  border-bottom: 1px solid #fff;\n  padding-bottom: 2px;\n}\nfooter .content .box{\n  width: 33%;\n  text-align: center;\n  height: 180px;\n  transition: all 0.4s ease;\n}\nfooter .content .topic{\n  font-size: 22px;\n  font-weight: 600;\n  color: #fff;\n  margin-bottom: 16px;\n}</style>\n  <meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1.0\&quot;>\n  <title>Gallery - Cameron Bryzek</title>\n  <meta name=\&quot;description\&quot; content=\&quot;Cameron Bryzek\&quot;>\n</head>\n<body>\n  <div id=\&quot;nav\&quot;>\n    <a nebula-link=\&quot;\&quot; class=\&quot;home-link\&quot; href=\&quot;/\&quot;><img class=\&quot;home-img\&quot; src=\&quot;./favicon.ico\&quot;></a>\n    <div id=\&quot;nav-div-1\&quot;><a class=\&quot;nav-link\&quot; href=\&quot;/\&quot; nebula-link=\&quot;\&quot;>Home</a><a nebula-link=\&quot;\&quot; class=\&quot;nav-link nav-link-now\&quot; href=\&quot;/gallery\&quot;>Gallery</a><a nebula-link=\&quot;\&quot; class=\&quot;nav-link\&quot; href=\&quot;/music\&quot;>Music</a><a nebula-link=\&quot;\&quot; class=\&quot;nav-link\&quot; href=\&quot;/progress\&quot;>Progress Bars</a></div>\n    <a href=\&quot;javascript:void(0);\&quot; class=\&quot;icon\&quot;>\n      <div class=\&quot;hamburger-icon\&quot; id=\&quot;icon\&quot;>\n        <div class=\&quot;icon-1\&quot; id=\&quot;a\&quot;></div>\n        <div class=\&quot;icon-2\&quot; id=\&quot;b\&quot;></div>\n        <div class=\&quot;icon-3\&quot; id=\&quot;c\&quot;></div>\n        <div class=\&quot;clear\&quot;></div>\n    </div>\n    </a>\n  </div>\n  <hr style=\&quot;color:white;margin-bottom:0;margin-top:50px;width:calc(90% * 0.33);\&quot;>\n  <h1 id=\&quot;title\&quot;>Gallery</h1>\n  <div class=\&quot;gallery-container-complete\&quot;>\n  <div class=\&quot;grid-container\&quot;>\n  </div>\n  </div>\n  <div id=\&quot;mobile-navmenu\&quot; style=\&quot;display:none;height:0px;\&quot;><div><a nebula-link=\&quot;\&quot; href=\&quot;/\&quot; style=\&quot;display:none;\&quot;>Home</a><a nebula-link=\&quot;\&quot; class=\&quot;nav-link-now\&quot; href=\&quot;/gallery\&quot; style=\&quot;display:none;\&quot;>Gallery</a><a href=\&quot;/music\&quot; nebula-link=\&quot;\&quot; style=\&quot;display:none;\&quot;>Music</a><a nebula-link=\&quot;\&quot; href=\&quot;/progress\&quot; style=\&quot;display:none;\&quot;>Progress Bars</a></div></div>\n  <footer>\n    <div class=\&quot;content\&quot;>\n      <div class=\&quot;left box\&quot;>\n        <a href=\&quot;//instagram.com/cameron_bryzek_author\&quot;>@cameron_bryzek_author</a>\n        <br>\n        <a href=\&quot;//instagram.com/by_lanterns_light\&quot;>@by_lanterns_light</a>\n      </div>\n      <div class=\&quot;middle box\&quot;>\n        <hr style=\&quot;color:white;margin-bottom:80px;width:90%;\&quot;>\n        <br>\n        <img src=\&quot;./favicon.ico\&quot; width=\&quot;100\&quot;>\n      </div>\n      <div class=\&quot;right box\&quot;>\n        <a href=\&quot;mailto:cambryzek@gmail.com\&quot;>cambryzek@gmail.com</a>\n      </div>\n    </div>\n  </footer>\n  <script src=\&quot;/jquery.js\&quot; nebula-static=\&quot;2\&quot;></script>\n  <script src=\&quot;/socket.io/socket.io.js\&quot; nebula-static=\&quot;1\&quot;></script>\n  <script src=\&quot;/script.js\&quot; nebula-static=\&quot;3\&quot;></script>\n  <script src=\&quot;/index.js\&quot;></script>\n  <script src=\&quot;/images.js\&quot;></script>\n\n</body></html>&quot;,&quot;index.nebula.html&quot;:&quot;<!DOCTYPE html><html lang=\&quot;en\&quot;><head>\n  <link rel=\&quot;alternate\&quot; href=\&quot;https://cameronbryzek.com/\&quot; hreflang=\&quot;en\&quot;>\n  <style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;display=swap');\n\n@import url('https://fonts.googleapis.com/css2?family=Andada+Pro&amp;display=swap');\n\nbody {\n  background-color: #232f46 !important;\n  margin: 0;\n  text-align: center;\n  height: 100vh;\n  width: 100%;\n}\n\n.body-text-body {\n  padding: 0 10% 0 10%;\n  font-size: 20px;\n  color: white;\n}\n\n.body-text-body-sub {\n  font-style: italic;\n  color: white;\n  margin-top: 30px;\n  font-size: 23px;\n  margin-bottom: 50px;\n}\n\n.body-greeting {\n  margin-top: 35px;\n  color: white;\n  font-family: 'Lupa', serif;\n  font-size: 60px;\n  text-shadow: 0px 0px 8px rgb(154 150 150 / 92%);\n}\n\n.bold-body-text {\n  font-weight: bold;\n  text-decoration: none;\n  color: inherit;\n}\n.bold-body-text:hover {\n  text-decoration: underline;\n  cursor: pointer;\n}\n\n\nfooter {\n  margin-top: 0 !important;\n}\n\n/*.main-page-right {\n  float: right;\n  text-align: left !important;\n  width: 30vw;\n  min-height: 400px;\n}\n\n.main-page-left {\n  float: left;\n  width: 65vw;\n  text-align: center;\n  min-height: 400px;\n}\n\n.main-page-left, .main-page-right {\n  display: block;\n  justify-content: center;\n  flex-direction: column;\n  margin-top: 100px;\n}*/\n\n.main-page-body {\n  float: left;\n  text-align: center !important;\n  width: 65vw;\n  min-height: 400px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-wrap: wrap;\n  position: relative;\n}\n\n.main-page-body img {\n  position: absolute;\n  top: 50%;\n  right: -35vw;\n  transform: translate(calc(20% - 10vw), -50%);\n}\n\n@media screen and (max-width: 950px) {\n  .main-page-body {\n    width: 100vw !important;\n  }\n  \n  .main-page-body img {\n    position: initial !important;\n    top: 0;\n    right: 0;\n    transform: translate(0, 0);\n  }\n}</style>\n  <style>body {\n  margin: 0;\n  overflow-x: hidden !important;\n}\n#site-content-main {\n  height: auto;\n}\n#site-navigation-footer {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  font-family: sans-serif;\n}\n\n#footer-div1 {\n  columns: 3 200px;\n  column-gap: 1.5rem;\n  width: 90%;\n  margin: 0 auto;\n}\n\n.home-link {\n  margin: 0;\n  position: absolute;\n  top: 7%;\n  left: 5%;\n  transition: height 0.5s ease-in-out;\n}\n\n.home-img {\n  width: auto;\n  animation: height 0.5s ease-in-out;\n  max-width: 100%;\n  max-height: 60px;\n}\n\n.home-img:hover {\n  max-height: 66px;\n}\n\n.icon-1, .icon-2, .icon-3 {\n    position: absolute;\n    left: 25%;\n    top: 50%;\n    width: 50%;\n    height: 3px;\n    background-color: white;\n    transition: all 400ms cubic-bezier(.84,.06,.52,1.8);\n}\n\n.icon-1 {\n  transform: translateY(-8px);\n  animation-delay: 100ms;\n}\n\n.icon-3 {\n  transform: translateY(8px);\n  animation-delay: 250ms;\n}\n\n.hamburger-icon {\n  position: absolute;\n  height: 60px;\n  width: 60px;\n  z-index: 1000;\n  cursor: pointer;\n  border-radius: 50%;\n  transition: all 0.2s ease-in-out;\n  background: transparent !important; /*rgba(255,255,255,0.2);*/\n}\n\n.hamburger-icon:hover {\n  transform: scale(1.2);\n}\n\n.icon-1.a {\n  transform: rotate(40deg);\n}\n.icon-3.b {\n  transform: rotate(-40deg);\n}\n.icon-2.c {\n  opacity: 0;\n}\n\n.clear {\n  clear: both;\n}\n\n@keyframes slideIn {\n  0% {\n    width: 0%;\n    opacity: 0;\n  }\n  \n  100% {\n    width: 50%;\n    opacity: 1;\n  }\n}\n\n#nav {\n  position: static;\n  top: 0;\n  left: 0;\n  background: none;\n  width: 100%;\n  height: 105px;\n}\n\n#nav a.icon {\n  background: transparent;\n  position: absolute;\n  right: 5%;\n  top: 5.5%;\n  display: none;\n  z-index: 999999999999999999;\n}\n\n#nav .icon {\n  color: white;\n  text-decoration: none;\n  font-size: 50px;\n  width: auto;\n  margin-right: 60px;\n  transform: rotate(0deg);\n}\n\n.spin {\n  transform: rotate(-90deg)\n}\n\n#nav-div-1 {\n  position: absolute;\n  width: auto;\n  right: 5%;\n  height: 20px;\n  top: 4%;\n  padding-top: 28px;\n  padding-bottom: 15px;\n}\n\n.nav-link {\n  margin-right: 25px;\n  color: white;\n  font-family: 'Andada Pro', serif;\n  text-decoration: none;\n  font-size: 30px;\n}\n\n.nav-link-now {\n  color: white;\n  font-weight: bold;\n}\n\n@media screen and (max-width: 1000px) {\n  #nav a.icon {\n    display: block;\n  }\n  .nav-link {\n    display: none;\n  }\n  .main-page-right {\n    float: initial;\n    margin: auto;\n    width: 100vw;\n    display: initial;\n  }\n  .main-page-left {\n    float: initial;\n    width: 100vw;\n    display: initial;\n  }\n  .home-link {\n    top: 5.5%;\n    left: 60px !important;\n  }\n  .home-img:hover {\n    max-height: 70px !important;\n  }\n  .home-img {\n    height: 70px !important;\n    top: 9% !important;\n  }\n  .body-greeting {\n    font-size: 50px !important;\n  }\n  footer {\n    margin-top: 140px;\n    display: none !important;\n  }\n  .body-text-body {\n    font-size: 25px;\n    width: 90%;\n    margin: auto;\n    margin-top: -10px;\n    padding: 0;\n  }\n  .body-text-body-sub {\n    margin-top: 40px !important;\n    font-size: 27px !important;\n    padding-bottom: 30px;\n    width: 90%;\n    margin-bottom: 50px;\n    margin: auto;\n  }\n}\n\n#mobile-navmenu {\n  background: #010101;\n  opacity: 0.9;\n  width: 100%;\n  height: 0;\n  padding: 10px 5px 10px 5px;\n  margin:auto;\n  position: absolute;\n  top:0;\n  transition: height 0.5s ease-in-out;\n}\n\n#mobile-navmenu div {\n  margin: auto;\n  position: absolute;\n  width: 400px;\n  height: 300px;\n  text-align: center;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n\n#mobile-navmenu a {\n  color: white;\n  width: auto;\n  font-family: \&quot;Anada Pro\&quot;, serif;\n  font-size: 50px;\n  text-decoration: none;\n  display: block;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotage(0deg)\n  }\n  100% {\n    transform: rotate(-90deg)\n  }\n}\n\n/*Footer Time*/\n\nfooter{\n  margin-top: 0;\n  width: 100%;\n  height: 180px;\n  padding-bottom: 80px;\n}\nfooter .left, .right {\n  padding: 140px 0 50px;\n  font-size: 36px;\n}\nfooter .right {\n  padding: 158px 0 50px;\n}\n\nfooter .right .a {\n  color: #646464;\n  border-bottom: 1px solid #fff;\n  padding-bottom: 2px;\n  text-decoration: none;\n}\n\nfooter .content{\n  width: 100%;\n  margin: auto;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\nfooter .content a {\n  color: #fff;\n  font-size: 25px;\n  text-decoration: none;\n}\nfooter .content a {\n  border-bottom: 1px solid #fff;\n  padding-bottom: 2px;\n}\nfooter .content .box{\n  width: 33%;\n  text-align: center;\n  height: 180px;\n  transition: all 0.4s ease;\n}\nfooter .content .topic{\n  font-size: 22px;\n  font-weight: 600;\n  color: #fff;\n  margin-bottom: 16px;\n}</style>\n  <meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1.0\&quot;>\n  <title>Home - Cameron Bryzek</title>\n  <meta name=\&quot;description\&quot; content=\&quot;Cameron Bryzek\&quot;>\n  <link rel=\&quot;stylesheet\&quot; href=\&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\&quot;>\n</head>\n<body>\n  <div id=\&quot;site-content-main\&quot;>\n  <div id=\&quot;nav\&quot;>\n    <a class=\&quot;home-link\&quot; href=\&quot;/\&quot;><img class=\&quot;home-img\&quot; src=\&quot;./favicon.ico\&quot; nebula-link=\&quot;\&quot;></a>\n    <div id=\&quot;nav-div-1\&quot;><a class=\&quot;nav-link nav-link-now\&quot; href=\&quot;/\&quot; nebula-link=\&quot;\&quot;>Home</a><a class=\&quot;nav-link\&quot; href=\&quot;/gallery\&quot; nebula-link=\&quot;\&quot;>Gallery</a><a class=\&quot;nav-link\&quot; href=\&quot;/music\&quot; nebula-link=\&quot;\&quot;>Music</a><a class=\&quot;nav-link\&quot; href=\&quot;/progress\&quot; nebula-link=\&quot;\&quot;>Progress Bars</a></div>\n    <a href=\&quot;javascript:void(0);\&quot; class=\&quot;icon\&quot;>\n      <div class=\&quot;hamburger-icon\&quot; id=\&quot;icon\&quot;>\n        <div class=\&quot;icon-1\&quot; id=\&quot;a\&quot;></div>\n        <div class=\&quot;icon-2\&quot; id=\&quot;b\&quot;></div>\n        <div class=\&quot;icon-3\&quot; id=\&quot;c\&quot;></div>\n        <div class=\&quot;clear\&quot;></div>\n    </div>\n    </a>\n  </div>\n  <hr style=\&quot;color:white;margin-bottom:0;margin-top:50px;width:calc(90% * 0.33);\&quot;>\n  <div class=\&quot;main-page-body\&quot;>\n    <h1 class=\&quot;body-greeting\&quot;>Hullo, I'm Cameron!</h1>\n    <p class=\&quot;body-text-body\&quot;>\n      Greetings, traveller! Welcome to my website! I’m Cameron, an author of fantasy books and a leatherworker, along with many other things! If you’re interested in seeing some of the projects I’ve worked on, go visit the <a href=\&quot;/gallery\&quot; class=\&quot;bold-body-text\&quot; nebula-link=\&quot;\&quot;>Gallery</a>, if you want to see my progress bars on future books and/or big leather projects, check out my <a href=\&quot;/progress\&quot; class=\&quot;bold-body-text\&quot; nebula-link=\&quot;\&quot;>Progress Bars</a>, and if you’d like to hear music I’ve composed or some of my performances, visit <a href=\&quot;/music\&quot; class=\&quot;bold-body-text\&quot; nebula-link=\&quot;\&quot;>Music</a>!\n    </p>\n    <p class=\&quot;body-text-body-sub\&quot;>And lastly, keep your eyes peeled, because this website will be constantly updated!</p>\n    <img src=\&quot;/home.jpeg\&quot; style=\&quot;border-radius: 3px;display: block;margin: auto;border:2px solid white;\&quot;>\n  </div>\n  <div id=\&quot;mobile-navmenu\&quot; style=\&quot;display:none;height:0px;\&quot;><div><a href=\&quot;/\&quot; class=\&quot;nav-link-now\&quot; style=\&quot;display:none;\&quot; nebula-link=\&quot;\&quot;>Home</a><a href=\&quot;/gallery\&quot; style=\&quot;display:none;\&quot; nebula-link=\&quot;\&quot;>Gallery</a><a href=\&quot;/music\&quot; style=\&quot;display:none;\&quot; nebula-link=\&quot;\&quot;>Music</a><a href=\&quot;/progress\&quot; style=\&quot;display:none;\&quot; nebula-link=\&quot;\&quot;>Progress Bars</a></div></div>\n  <span style=\&quot;visibility:hidden\&quot;>Do you hate getting things stuck to the roof of your mouth? You're not alone; you might have arachibutyrophobia. Arachibutyrophobia is the fear of getting peanut butter stuck to the roof of your mouth and being choked.</span>\n  </div>\n  <footer>\n    <div class=\&quot;content\&quot;>\n      <div class=\&quot;left box\&quot;>\n        <a href=\&quot;//instagram.com/cameron_bryzek_author\&quot;>@cameron_bryzek_author</a>\n        <br>\n        <a href=\&quot;//instagram.com/by_lanterns_light\&quot;>@by_lanterns_light</a>\n      </div>\n      <div class=\&quot;middle box\&quot;>\n        <hr style=\&quot;color:white;margin-bottom:80px;width:90%;\&quot;>\n        <br>\n        <img src=\&quot;./favicon.ico\&quot; width=\&quot;100\&quot;>\n      </div>\n      <div class=\&quot;right box\&quot;>\n        <a href=\&quot;mailto:cambryzek@gmail.com\&quot;>cambryzek@gmail.com</a>\n      </div>\n    </div>\n  </footer>\n  <script src=\&quot;/socket.io/socket.io.js\&quot; nebula-static=\&quot;1\&quot;></script>\n  <script src=\&quot;/jquery.js\&quot; nebula-static=\&quot;2\&quot;></script>\n  <script src=\&quot;/script.js\&quot; nebula-static=\&quot;3\&quot;></script>\n  <script src=\&quot;/index.js\&quot;></script>\n\n</body></html>&quot;,&quot;music.nebula.html&quot;:&quot;<!DOCTYPE html><html lang=\&quot;en\&quot;><head>\n  <link rel=\&quot;alternate\&quot; href=\&quot;https://cameronbryzek.com/projects\&quot; hreflang=\&quot;en\&quot;>\n  <style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;display=swap');\n\n@import url('https://fonts.googleapis.com/css2?family=Andada+Pro&amp;display=swap');\n\n@font-face {\n  font-family: \&quot;Garamond Pro\&quot;;\n  src: url('agaramondpro.otf')\n}\n\nbody {\n  background-color: #232f46 !important;\n  margin: 0;\n  text-align: center;\n  height: 100vh;\n  width: 100%;\n}\n\n#title {\n  color: white;\n  font-family: 'Lupa', serif;\n  font-size: 60px;\n}\n\n#music-container {\n  width: calc(100%);\n}\n\n#music-left-videos {\n  width: calc(100% - 280px);\n  float: left;\n  display: inline-block;\n  padding: 20px;\n  padding-top: 0;\n  background: transparent;\n  height: auto;\n}\n\n#music-right-schedule {\n  width: 186px;\n  float: left;\n  height: auto;\n  margin-right: 10px;\n  display: inline-block;\n  padding: 20px;\n  background: rgb(0, 0, 0, 0.25);\n  border-radius: 10px;\n  border: 2px solid white;\n}\n\n.music-video-over {\n  border: 2px solid white;\n  border-radius: 10px;\n  padding: 30px;\n  background: rgb(0, 0, 0, 0.25);\n  width: 90%;\n  margin: auto;\n  margin-bottom: 30px;\n}\n\n.music-video-left {\n  margin-right: 30px;\n  width: 230px;\n  display: inline-flex;\n  align-items: center;\n  height: 400px;\n  padding: 20px;\n  background: transparent;\n}\n\n.music-video-right {\n  width: calc(100% - 300px);\n  display: inline-block;\n  float: right;\n  height: 400px;\n}\n\n.music-video-right iframe {\n  width: 100%;\n  height: calc(100% + 40px);\n  border-radius: 5px;\n  border: 1px solid white;\n  outline: none;\n}\n\n.music-video-title {\n  color: white;\n  font-size: 20px;\n  font-weight: 100;\n}\n\n.music-video-name {\n  color: white;\n  font-size: 25px;\n  display: block;\n  font-weight: 600;\n  margin-bottom: 15px;\n}\n\n.music-video-date {\n  display: block;\n  color: #eee;\n  font-size: 13px;\n}\n\n.timeline-entry {\n  display: block;\n  margin-bottom: 10px;\n  color: white;\n  font-size: 15px;\n}\n\n.timeline-date {\n  color: #ddd;\n  display: inline-block;\n  font-size: 12px;\n}\n\n.timeline-name {\n  display: block;\n}</style>\n  <style>body {\n  margin: 0;\n  overflow-x: hidden !important;\n}\n#site-content-main {\n  height: auto;\n}\n#site-navigation-footer {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  font-family: sans-serif;\n}\n\n#footer-div1 {\n  columns: 3 200px;\n  column-gap: 1.5rem;\n  width: 90%;\n  margin: 0 auto;\n}\n\n.home-link {\n  margin: 0;\n  position: absolute;\n  top: 7%;\n  left: 5%;\n  transition: height 0.5s ease-in-out;\n}\n\n.home-img {\n  width: auto;\n  animation: height 0.5s ease-in-out;\n  max-width: 100%;\n  max-height: 60px;\n}\n\n.home-img:hover {\n  max-height: 66px;\n}\n\n.icon-1, .icon-2, .icon-3 {\n    position: absolute;\n    left: 25%;\n    top: 50%;\n    width: 50%;\n    height: 3px;\n    background-color: white;\n    transition: all 400ms cubic-bezier(.84,.06,.52,1.8);\n}\n\n.icon-1 {\n  transform: translateY(-8px);\n  animation-delay: 100ms;\n}\n\n.icon-3 {\n  transform: translateY(8px);\n  animation-delay: 250ms;\n}\n\n.hamburger-icon {\n  position: absolute;\n  height: 60px;\n  width: 60px;\n  z-index: 1000;\n  cursor: pointer;\n  border-radius: 50%;\n  transition: all 0.2s ease-in-out;\n  background: transparent !important; /*rgba(255,255,255,0.2);*/\n}\n\n.hamburger-icon:hover {\n  transform: scale(1.2);\n}\n\n.icon-1.a {\n  transform: rotate(40deg);\n}\n.icon-3.b {\n  transform: rotate(-40deg);\n}\n.icon-2.c {\n  opacity: 0;\n}\n\n.clear {\n  clear: both;\n}\n\n@keyframes slideIn {\n  0% {\n    width: 0%;\n    opacity: 0;\n  }\n  \n  100% {\n    width: 50%;\n    opacity: 1;\n  }\n}\n\n#nav {\n  position: static;\n  top: 0;\n  left: 0;\n  background: none;\n  width: 100%;\n  height: 105px;\n}\n\n#nav a.icon {\n  background: transparent;\n  position: absolute;\n  right: 5%;\n  top: 5.5%;\n  display: none;\n  z-index: 999999999999999999;\n}\n\n#nav .icon {\n  color: white;\n  text-decoration: none;\n  font-size: 50px;\n  width: auto;\n  margin-right: 60px;\n  transform: rotate(0deg);\n}\n\n.spin {\n  transform: rotate(-90deg)\n}\n\n#nav-div-1 {\n  position: absolute;\n  width: auto;\n  right: 5%;\n  height: 20px;\n  top: 4%;\n  padding-top: 28px;\n  padding-bottom: 15px;\n}\n\n.nav-link {\n  margin-right: 25px;\n  color: white;\n  font-family: 'Andada Pro', serif;\n  text-decoration: none;\n  font-size: 30px;\n}\n\n.nav-link-now {\n  color: white;\n  font-weight: bold;\n}\n\n@media screen and (max-width: 1000px) {\n  #nav a.icon {\n    display: block;\n  }\n  .nav-link {\n    display: none;\n  }\n  .main-page-right {\n    float: initial;\n    margin: auto;\n    width: 100vw;\n    display: initial;\n  }\n  .main-page-left {\n    float: initial;\n    width: 100vw;\n    display: initial;\n  }\n  .home-link {\n    top: 5.5%;\n    left: 60px !important;\n  }\n  .home-img:hover {\n    max-height: 70px !important;\n  }\n  .home-img {\n    height: 70px !important;\n    top: 9% !important;\n  }\n  .body-greeting {\n    font-size: 50px !important;\n  }\n  footer {\n    margin-top: 140px;\n    display: none !important;\n  }\n  .body-text-body {\n    font-size: 25px;\n    width: 90%;\n    margin: auto;\n    margin-top: -10px;\n    padding: 0;\n  }\n  .body-text-body-sub {\n    margin-top: 40px !important;\n    font-size: 27px !important;\n    padding-bottom: 30px;\n    width: 90%;\n    margin-bottom: 50px;\n    margin: auto;\n  }\n}\n\n#mobile-navmenu {\n  background: #010101;\n  opacity: 0.9;\n  width: 100%;\n  height: 0;\n  padding: 10px 5px 10px 5px;\n  margin:auto;\n  position: absolute;\n  top:0;\n  transition: height 0.5s ease-in-out;\n}\n\n#mobile-navmenu div {\n  margin: auto;\n  position: absolute;\n  width: 400px;\n  height: 300px;\n  text-align: center;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n\n#mobile-navmenu a {\n  color: white;\n  width: auto;\n  font-family: \&quot;Anada Pro\&quot;, serif;\n  font-size: 50px;\n  text-decoration: none;\n  display: block;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotage(0deg)\n  }\n  100% {\n    transform: rotate(-90deg)\n  }\n}\n\n/*Footer Time*/\n\nfooter{\n  margin-top: 0;\n  width: 100%;\n  height: 180px;\n  padding-bottom: 80px;\n}\nfooter .left, .right {\n  padding: 140px 0 50px;\n  font-size: 36px;\n}\nfooter .right {\n  padding: 158px 0 50px;\n}\n\nfooter .right .a {\n  color: #646464;\n  border-bottom: 1px solid #fff;\n  padding-bottom: 2px;\n  text-decoration: none;\n}\n\nfooter .content{\n  width: 100%;\n  margin: auto;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\nfooter .content a {\n  color: #fff;\n  font-size: 25px;\n  text-decoration: none;\n}\nfooter .content a {\n  border-bottom: 1px solid #fff;\n  padding-bottom: 2px;\n}\nfooter .content .box{\n  width: 33%;\n  text-align: center;\n  height: 180px;\n  transition: all 0.4s ease;\n}\nfooter .content .topic{\n  font-size: 22px;\n  font-weight: 600;\n  color: #fff;\n  margin-bottom: 16px;\n}</style>\n  <meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1.0\&quot;>\n  <title>Music - Cameron Bryzek</title>\n  <meta name=\&quot;description\&quot; content=\&quot;Cameron Bryzek\&quot;>\n</head>\n<body>\n  <div id=\&quot;nav\&quot;>\n    <a class=\&quot;home-link\&quot; href=\&quot;/\&quot; nebula-link=\&quot;\&quot;><img class=\&quot;home-img\&quot; src=\&quot;./favicon.ico\&quot;></a>\n    <div id=\&quot;nav-div-1\&quot;><a class=\&quot;nav-link\&quot; nebula-link=\&quot;\&quot; href=\&quot;/\&quot;>Home</a><a class=\&quot;nav-link\&quot; href=\&quot;/gallery\&quot; nebula-link=\&quot;\&quot;>Gallery</a><a class=\&quot;nav-link nav-link-now\&quot; href=\&quot;/music\&quot; nebula-link=\&quot;\&quot;>Music</a><a class=\&quot;nav-link\&quot; href=\&quot;/progress\&quot; nebula-link=\&quot;\&quot;>Progress Bars</a></div>\n    <a href=\&quot;javascript:void(0);\&quot; class=\&quot;icon\&quot;>\n      <div class=\&quot;hamburger-icon\&quot; id=\&quot;icon\&quot;>\n        <div class=\&quot;icon-1\&quot; id=\&quot;a\&quot;></div>\n        <div class=\&quot;icon-2\&quot; id=\&quot;b\&quot;></div>\n        <div class=\&quot;icon-3\&quot; id=\&quot;c\&quot;></div>\n        <div class=\&quot;clear\&quot;></div>\n    </div>\n    </a>\n  </div>\n  <hr style=\&quot;color:white;margin-bottom:0;margin-top:50px;width:calc(90% * 0.33);\&quot;>\n  <h1 id=\&quot;title\&quot;>Music</h1>\n  <div id=\&quot;music-container\&quot;>\n    <div id=\&quot;music-left-videos\&quot;>\n      <!--<div class=\&quot;music-video-over\&quot;>\n        <div class=\&quot;music-video-left\&quot;>\n          <div>\n            <span class=\&quot;music-video-title\&quot;>\n              BCA Valentine's Day 2022\n            </span>\n            <span class=\&quot;music-video-date\&quot;>February 14, 2022</span>\n          </div>\n        </div>\n        <div class=\&quot;music-video-right\&quot;>\n          <iframe src=\&quot;https://www.youtube.com/embed/VsrV033t1yg?autoplay\&quot;></iframe>\n        </div>\n      </div>\n      <div class=\&quot;music-video-over\&quot;>\n        <div class=\&quot;music-video-left\&quot;>\n          <div>\n            <span class=\&quot;music-video-title\&quot;>\n              BCA Lunar New Year 2022\n            </span>\n            <span class=\&quot;music-video-date\&quot;>February 1, 2022</span>\n          </div>\n        </div>\n        <div class=\&quot;music-video-right\&quot;>\n          <iframe src=\&quot;https://www.youtube.com/embed/GtGlYNAaVgw?autoplay\&quot;></iframe>\n        </div>\n      </div>\n      <div class=\&quot;music-video-over\&quot;>\n        <div class=\&quot;music-video-left\&quot;>\n          <div>\n            <span class=\&quot;music-video-title\&quot;>\n              BCA Valentine's Day 2022\n            </span>\n            <span class=\&quot;music-video-date\&quot;>February 14, 2022</span>\n          </div>\n        </div>\n        <div class=\&quot;music-video-right\&quot;>\n          <iframe src=\&quot;https://www.youtube.com/embed/ecggWkG0xqI?autoplay\&quot;></iframe>\n        </div>\n      </div>-->\n    </div>\n    <div id=\&quot;music-right-schedule\&quot;>\n      \n    </div>\n  </div>\n  <div id=\&quot;mobile-navmenu\&quot; style=\&quot;display:none;height:0px;\&quot;><div><a href=\&quot;/\&quot; style=\&quot;display:none;\&quot; nebula-link=\&quot;\&quot;>Home</a><a href=\&quot;/gallery\&quot; style=\&quot;display:none;\&quot; nebula-link=\&quot;\&quot;>Gallery</a><a href=\&quot;/music\&quot; style=\&quot;display:none;\&quot; class=\&quot;nav-link-now\&quot; nebula-link=\&quot;\&quot;>Music</a><a href=\&quot;/progress\&quot; style=\&quot;display:none;\&quot; nebula-link=\&quot;\&quot;>Progress Bars</a></div></div>\n  <footer>\n    <div class=\&quot;content\&quot;>\n      <div class=\&quot;left box\&quot;>\n        <a href=\&quot;//instagram.com/cameron_bryzek_author\&quot;>@cameron_bryzek_author</a>\n        <br>\n        <a href=\&quot;//instagram.com/by_lanterns_light\&quot;>@by_lanterns_light</a>\n      </div>\n      <div class=\&quot;middle box\&quot;>\n        <hr style=\&quot;color:white;margin-bottom:80px;width:90%;\&quot;>\n        <br>\n        <img src=\&quot;./favicon.ico\&quot; width=\&quot;100\&quot;>\n      </div>\n      <div class=\&quot;right box\&quot;>\n        <a href=\&quot;mailto:cambryzek@gmail.com\&quot;>cambryzek@gmail.com</a>\n      </div>\n    </div>\n  </footer>\n  <script src=\&quot;/socket.io/socket.io.js\&quot; nebula-static=\&quot;1\&quot;></script>\n  <script src=\&quot;/jquery.js\&quot; nebula-static=\&quot;2\&quot;></script>\n  <script src=\&quot;/script.js\&quot; nebula-static=\&quot;3\&quot;></script>\n  <script src=\&quot;/music.js\&quot;></script>\n\n</body></html>&quot;,&quot;progress.nebula.html&quot;:&quot;<!DOCTYPE html><html lang=\&quot;en\&quot;><head>\n  <link rel=\&quot;alternate\&quot; href=\&quot;https://cameronbryzek.com/projects\&quot; hreflang=\&quot;en\&quot;>\n  <style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;display=swap');\n\n@import url('https://fonts.googleapis.com/css2?family=Andada+Pro&amp;display=swap');\n\nbody {\n  background-color: #232f46 !important;\n  margin: 0;\n  text-align: center;\n  height: 100vh;\n  width: 100%;\n}\n\n.pcont {\n  width: 30%;\n  height: 20px;\n  display: inline-block;\n}\n\n.pbar {\n  height: 20px;\n  border-radius: 16px;\n}\n\n.w3-light-grey, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover {\n    color: #000 !important;\n    background-color: #4f525f !important;\n}\n.w3-round-xlarge {\n    border-radius: 16px;\n}\n\n.pbar2 {\n  height: 20px;\n  animation: load 2s;\n  background: #ffffff;\n}\n\n@keyframes load {\n  0% {\n    width: 0;\n    background: #ababab;\n  }\n  \n  100% {\n    width: 100%;\n    background: #ffffff;\n  }\n}\n\n.after-text {\n  display: inline-block;\n  color: white;\n  margin-left: 20px;\n  height: 20px;\n}\n\n.progress {\n  font-size: 25px;\n  font-family: 'Andada Pro', serif;\n  width: 30px;\n}\n\n.title {\n  margin-bottom: 25px;\n  font-family: 'Andada Pro', serif;\n}\n\n#title {\n  color: white;\n  font-family: 'Lupa', serif;\n  font-size: 60px;\n}\n\n@media screen and (max-width: 1000px) {\n  .pcont {\n    width: 60%;\n  }\n}</style>\n  <style>body {\n  margin: 0;\n  overflow-x: hidden !important;\n}\n#site-content-main {\n  height: auto;\n}\n#site-navigation-footer {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  font-family: sans-serif;\n}\n\n#footer-div1 {\n  columns: 3 200px;\n  column-gap: 1.5rem;\n  width: 90%;\n  margin: 0 auto;\n}\n\n.home-link {\n  margin: 0;\n  position: absolute;\n  top: 7%;\n  left: 5%;\n  transition: height 0.5s ease-in-out;\n}\n\n.home-img {\n  width: auto;\n  animation: height 0.5s ease-in-out;\n  max-width: 100%;\n  max-height: 60px;\n}\n\n.home-img:hover {\n  max-height: 66px;\n}\n\n.icon-1, .icon-2, .icon-3 {\n    position: absolute;\n    left: 25%;\n    top: 50%;\n    width: 50%;\n    height: 3px;\n    background-color: white;\n    transition: all 400ms cubic-bezier(.84,.06,.52,1.8);\n}\n\n.icon-1 {\n  transform: translateY(-8px);\n  animation-delay: 100ms;\n}\n\n.icon-3 {\n  transform: translateY(8px);\n  animation-delay: 250ms;\n}\n\n.hamburger-icon {\n  position: absolute;\n  height: 60px;\n  width: 60px;\n  z-index: 1000;\n  cursor: pointer;\n  border-radius: 50%;\n  transition: all 0.2s ease-in-out;\n  background: transparent !important; /*rgba(255,255,255,0.2);*/\n}\n\n.hamburger-icon:hover {\n  transform: scale(1.2);\n}\n\n.icon-1.a {\n  transform: rotate(40deg);\n}\n.icon-3.b {\n  transform: rotate(-40deg);\n}\n.icon-2.c {\n  opacity: 0;\n}\n\n.clear {\n  clear: both;\n}\n\n@keyframes slideIn {\n  0% {\n    width: 0%;\n    opacity: 0;\n  }\n  \n  100% {\n    width: 50%;\n    opacity: 1;\n  }\n}\n\n#nav {\n  position: static;\n  top: 0;\n  left: 0;\n  background: none;\n  width: 100%;\n  height: 105px;\n}\n\n#nav a.icon {\n  background: transparent;\n  position: absolute;\n  right: 5%;\n  top: 5.5%;\n  display: none;\n  z-index: 999999999999999999;\n}\n\n#nav .icon {\n  color: white;\n  text-decoration: none;\n  font-size: 50px;\n  width: auto;\n  margin-right: 60px;\n  transform: rotate(0deg);\n}\n\n.spin {\n  transform: rotate(-90deg)\n}\n\n#nav-div-1 {\n  position: absolute;\n  width: auto;\n  right: 5%;\n  height: 20px;\n  top: 4%;\n  padding-top: 28px;\n  padding-bottom: 15px;\n}\n\n.nav-link {\n  margin-right: 25px;\n  color: white;\n  font-family: 'Andada Pro', serif;\n  text-decoration: none;\n  font-size: 30px;\n}\n\n.nav-link-now {\n  color: white;\n  font-weight: bold;\n}\n\n@media screen and (max-width: 1000px) {\n  #nav a.icon {\n    display: block;\n  }\n  .nav-link {\n    display: none;\n  }\n  .main-page-right {\n    float: initial;\n    margin: auto;\n    width: 100vw;\n    display: initial;\n  }\n  .main-page-left {\n    float: initial;\n    width: 100vw;\n    display: initial;\n  }\n  .home-link {\n    top: 5.5%;\n    left: 60px !important;\n  }\n  .home-img:hover {\n    max-height: 70px !important;\n  }\n  .home-img {\n    height: 70px !important;\n    top: 9% !important;\n  }\n  .body-greeting {\n    font-size: 50px !important;\n  }\n  footer {\n    margin-top: 140px;\n    display: none !important;\n  }\n  .body-text-body {\n    font-size: 25px;\n    width: 90%;\n    margin: auto;\n    margin-top: -10px;\n    padding: 0;\n  }\n  .body-text-body-sub {\n    margin-top: 40px !important;\n    font-size: 27px !important;\n    padding-bottom: 30px;\n    width: 90%;\n    margin-bottom: 50px;\n    margin: auto;\n  }\n}\n\n#mobile-navmenu {\n  background: #010101;\n  opacity: 0.9;\n  width: 100%;\n  height: 0;\n  padding: 10px 5px 10px 5px;\n  margin:auto;\n  position: absolute;\n  top:0;\n  transition: height 0.5s ease-in-out;\n}\n\n#mobile-navmenu div {\n  margin: auto;\n  position: absolute;\n  width: 400px;\n  height: 300px;\n  text-align: center;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n}\n\n#mobile-navmenu a {\n  color: white;\n  width: auto;\n  font-family: \&quot;Anada Pro\&quot;, serif;\n  font-size: 50px;\n  text-decoration: none;\n  display: block;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotage(0deg)\n  }\n  100% {\n    transform: rotate(-90deg)\n  }\n}\n\n/*Footer Time*/\n\nfooter{\n  margin-top: 0;\n  width: 100%;\n  height: 180px;\n  padding-bottom: 80px;\n}\nfooter .left, .right {\n  padding: 140px 0 50px;\n  font-size: 36px;\n}\nfooter .right {\n  padding: 158px 0 50px;\n}\n\nfooter .right .a {\n  color: #646464;\n  border-bottom: 1px solid #fff;\n  padding-bottom: 2px;\n  text-decoration: none;\n}\n\nfooter .content{\n  width: 100%;\n  margin: auto;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\nfooter .content a {\n  color: #fff;\n  font-size: 25px;\n  text-decoration: none;\n}\nfooter .content a {\n  border-bottom: 1px solid #fff;\n  padding-bottom: 2px;\n}\nfooter .content .box{\n  width: 33%;\n  text-align: center;\n  height: 180px;\n  transition: all 0.4s ease;\n}\nfooter .content .topic{\n  font-size: 22px;\n  font-weight: 600;\n  color: #fff;\n  margin-bottom: 16px;\n}</style>\n  <meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1.0\&quot;>\n  <title>Progress Bars - Cameron Bryzek</title>\n  <meta name=\&quot;description\&quot; content=\&quot;Cameron Bryzek\&quot;>\n</head>\n<body>\n  <div id=\&quot;nav\&quot;>\n    <a class=\&quot;home-link\&quot; href=\&quot;/\&quot; nebula-link=\&quot;\&quot;><img class=\&quot;home-img\&quot; src=\&quot;./favicon.ico\&quot;></a>\n    <div id=\&quot;nav-div-1\&quot;><a class=\&quot;nav-link\&quot; nebula-link=\&quot;\&quot; href=\&quot;/\&quot;>Home</a><a class=\&quot;nav-link\&quot; href=\&quot;/gallery\&quot; nebula-link=\&quot;\&quot;>Gallery</a><a class=\&quot;nav-link\&quot; href=\&quot;/music\&quot; nebula-link=\&quot;\&quot;>Music</a><a class=\&quot;nav-link nav-link-now\&quot; href=\&quot;/progress\&quot; nebula-link=\&quot;\&quot;>Progress Bars</a></div>\n    <a href=\&quot;javascript:void(0);\&quot; class=\&quot;icon\&quot;>\n      <div class=\&quot;hamburger-icon\&quot; id=\&quot;icon\&quot;>\n        <div class=\&quot;icon-1\&quot; id=\&quot;a\&quot;></div>\n        <div class=\&quot;icon-2\&quot; id=\&quot;b\&quot;></div>\n        <div class=\&quot;icon-3\&quot; id=\&quot;c\&quot;></div>\n        <div class=\&quot;clear\&quot;></div>\n    </div>\n    </a>\n  </div>\n  <hr style=\&quot;color:white;margin-bottom:0;margin-top:50px;width:calc(90% * 0.33);\&quot;>\n  <h1 id=\&quot;title\&quot;>Progress Bars</h1>\n  <div id=\&quot;bars\&quot;></div>\n  <div id=\&quot;mobile-navmenu\&quot; style=\&quot;display:none;height:0px;\&quot;><div><a href=\&quot;/\&quot; style=\&quot;display:none;\&quot; nebula-link=\&quot;\&quot;>Home</a><a href=\&quot;/gallery\&quot; style=\&quot;display:none;\&quot; nebula-link=\&quot;\&quot;>Gallery</a><a href=\&quot;/music\&quot; style=\&quot;display:none;\&quot; nebula-link=\&quot;\&quot;>Music</a><a class=\&quot;nav-link-now\&quot; href=\&quot;/progress\&quot; style=\&quot;display:none;\&quot; nebula-link=\&quot;\&quot;>Progress Bars</a></div></div>\n  <footer>\n    <div class=\&quot;content\&quot;>\n      <div class=\&quot;left box\&quot;>\n        <a href=\&quot;//instagram.com/cameron_bryzek_author\&quot;>@cameron_bryzek_author</a>\n        <br>\n        <a href=\&quot;//instagram.com/by_lanterns_light\&quot;>@by_lanterns_light</a>\n      </div>\n      <div class=\&quot;middle box\&quot;>\n        <hr style=\&quot;color:white;margin-bottom:80px;width:90%;\&quot;>\n        <br>\n        <img src=\&quot;./favicon.ico\&quot; width=\&quot;100\&quot;>\n      </div>\n      <div class=\&quot;right box\&quot;>\n        <a href=\&quot;mailto:cambryzek@gmail.com\&quot;>cambryzek@gmail.com</a>\n      </div>\n    </div>\n  </footer>\n  <script src=\&quot;/socket.io/socket.io.js\&quot; nebula-static=\&quot;1\&quot;></script>\n  <script src=\&quot;/jquery.js\&quot; nebula-static=\&quot;2\&quot;></script>\n  <script src=\&quot;/script.js\&quot; nebula-static=\&quot;3\&quot;></script>\n  <script src=\&quot;/bars.js\&quot;></script>\n\n</body></html>&quot;,&quot;static/amongus.nebula.html&quot;:&quot;<html><head></head><body>SUS\n<a href=\&quot;/\&quot; nebula-link=\&quot;\&quot;>Home</a>\n<script src=\&quot;/script.js\&quot; nebula-static=\&quot;3\&quot;></script></body></html>&quot;,&quot;static/test/sus.nebula.html&quot;:&quot;<html><head></head><body>EVEN MORE SUS\n<a href=\&quot;/\&quot; nebula-link=\&quot;\&quot;>Home</a>\n<script src=\&quot;/script.js\&quot; nebula-static=\&quot;3\&quot;></script></body></html>&quot;,&quot;style/gallery.css&quot;:&quot;&quot;,&quot;style/music.css&quot;:&quot;&quot;,&quot;style/navbar.css&quot;:&quot;&quot;,&quot;style/projects.css&quot;:&quot;&quot;,&quot;style/style.css&quot;:&quot;&quot;}" nebula-routes="{&quot;404&quot;:&quot;404.nebula.html&quot;,&quot;about&quot;:&quot;about.nebula.html&quot;,&quot;gallery&quot;:&quot;gallery.nebula.html&quot;,&quot;&quot;:&quot;index.nebula.html&quot;,&quot;music&quot;:&quot;music.nebula.html&quot;,&quot;progress&quot;:&quot;progress.nebula.html&quot;,&quot;static/amongus&quot;:&quot;static/amongus.nebula.html&quot;,&quot;static/test/sus&quot;:&quot;static/test/sus.nebula.html&quot;,&quot;style/gallery.css&quot;:&quot;style/gallery.css&quot;,&quot;style/music.css&quot;:&quot;style/music.css&quot;,&quot;style/navbar.css&quot;:&quot;style/navbar.css&quot;,&quot;style/projects.css&quot;:&quot;style/projects.css&quot;,&quot;style/style.css&quot;:&quot;style/style.css&quot;}" nebula-core="-10" src="/__neb/core/client.js" type="application/javascript"></script>
+  <link rel="alternate" href="https://cameronbryzek.com/projects" hreflang="en">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro&display=swap');
+
+body {
+  background-color: #232f46 !important;
+  margin: 0;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.pcont {
+  width: 30%;
+  height: 20px;
+  display: inline-block;
+}
+
+.pbar {
+  height: 20px;
+  border-radius: 16px;
+}
+
+.w3-light-grey, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover {
+    color: #000 !important;
+    background-color: #4f525f !important;
+}
+.w3-round-xlarge {
+    border-radius: 16px;
+}
+
+.pbar2 {
+  height: 20px;
+  animation: load 2s;
+  background: #ffffff;
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+    background: #ababab;
+  }
+  
+  100% {
+    width: 100%;
+    background: #ffffff;
+  }
+}
+
+.after-text {
+  display: inline-block;
+  color: white;
+  margin-left: 20px;
+  height: 20px;
+}
+
+.progress {
+  font-size: 25px;
+  font-family: 'Andada Pro', serif;
+  width: 30px;
+}
+
+.title {
+  margin-bottom: 25px;
+  font-family: 'Andada Pro', serif;
+}
+
+#title {
+  color: white;
+  font-family: 'Lupa', serif;
+  font-size: 60px;
+}
+
+@media screen and (max-width: 1000px) {
+  .pcont {
+    width: 60%;
+  }
+}</style>
+  <style>body {
+  margin: 0;
+  overflow-x: hidden !important;
+}
+#site-content-main {
+  height: auto;
+}
+#site-navigation-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+#footer-div1 {
+  columns: 3 200px;
+  column-gap: 1.5rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.home-link {
+  margin: 0;
+  position: absolute;
+  top: 7%;
+  left: 5%;
+  transition: height 0.5s ease-in-out;
+}
+
+.home-img {
+  width: auto;
+  animation: height 0.5s ease-in-out;
+  max-width: 100%;
+  max-height: 60px;
+}
+
+.home-img:hover {
+  max-height: 66px;
+}
+
+.icon-1, .icon-2, .icon-3 {
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    width: 50%;
+    height: 3px;
+    background-color: white;
+    transition: all 400ms cubic-bezier(.84,.06,.52,1.8);
+}
+
+.icon-1 {
+  transform: translateY(-8px);
+  animation-delay: 100ms;
+}
+
+.icon-3 {
+  transform: translateY(8px);
+  animation-delay: 250ms;
+}
+
+.hamburger-icon {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  z-index: 1000;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  background: transparent !important; /*rgba(255,255,255,0.2);*/
+}
+
+.hamburger-icon:hover {
+  transform: scale(1.2);
+}
+
+.icon-1.a {
+  transform: rotate(40deg);
+}
+.icon-3.b {
+  transform: rotate(-40deg);
+}
+.icon-2.c {
+  opacity: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+@keyframes slideIn {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  
+  100% {
+    width: 50%;
+    opacity: 1;
+  }
+}
+
+#nav {
+  position: static;
+  top: 0;
+  left: 0;
+  background: none;
+  width: 100%;
+  height: 105px;
+}
+
+#nav a.icon {
+  background: transparent;
+  position: absolute;
+  right: 5%;
+  top: 5.5%;
+  display: none;
+  z-index: 999999999999999999;
+}
+
+#nav .icon {
+  color: white;
+  text-decoration: none;
+  font-size: 50px;
+  width: auto;
+  margin-right: 60px;
+  transform: rotate(0deg);
+}
+
+.spin {
+  transform: rotate(-90deg)
+}
+
+#nav-div-1 {
+  position: absolute;
+  width: auto;
+  right: 5%;
+  height: 20px;
+  top: 4%;
+  padding-top: 28px;
+  padding-bottom: 15px;
+}
+
+.nav-link {
+  margin-right: 25px;
+  color: white;
+  font-family: 'Andada Pro', serif;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.nav-link-now {
+  color: white;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1000px) {
+  #nav a.icon {
+    display: block;
+  }
+  .nav-link {
+    display: none;
+  }
+  .main-page-right {
+    float: initial;
+    margin: auto;
+    width: 100vw;
+    display: initial;
+  }
+  .main-page-left {
+    float: initial;
+    width: 100vw;
+    display: initial;
+  }
+  .home-link {
+    top: 5.5%;
+    left: 60px !important;
+  }
+  .home-img:hover {
+    max-height: 70px !important;
+  }
+  .home-img {
+    height: 70px !important;
+    top: 9% !important;
+  }
+  .body-greeting {
+    font-size: 50px !important;
+  }
+  footer {
+    margin-top: 140px;
+    display: none !important;
+  }
+  .body-text-body {
+    font-size: 25px;
+    width: 90%;
+    margin: auto;
+    margin-top: -10px;
+    padding: 0;
+  }
+  .body-text-body-sub {
+    margin-top: 40px !important;
+    font-size: 27px !important;
+    padding-bottom: 30px;
+    width: 90%;
+    margin-bottom: 50px;
+    margin: auto;
+  }
+}
+
+#mobile-navmenu {
+  background: #010101;
+  opacity: 0.9;
+  width: 100%;
+  height: 0;
+  padding: 10px 5px 10px 5px;
+  margin:auto;
+  position: absolute;
+  top:0;
+  transition: height 0.5s ease-in-out;
+}
+
+#mobile-navmenu div {
+  margin: auto;
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#mobile-navmenu a {
+  color: white;
+  width: auto;
+  font-family: "Anada Pro", serif;
+  font-size: 50px;
+  text-decoration: none;
+  display: block;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotage(0deg)
+  }
+  100% {
+    transform: rotate(-90deg)
+  }
+}
+
+/*Footer Time*/
+
+footer{
+  margin-top: 0;
+  width: 100%;
+  height: 180px;
+  padding-bottom: 80px;
+}
+footer .left, .right {
+  padding: 140px 0 50px;
+  font-size: 36px;
+}
+footer .right {
+  padding: 158px 0 50px;
+}
+
+footer .right .a {
+  color: #646464;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+
+footer .content{
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+footer .content a {
+  color: #fff;
+  font-size: 25px;
+  text-decoration: none;
+}
+footer .content a {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 2px;
+}
+footer .content .box{
+  width: 33%;
+  text-align: center;
+  height: 180px;
+  transition: all 0.4s ease;
+}
+footer .content .topic{
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 16px;
+}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Bars - Cameron Bryzek</title>
+  <meta name="description" content="Cameron Bryzek">
+</head>
+<body>
+  <div id="nav">
+    <a class="home-link" href="/" nebula-link=""><img class="home-img" src="./favicon.ico"></a>
+    <div id="nav-div-1"><a class="nav-link" nebula-link="" href="/">Home</a><a class="nav-link" href="/gallery" nebula-link="">Gallery</a><a class="nav-link" href="/music" nebula-link="">Music</a><a class="nav-link nav-link-now" href="/progress" nebula-link="">Progress Bars</a></div>
+    <a href="javascript:void(0);" class="icon">
+      <div class="hamburger-icon" id="icon">
+        <div class="icon-1" id="a"></div>
+        <div class="icon-2" id="b"></div>
+        <div class="icon-3" id="c"></div>
+        <div class="clear"></div>
+    </div>
+    </a>
+  </div>
+  <hr style="color:white;margin-bottom:0;margin-top:50px;width:calc(90% * 0.33);">
+  <h1 id="title">Progress Bars</h1>
+  <div id="bars"></div>
+  <div id="mobile-navmenu" style="display:none;height:0px;"><div><a href="/" style="display:none;" nebula-link="">Home</a><a href="/gallery" style="display:none;" nebula-link="">Gallery</a><a href="/music" style="display:none;" nebula-link="">Music</a><a class="nav-link-now" href="/progress" style="display:none;" nebula-link="">Progress Bars</a></div></div>
+  <footer>
+    <div class="content">
+      <div class="left box">
+        <a href="//instagram.com/cameron_bryzek_author">@cameron_bryzek_author</a>
+        <br>
+        <a href="//instagram.com/by_lanterns_light">@by_lanterns_light</a>
+      </div>
+      <div class="middle box">
+        <hr style="color:white;margin-bottom:80px;width:90%;">
+        <br>
+        <img src="./favicon.ico" width="100">
+      </div>
+      <div class="right box">
+        <a href="mailto:cambryzek@gmail.com">cambryzek@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/socket.io/socket.io.js" nebula-static="1"></script>
+  <script src="/jquery.js" nebula-static="2"></script>
+  <script src="/script.js" nebula-static="3"></script>
+  <script src="/bars.js"></script>
+
+</body></html>

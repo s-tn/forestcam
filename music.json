@@ -1,0 +1,48 @@
+{
+  "videos": [
+    {
+      "name": "BCA Lunar New Year 2022",
+      "date": "February 1, 2022",
+      "video": "GtGlYNAaVgw",
+      "title": "Every Summertime"
+    },
+    {
+      "name": "BCA Valentine's Day 2022",
+      "date": "February 14, 2022",
+      "video": "ecggWkG0xqI",
+      "title": "Power of Love"
+    },
+    {
+      "name": "BCA Valentine's Day 2022",
+      "date": "February 14, 2022",
+      "video": "VsrV033t1yg",
+      "title": "Keep On Loving You"
+    }
+  ],
+  "timeline": [
+    {
+      "name": "BCA Halloween Assembly",
+      "date": "October 31, 2022"
+    },
+    {
+      "name": "BCA Autumn Concert",
+      "date": "November 22, 2022"
+    },
+    {
+      "name": "BCA Valentine's Day Assembly",
+      "date": "February 14, 2023"
+    },
+    {
+      "name": "BCA Cabaret",
+      "date": "March 29, 2023"
+    },
+    {
+      "name": "BCA Spring Choir Concert",
+      "date": "April 20, 2023"
+    },
+    {
+      "name": "BCA Spring Concert",
+      "date": "June 7, 2023"
+    }
+  ]
+}

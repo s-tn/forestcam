@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #edit-bar-container, #edit-image-container, #edit-caption-container {
+      display: none;
+      border:1px solid;padding-left:20px;padding-bottom:16px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .grid-container {
+      columns: 3 200px;
+      padding: 20px;
+      column-gap: 1.5rem;
+      width: 90%;
+      margin: 0;
+      border: 1px solid black;
+    }
+
+    .image-delete-btn {
+      width: auto !important;
+      background: white !important;
+      position: absolute !important;
+      top: 10px;
+      left: 10px;
+      z-index: 99999;
+    }
+
+    .grid-container div {
+      width: calc(100% - 20px);
+      margin: 0 1.5rem 1.5rem 0;
+      display: inline-block;
+      position: relative;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid black;
+      transition: all .25s ease-in-out;
+      animation: 0.5s width east-in-out;
+    }
+    .grid-container div img:hover {
+      box-shadow: 0px 0px 10px -1px;
+    }
+    .grid-container div:hover {
+      width: calc(100% - 15px);
+    }
+    .grid-container div img {
+      width: 100%;
+      border-radius: 5px;
+      box-shadow: 0px 0px 3px -1px;
+      transition: box-shadow 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    .grid-container p {
+      margin: 5px 0;
+      padding: 0;
+      border: 1px solid black;
+      cursor: pointer;
+      width: 100%;
+      color: black;
+      text-align: left;
+      font-family: "Garamond Pro", serif;
+    }
+  </style>
+</head>
+<body>
+  <hr>
+  <h1>Gallery</h1>
+  <input type="file" id="input">
+  <input id="caption" type="text" placeholder="Enter Caption">
+  <button id="initiate">Create</button>
+  <div id="root"></div><p>
+    <a target="_blank" id="open-url">URL Here</a>
+  </p>
+
+  <h2>Gallery Editing</h2>
+  <div id="edit-caption-container">
+    <form id="caption-change" name="name" style="display:none;">
+      <h2>Edit Image Caption</h2>
+      <p class="caption-change">Caption:</p>
+      <input required class="caption-change" id="caption-input-new">
+      <br>
+      <input type="submit" value="Change" style="margin-top:30px;"><input type="button" value="Cancel" style="margin-left:10px;" onclick="$('#edit-caption-container').hide()">
+    </form>
+  </div>
+  <div id="edit-image-container">
+    <form id="change-image" name="name" style="display:none;">
+      <h2>Edit Image</h2>
+      <p class="image-change">Upload New Image:</p>
+      <input required type="file" id="new-image-upload" class="image-change">
+      <br>
+    <input type="submit" value="Change" style="margin-top:30px;"><input type="button" value="Cancel" style="margin-left:10px;" onclick="$('#edit-image-container').hide()">
+    </form>
+  </div>
+  <div class="grid-container"></div>
+
+  <hr style="height:3px;background:#000000;">
+  <h1>Progress Bars</h1>
+
+  <div id="progress-change">
+  </div>
+
+  <button id="create-progress">+</button><br><br>
+
+  <form id="create-pbar" name="create" style="display:none;border:1px solid;padding-left:20px;padding-bottom:16px;">
+    <h2>Create Progress Bar</h2>
+    <p>Name:</p>
+    <input required class="name-input"><br><br>
+    <p>Percent:</p>
+    <input required min="0" max="100" type="number" class="percent-input" step="0.1"><span class="percent-input"> %</span>
+    <br>
+    <input type="submit" value="Create" style="margin-top:30px;">
+  </form>
+
+  <div id="edit-bar-container">
+    <form id="change-name" name="name" style="display:none;">
+      <h2>Edit Progress Bar</h2>
+      <select id="option-select">
+        <option value="">Select an Option</option>
+        <option value="name">Change Name</option>
+        <option value="num">Change Percentage</option>
+      </select>
+      <p class="percent-change" style="display:none;">Percent:</p>
+      <input required min="0" max="100" type="number" step="0.1" class="percent-change" style="display:none;"><span class="percent-change" style="display:none;"> %</span>
+      <p style="display:none;" class="name-change">Name:</p>
+      <input required class="name-change" style="display:none;">
+      <br>
+      <input type="submit" value="Change" style="display:none;margin-top:30px;">
+    </form>
+  </div>
+  <hr>
+
+  <script src="//code.jquery.com/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/admin.js"></script>
+</body>
+</html>

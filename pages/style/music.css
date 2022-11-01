@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro&display=swap');
+
+@font-face {
+  font-family: "Garamond Pro";
+  src: url('agaramondpro.otf')
+}
+
+body {
+  background-color: #232f46 !important;
+  margin: 0;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+}
+
+#title {
+  color: white;
+  font-family: 'Lupa', serif;
+  font-size: 60px;
+}
+
+#music-container {
+  width: calc(100%);
+}
+
+#music-left-videos {
+  width: calc(100% - 280px);
+  float: left;
+  display: inline-block;
+  padding: 20px;
+  padding-top: 0;
+  background: transparent;
+  height: auto;
+}
+
+#music-right-schedule {
+  width: 186px;
+  float: left;
+  height: auto;
+  margin-right: 10px;
+  display: inline-block;
+  padding: 20px;
+  background: rgb(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.music-video-over {
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 30px;
+  background: rgb(0, 0, 0, 0.25);
+  width: 90%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.music-video-left {
+  margin-right: 30px;
+  width: 230px;
+  display: inline-flex;
+  align-items: center;
+  height: 400px;
+  padding: 20px;
+  background: transparent;
+}
+
+.music-video-right {
+  width: calc(100% - 300px);
+  display: inline-block;
+  float: right;
+  height: 400px;
+}
+
+.music-video-right iframe {
+  width: 100%;
+  height: calc(100% + 40px);
+  border-radius: 5px;
+  border: 1px solid white;
+  outline: none;
+}
+
+.music-video-title {
+  color: white;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.music-video-name {
+  color: white;
+  font-size: 25px;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.music-video-date {
+  display: block;
+  color: #eee;
+  font-size: 13px;
+}
+
+.timeline-entry {
+  display: block;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 15px;
+}
+
+.timeline-date {
+  color: #ddd;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.timeline-name {
+  display: block;
+}

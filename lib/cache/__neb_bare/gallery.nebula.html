@@ -1,0 +1,464 @@
+<!DOCTYPE html><html><head>
+  <link rel="alternate" href="https://cameronbryzek.com/gallery" hreflang="en">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro&display=swap');
+
+@font-face {
+  font-family: "Garamond Pro";
+  src: url('agaramondpro.otf')
+}
+
+body {
+  background-color: #232f46 !important;
+  margin: 0;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+}
+
+#title {
+  color: white;
+  font-family: 'Lupa', serif;
+  font-size: 60px;
+}
+
+.gallery-img {
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+
+.gallery-entry {
+  width: 30%;
+}
+
+.gallery-caption {
+  color: white;
+  font-size: 30px;
+  display: block;
+}
+
+.gallery-over {
+  display: flex;
+  overflow-wrap: break-word; 
+  flex-wrap: wrap;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+}
+
+#gallery-1 {
+  width: 30%;
+}
+
+#gallery-2 {
+  width: 30%;
+}
+
+#gallery-3 {
+  width: 30%;
+}
+
+.gallery-caption {
+  white-space: normal;
+  max-width: 50%;
+  font-size: 20px;
+  margin: auto;
+  word-break: break-word;
+  text-align: left;
+}
+
+.gallery-container-complete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+.grid-container {
+  columns: 3 200px;
+  padding-top: 20px;
+  column-gap: 1.5rem;
+  width: 90%;
+  margin: 0 auto;
+}
+.grid-container div {
+  width: calc(100% - 20px);
+  margin: 0 1.5rem 1.5rem 0;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 5px;
+  transition: all .25s ease-in-out;
+  animation: 0.5s width east-in-out;
+}
+.grid-container div img:hover {
+  box-shadow: 0px 0px 10px -1px;
+}
+.grid-container div:hover {
+  width: calc(100% - 15px);
+}
+.grid-container div img {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px -1px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.grid-container p {
+  margin: 5px 0;
+  padding: 0;
+  width: 100%;
+  color: white;
+  text-align: left;
+  font-family: "Garamond Pro", serif;
+}</style>
+  <style>body {
+  margin: 0;
+  overflow-x: hidden !important;
+}
+#site-content-main {
+  height: auto;
+}
+#site-navigation-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+#footer-div1 {
+  columns: 3 200px;
+  column-gap: 1.5rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.home-link {
+  margin: 0;
+  position: absolute;
+  top: 7%;
+  left: 5%;
+  transition: height 0.5s ease-in-out;
+}
+
+.home-img {
+  width: auto;
+  animation: height 0.5s ease-in-out;
+  max-width: 100%;
+  max-height: 60px;
+}
+
+.home-img:hover {
+  max-height: 66px;
+}
+
+.icon-1, .icon-2, .icon-3 {
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    width: 50%;
+    height: 3px;
+    background-color: white;
+    transition: all 400ms cubic-bezier(.84,.06,.52,1.8);
+}
+
+.icon-1 {
+  transform: translateY(-8px);
+  animation-delay: 100ms;
+}
+
+.icon-3 {
+  transform: translateY(8px);
+  animation-delay: 250ms;
+}
+
+.hamburger-icon {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  z-index: 1000;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  background: transparent !important; /*rgba(255,255,255,0.2);*/
+}
+
+.hamburger-icon:hover {
+  transform: scale(1.2);
+}
+
+.icon-1.a {
+  transform: rotate(40deg);
+}
+.icon-3.b {
+  transform: rotate(-40deg);
+}
+.icon-2.c {
+  opacity: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+@keyframes slideIn {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  
+  100% {
+    width: 50%;
+    opacity: 1;
+  }
+}
+
+#nav {
+  position: static;
+  top: 0;
+  left: 0;
+  background: none;
+  width: 100%;
+  height: 105px;
+}
+
+#nav a.icon {
+  background: transparent;
+  position: absolute;
+  right: 5%;
+  top: 5.5%;
+  display: none;
+  z-index: 999999999999999999;
+}
+
+#nav .icon {
+  color: white;
+  text-decoration: none;
+  font-size: 50px;
+  width: auto;
+  margin-right: 60px;
+  transform: rotate(0deg);
+}
+
+.spin {
+  transform: rotate(-90deg)
+}
+
+#nav-div-1 {
+  position: absolute;
+  width: auto;
+  right: 5%;
+  height: 20px;
+  top: 4%;
+  padding-top: 28px;
+  padding-bottom: 15px;
+}
+
+.nav-link {
+  margin-right: 25px;
+  color: white;
+  font-family: 'Andada Pro', serif;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.nav-link-now {
+  color: white;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1000px) {
+  #nav a.icon {
+    display: block;
+  }
+  .nav-link {
+    display: none;
+  }
+  .main-page-right {
+    float: initial;
+    margin: auto;
+    width: 100vw;
+    display: initial;
+  }
+  .main-page-left {
+    float: initial;
+    width: 100vw;
+    display: initial;
+  }
+  .home-link {
+    top: 5.5%;
+    left: 60px !important;
+  }
+  .home-img:hover {
+    max-height: 70px !important;
+  }
+  .home-img {
+    height: 70px !important;
+    top: 9% !important;
+  }
+  .body-greeting {
+    font-size: 50px !important;
+  }
+  footer {
+    margin-top: 140px;
+    display: none !important;
+  }
+  .body-text-body {
+    font-size: 25px;
+    width: 90%;
+    margin: auto;
+    margin-top: -10px;
+    padding: 0;
+  }
+  .body-text-body-sub {
+    margin-top: 40px !important;
+    font-size: 27px !important;
+    padding-bottom: 30px;
+    width: 90%;
+    margin-bottom: 50px;
+    margin: auto;
+  }
+}
+
+#mobile-navmenu {
+  background: #010101;
+  opacity: 0.9;
+  width: 100%;
+  height: 0;
+  padding: 10px 5px 10px 5px;
+  margin:auto;
+  position: absolute;
+  top:0;
+  transition: height 0.5s ease-in-out;
+}
+
+#mobile-navmenu div {
+  margin: auto;
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#mobile-navmenu a {
+  color: white;
+  width: auto;
+  font-family: "Anada Pro", serif;
+  font-size: 50px;
+  text-decoration: none;
+  display: block;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotage(0deg)
+  }
+  100% {
+    transform: rotate(-90deg)
+  }
+}
+
+/*Footer Time*/
+
+footer{
+  margin-top: 0;
+  width: 100%;
+  height: 180px;
+  padding-bottom: 80px;
+}
+footer .left, .right {
+  padding: 140px 0 50px;
+  font-size: 36px;
+}
+footer .right {
+  padding: 158px 0 50px;
+}
+
+footer .right .a {
+  color: #646464;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+
+footer .content{
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+footer .content a {
+  color: #fff;
+  font-size: 25px;
+  text-decoration: none;
+}
+footer .content a {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 2px;
+}
+footer .content .box{
+  width: 33%;
+  text-align: center;
+  height: 180px;
+  transition: all 0.4s ease;
+}
+footer .content .topic{
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 16px;
+}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Cameron Bryzek</title>
+  <meta name="description" content="Cameron Bryzek">
+</head>
+<body>
+  <div id="nav">
+    <a nebula-link="" class="home-link" href="/"><img class="home-img" src="./favicon.ico"></a>
+    <div id="nav-div-1"><a class="nav-link" href="/" nebula-link="">Home</a><a nebula-link="" class="nav-link nav-link-now" href="/gallery">Gallery</a><a nebula-link="" class="nav-link" href="/music">Music</a><a nebula-link="" class="nav-link" href="/progress">Progress Bars</a></div>
+    <a href="javascript:void(0);" class="icon">
+      <div class="hamburger-icon" id="icon">
+        <div class="icon-1" id="a"></div>
+        <div class="icon-2" id="b"></div>
+        <div class="icon-3" id="c"></div>
+        <div class="clear"></div>
+    </div>
+    </a>
+  </div>
+  <hr style="color:white;margin-bottom:0;margin-top:50px;width:calc(90% * 0.33);">
+  <h1 id="title">Gallery</h1>
+  <div class="gallery-container-complete">
+  <div class="grid-container">
+  </div>
+  </div>
+  <div id="mobile-navmenu" style="display:none;height:0px;"><div><a nebula-link="" href="/" style="display:none;">Home</a><a nebula-link="" class="nav-link-now" href="/gallery" style="display:none;">Gallery</a><a href="/music" nebula-link="" style="display:none;">Music</a><a nebula-link="" href="/progress" style="display:none;">Progress Bars</a></div></div>
+  <footer>
+    <div class="content">
+      <div class="left box">
+        <a href="//instagram.com/cameron_bryzek_author">@cameron_bryzek_author</a>
+        <br>
+        <a href="//instagram.com/by_lanterns_light">@by_lanterns_light</a>
+      </div>
+      <div class="middle box">
+        <hr style="color:white;margin-bottom:80px;width:90%;">
+        <br>
+        <img src="./favicon.ico" width="100">
+      </div>
+      <div class="right box">
+        <a href="mailto:cambryzek@gmail.com">cambryzek@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/jquery.js" nebula-static="2"></script>
+  <script src="/socket.io/socket.io.js" nebula-static="1"></script>
+  <script src="/script.js" nebula-static="3"></script>
+  <script src="/index.js"></script>
+  <script src="/images.js"></script>
+
+</body></html>

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node lib/cli/cli.js dev --port 8080 --server 'http server.js' --plugin socket.io"
+    "start": "node lib/cli/cli.js dev --port 5555 --server 'http server.js' --plugin socket.io"
   },
   "keywords": [],
   "author": "",

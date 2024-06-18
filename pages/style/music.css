@@ -31,10 +31,10 @@ body {
   float: left;
   display: inline-block;
   padding: 20px;
+  margin: auto;
   padding-top: 0;
   background: transparent;
   height: auto;
-  margin-right: 10px;
 }
 
 #music-right-schedule {

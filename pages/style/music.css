@@ -27,7 +27,7 @@ body {
 
 #music-left-videos {
   --width: calc(100% - 280px);
-  width: calc(100% - 94px);
+  width: 100%;
   float: left;
   display: inline-block;
   box-sizing: border-box;

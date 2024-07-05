@@ -4,19 +4,16 @@ $.getJSON('/musicdata', (data) => {
   console.log(data)
   data.videos.forEach((e, i) => {
     $('#music-left-videos')[0].insertAdjacentHTML('afterbegin', `           <div class="music-video-over">
+        <div class="music-video-right">
+          <iframe src="https://www.youtube.com/embed/${e.video}" allowfullscreen></iframe>
+        </div>
         <div class="music-video-left">
           <div>
             <span class="music-video-name">
               ${e.title}
             </span>
-            <span class="music-video-title">
-              ${e.name}
-            </span>
-            <span class="music-video-date">${e.date}</span>
+            <span class="music-video-date">${e.copyright}</span>
           </div>
-        </div>
-        <div class="music-video-right">
-          <iframe src="https://www.youtube.com/embed/${e.video}" allowfullscreen></iframe>
         </div>
       </div>`);
   });

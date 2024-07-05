@@ -78,7 +78,6 @@ body {
 }
 .grid-container {
   columns: 3 200px;
-  padding-top: 20px;
   column-gap: 1.5rem;
   width: 90%;
   margin: 0 auto;
@@ -111,6 +110,24 @@ body {
   color: white;
   text-align: left;
   font-family: "Garamond Pro", serif;
+}
+
+.armor-display {
+  width: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.armor-display img {
+  width: 0;
+  transform: scale(0.9);
+  flex: 0.8;
 }</style>
   <style>body {
   margin: 0;
@@ -431,8 +448,13 @@ footer .content .topic{
     </div>
     </a>
   </div>
-  <hr style="color:white;margin-bottom:0;margin-top:50px;width:calc(90% * 0.33);">
   <h1 id="title">Gallery</h1>
+  <div class="armor-display">
+    <img src="./blackarmor.jpg">
+    <img src="./bluearmor.jpg">
+    <img src="./brownarmor.jpg">
+  </div>
+  <hr style="color:white;margin-bottom:30px;width:90%;">
   <div class="gallery-container-complete">
   <div class="grid-container">
   </div>
@@ -441,17 +463,21 @@ footer .content .topic{
   <footer>
     <div class="content">
       <div class="left box">
-        <a href="//instagram.com/cameron_bryzek_author">@cameron_bryzek_author</a>
+        <!-- <a href="//instagram.com/cameron_bryzek_author">@cameron_bryzek_author</a>
         <br>
-        <a href="//instagram.com/by_lanterns_light">@by_lanterns_light</a>
+        <a href="//instagram.com/by_lanterns_light">@by_lanterns_light</a> -->
       </div>
       <div class="middle box">
         <hr style="color:white;margin-bottom:80px;width:90%;">
         <br>
         <img src="./favicon.ico" width="100">
+        <br>
+        <br>
+        <br>
+        <a href="mailto:cambryzek@gmail.com">cambryzek@gmail.com</a>
       </div>
       <div class="right box">
-        <a href="mailto:cambryzek@gmail.com">cambryzek@gmail.com</a>
+        <!-- <a href="mailto:cambryzek@gmail.com">cambryzek@gmail.com</a> -->
       </div>
     </div>
   </footer>
@@ -460,5 +486,6 @@ footer .content .topic{
   <script src="/script.js" nebula-static="3"></script>
   <script src="/index.js"></script>
   <script src="/images.js"></script>
+
 
 </body></html>

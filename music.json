@@ -1,22 +1,14 @@
 {
   "videos": [
     {
-      "name": "BCA Lunar New Year 2022",
-      "date": "February 1, 2022",
-      "video": "GtGlYNAaVgw",
-      "title": "Every Summertime"
+      "copyright": "Lichen © 2024 by Cameron Bryzek is licensed under CC BY 4.0.",
+      "video": "iqLOo3tY5-g",
+      "title": "Lichen"
     },
     {
-      "name": "BCA Valentine's Day 2022",
-      "date": "February 14, 2022",
-      "video": "ecggWkG0xqI",
-      "title": "Power of Love"
-    },
-    {
-      "name": "BCA Valentine's Day 2022",
-      "date": "February 14, 2022",
-      "video": "VsrV033t1yg",
-      "title": "Keep On Loving You"
+      "copyright": "Overgrowth © 2024 by Cameron Bryzek is licensed under CC BY 4.0.",
+      "video": "Q_4gZWx5ODU",
+      "title": "Overgrowth"
     }
   ],
   "timeline": [

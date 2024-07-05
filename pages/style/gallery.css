@@ -76,7 +76,6 @@ body {
 }
 .grid-container {
   columns: 3 200px;
-  padding-top: 20px;
   column-gap: 1.5rem;
   width: 90%;
   margin: 0 auto;
@@ -109,4 +108,22 @@ body {
   color: white;
   text-align: left;
   font-family: "Garamond Pro", serif;
+}
+
+.armor-display {
+  width: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.armor-display img {
+  width: 0;
+  transform: scale(0.9);
+  flex: 0.8;
 }

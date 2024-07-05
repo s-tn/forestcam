@@ -12,6 +12,10 @@ self.addEventListener('fetch', (event) => {
   event.respondWith((async () => {
     var cache = await caches.open('__neb');
 
+    if (['/musicdata', '/gallerydata'].includes(event.request.url)) {
+      return await fetch(event.request);
+    }
+
     if (event.request.method=='GET') cache.add(event.request);
 
     return (await cache.match(event.request))||(await fetch(event.request));

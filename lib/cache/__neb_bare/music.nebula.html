@@ -28,10 +28,13 @@ body {
 }
 
 #music-left-videos {
-  width: calc(100% - 280px);
+  --width: calc(100% - 280px);
+  width: 100%;
   float: left;
   display: inline-block;
+  box-sizing: border-box;
   padding: 20px;
+  margin: auto;
   padding-top: 0;
   background: transparent;
   height: auto;
@@ -46,11 +49,11 @@ body {
   padding: 20px;
   background: rgb(0, 0, 0, 0.25);
   border-radius: 10px;
-  border: 2px solid white;
+  --border: 2px solid white;
 }
 
 .music-video-over {
-  border: 2px solid white;
+  --border: 2px solid white;
   border-radius: 10px;
   padding: 30px;
   background: rgb(0, 0, 0, 0.25);
@@ -61,26 +64,28 @@ body {
 
 .music-video-left {
   margin-right: 30px;
-  width: 230px;
-  display: inline-flex;
+  width: calc(100% - 40px);
+  display: flex;
+  justify-content: center;
   align-items: center;
-  height: 400px;
   padding: 20px;
+  padding-top: 30px;
+  padding-bottom: 0;
   background: transparent;
 }
 
 .music-video-right {
-  width: calc(100% - 300px);
-  display: inline-block;
-  float: right;
-  height: 400px;
+  width: calc(100%);
+  display: block;
+  aspect-ratio: 20 / 11.25;
 }
 
 .music-video-right iframe {
   width: 100%;
-  height: calc(100% + 40px);
+  height: 100%;
   border-radius: 5px;
-  border: 1px solid white;
+  --border: 1px solid white;
+  border: none;
   outline: none;
 }
 
@@ -119,7 +124,8 @@ body {
 
 .timeline-name {
   display: block;
-}</style>
+}
+</style>
   <style>body {
   margin: 0;
   overflow-x: hidden !important;
@@ -439,7 +445,6 @@ footer .content .topic{
     </div>
     </a>
   </div>
-  <hr style="color:white;margin-bottom:0;margin-top:50px;width:calc(90% * 0.33);">
   <h1 id="title">Music</h1>
   <div id="music-container">
     <div id="music-left-videos">
@@ -483,25 +488,29 @@ footer .content .topic{
         </div>
       </div>-->
     </div>
-    <div id="music-right-schedule">
+    <!--<div id="music-right-schedule">
       
-    </div>
+    </div>-->
   </div>
   <div id="mobile-navmenu" style="display:none;height:0px;"><div><a href="/" style="display:none;" nebula-link="">Home</a><a href="/gallery" style="display:none;" nebula-link="">Gallery</a><a href="/music" style="display:none;" class="nav-link-now" nebula-link="">Music</a><a href="/progress" style="display:none;" nebula-link="">Progress Bars</a></div></div>
   <footer>
     <div class="content">
       <div class="left box">
-        <a href="//instagram.com/cameron_bryzek_author">@cameron_bryzek_author</a>
+        <!-- <a href="//instagram.com/cameron_bryzek_author">@cameron_bryzek_author</a>
         <br>
-        <a href="//instagram.com/by_lanterns_light">@by_lanterns_light</a>
+        <a href="//instagram.com/by_lanterns_light">@by_lanterns_light</a> -->
       </div>
       <div class="middle box">
         <hr style="color:white;margin-bottom:80px;width:90%;">
         <br>
         <img src="./favicon.ico" width="100">
+        <br>
+        <br>
+        <br>
+        <a href="mailto:cambryzek@gmail.com">cambryzek@gmail.com</a>
       </div>
       <div class="right box">
-        <a href="mailto:cambryzek@gmail.com">cambryzek@gmail.com</a>
+        <!-- <a href="mailto:cambryzek@gmail.com">cambryzek@gmail.com</a> -->
       </div>
     </div>
   </footer>
@@ -509,5 +518,6 @@ footer .content .topic{
   <script src="/jquery.js" nebula-static="2"></script>
   <script src="/script.js" nebula-static="3"></script>
   <script src="/music.js"></script>
+
 
 </body></html>

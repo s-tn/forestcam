@@ -88,20 +88,20 @@ body {
   display: inline-block;
   padding: 5px;
   border-radius: 5px;
-  transition: all .25s ease-in-out;
-  animation: 0.5s width east-in-out;
 }
 .grid-container div img:hover {
   box-shadow: 0px 0px 10px -1px;
+  transform: scale(1.015);
 }
-.grid-container div:hover {
+/*.grid-container div:hover {
   width: calc(100% - 15px);
-}
+}*/
 .grid-container div img {
   width: 100%;
   border-radius: 5px;
   box-shadow: 0px 0px 3px -1px;
   transition: box-shadow 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 .grid-container p {
   margin: 5px 0;
@@ -128,6 +128,14 @@ body {
   width: 0;
   transform: scale(0.9);
   flex: 0.8;
+}
+
+.middle.box a {
+  transition: all 0.3s ease;
+}
+
+.middle.box a:hover {
+  color: #ccc;
 }</style>
   <style>body {
   margin: 0;
@@ -161,13 +169,13 @@ body {
 
 .home-img {
   width: auto;
-  animation: height 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
   max-width: 100%;
   max-height: 60px;
 }
 
 .home-img:hover {
-  max-height: 66px;
+  transform: scale(1.1);
 }
 
 .icon-1, .icon-2, .icon-3 {
@@ -274,11 +282,19 @@ body {
 
 .nav-link {
   margin-right: 25px;
-  color: white;
   font-family: 'Andada Pro', serif;
   text-decoration: none;
   font-size: 30px;
+  transition: all 0.3s ease;
 }
+
+.nav-link:not(.nav-link-now):hover {
+  color: #ccc;
+}
+
+.nav-link:not(:hover) {
+  color: #fff;
+} 
 
 .nav-link-now {
   color: white;

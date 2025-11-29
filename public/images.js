@@ -22,7 +22,7 @@ function FilterImages(data) {
   }
 
   function SortYears(array) {
-    return array.sort(function(a,b) {return a.date>b.date})
+    return array.sort(function(a,b) {return b.date - a.date})
   }
   
   function GetDate(str) {
@@ -56,14 +56,14 @@ function FilterImages(data) {
   })
 
   data = SortYears(dateMap)
-  return SplitParts(data).reverse()
+  return SplitParts(data)
 }
 
 $.getJSON('/gallerydata', (data) => {
   data = FilterImages(data)
   data.map((e, i) => {
     e.forEach(e=>{
-      $('.grid-container')[0].insertAdjacentHTML('afterbegin', `  <div>
+      $('.grid-container')[0].insertAdjacentHTML('beforeend', `  <div>
         <img class='grid-item grid-item-${e.number}' src='/imgs/${e.number}.png' alt='${e.caption}'>
         <p>${e.caption}</p>
       </div>`)

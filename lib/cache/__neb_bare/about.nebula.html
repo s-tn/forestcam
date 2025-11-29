@@ -1,3 +1,637 @@
-<html><head></head><body>hillo
-<a href="/" nebula-link="">Home</a>
-<script src="/script.js" nebula-static="3"></script></body></html>
+<!DOCTYPE html><html lang="en"><head>
+  <link rel="alternate" href="https://cameronbryzek.com/about" hreflang="en">
+  <style>/* Japandi-inspired Typography */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap');
+
+/* Japandi Color Palette */
+:root {
+  /* Primary Colors */
+  --sage-green: #7fb069;
+  --forest-green: #6a9857;
+  --charcoal: #111827;
+  --slate-gray: #6b7280;
+  --deep-brown: #1f1d1b;
+  --pure-white: #FFFFFF;
+
+  /* Extended Palette */
+  --warm-beige: #f5f1ed;
+  --soft-cream: #faf8f5;
+  --muted-sage: #a8c69f;
+  --dark-slate: #374151;
+  --light-gray: #d1d5db;
+  --warm-gray: #9ca3af;
+  --accent-terracotta: #c97d60;
+
+  /* Semantic Colors */
+  --bg-primary: var(--soft-cream);
+  --bg-secondary: var(--warm-beige);
+  --bg-dark: var(--charcoal);
+  --text-primary: var(--deep-brown);
+  --text-secondary: var(--slate-gray);
+  --text-light: var(--pure-white);
+  --accent-primary: var(--sage-green);
+  --accent-secondary: var(--forest-green);
+
+  /* Typography */
+  --font-serif: 'Source Serif Pro', 'Georgia', serif;
+  --font-sans: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 4rem;
+  --spacing-xxl: 6rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.body-text-body {
+  padding: 0;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.body-text-body-sub {
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-top: var(--spacing-md);
+  font-size: clamp(0.875rem, 1.3vw, 0.95rem);
+  margin-bottom: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.body-greeting {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.bold-body-text {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--accent-secondary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid transparent;
+}
+
+.bold-body-text:hover {
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+  cursor: pointer;
+}
+
+
+.main-page-body {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 400px;
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  gap: var(--spacing-xxl);
+  align-items: center;
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  text-align: left;
+}
+
+.main-page-body > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 580px;
+}
+
+.main-page-body > div > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.main-page-body img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  object-fit: cover;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-self: end;
+}
+
+.main-page-body img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+@media screen and (max-width: 950px) {
+  .main-page-body {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+  }
+
+  .main-page-body img {
+    margin: var(--spacing-lg) auto;
+    max-width: 90%;
+  }
+}</style>
+  <style>body {
+  margin: 0;
+  overflow-x: hidden !important;
+}
+
+#site-content-main {
+  height: auto;
+}
+
+#site-navigation-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: var(--font-sans);
+}
+
+#footer-div1 {
+  columns: 3 200px;
+  column-gap: 1.5rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.home-link {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: var(--spacing-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.home-img {
+  width: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 100%;
+  height: 36px;
+  filter: brightness(0) saturate(100%);
+  opacity: 0.85;
+}
+
+.home-img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.icon-1, .icon-2, .icon-3 {
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    width: 50%;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: all 400ms cubic-bezier(.84,.06,.52,1.8);
+    border-radius: 2px;
+}
+
+.icon-1 {
+  transform: translateY(-7px);
+  animation-delay: 100ms;
+}
+
+.icon-3 {
+  transform: translateY(7px);
+  animation-delay: 250ms;
+}
+
+.hamburger-icon {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  z-index: 1000;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+}
+
+.hamburger-icon:hover {
+  background: rgba(127, 176, 105, 0.1);
+  transform: scale(1.1);
+}
+
+.hamburger-icon:hover .icon-1,
+.hamburger-icon:hover .icon-2,
+.hamburger-icon:hover .icon-3 {
+  background-color: var(--accent-primary);
+}
+
+.icon-1.a {
+  transform: rotate(40deg);
+}
+.icon-3.b {
+  transform: rotate(-40deg);
+}
+.icon-2.c {
+  opacity: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+@keyframes slideIn {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  
+  100% {
+    width: 50%;
+    opacity: 1;
+  }
+}
+
+#nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(127, 176, 105, 0.15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+#nav a.icon {
+  background: transparent;
+  position: absolute;
+  right: var(--spacing-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  z-index: 999999999999999999;
+}
+
+#nav .icon {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 50px;
+  width: auto;
+  margin-right: 0;
+}
+
+.spin {
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+#nav-div-1 {
+  position: absolute;
+  width: auto;
+  right: var(--spacing-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-secondary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-primary);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:not(.nav-link-now):hover {
+  color: var(--accent-secondary);
+}
+
+.nav-link:not(.nav-link-now):hover::after {
+  width: 80%;
+}
+
+.nav-link-now {
+  color: var(--text-primary);
+  font-weight: 600;
+  background-color: rgba(127, 176, 105, 0.1);
+}
+
+.nav-link-now::after {
+  width: 80%;
+}
+
+@media screen and (max-width: 1000px) {
+  #nav {
+    height: 70px;
+  }
+
+  #nav a.icon {
+    display: block;
+  }
+
+  .nav-link {
+    display: none;
+  }
+
+  .home-link {
+    left: var(--spacing-md) !important;
+  }
+
+  .home-img {
+    max-height: 45px;
+  }
+
+  .body-greeting {
+    font-size: clamp(2rem, 10vw, 3rem) !important;
+  }
+
+  footer {
+    margin-top: var(--spacing-xl);
+  }
+
+  .body-text-body {
+    width: 90%;
+    padding: 0 var(--spacing-md);
+  }
+
+  .body-text-body-sub {
+    width: 90%;
+    padding: 0 var(--spacing-md);
+  }
+}
+
+#mobile-navmenu {
+  background: var(--charcoal);
+  opacity: 0.98;
+  width: 100%;
+  height: 0;
+  padding: 10px 5px 10px 5px;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  overflow: hidden;
+}
+
+#mobile-navmenu div {
+  margin: auto;
+  position: absolute;
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+#mobile-navmenu a {
+  color: var(--text-light);
+  width: auto;
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 8vw, 2.5rem);
+  text-decoration: none;
+  display: block;
+  padding: var(--spacing-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: var(--radius-md);
+}
+
+#mobile-navmenu a:hover,
+#mobile-navmenu a.nav-link-now {
+  color: var(--accent-primary);
+  background: rgba(127, 176, 105, 0.1);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotage(0deg)
+  }
+  100% {
+    transform: rotate(-90deg)
+  }
+}
+
+/* Footer Styles */
+
+footer {
+  margin-top: var(--spacing-xxl);
+  width: 100%;
+  padding: var(--spacing-xl) 0;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid rgba(127, 176, 105, 0.15);
+}
+
+footer .left,
+footer .right {
+  padding: var(--spacing-md) 0;
+  font-size: 0.9rem;
+}
+
+footer .right .a {
+  color: var(--text-secondary);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+footer .right .a:hover {
+  color: var(--accent-secondary);
+  border-bottom-color: var(--accent-secondary);
+}
+
+footer .content {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 var(--spacing-lg);
+}
+
+footer .content a {
+  color: var(--text-primary);
+  font-size: 1rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--text-primary);
+  padding-bottom: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-sans);
+}
+
+footer .content a:hover {
+  color: var(--accent-secondary);
+  border-bottom-color: var(--accent-secondary);
+}
+
+footer .content .box {
+  width: 100%;
+  text-align: center;
+  padding: var(--spacing-sm) 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+footer .content .topic {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-serif);
+}
+
+footer hr {
+  border: none;
+  border-top: 1px solid var(--text-primary);
+  margin: 0 auto var(--spacing-md);
+  width: 60px;
+}
+
+footer .middle.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+@media screen and (max-width: 768px) {
+  footer .content .box {
+    width: 100%;
+    padding: var(--spacing-xs) 0;
+  }
+
+  footer hr {
+    width: 50px;
+  }
+}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Cameron Bryzek</title>
+  <meta name="description" content="About Cameron Bryzek - Musician and Leatherworker">
+</head>
+<body>
+  <div id="site-content-main">
+    <div id="nav">
+      <a class="home-link" href="/"><img class="home-img" src="./favicon.ico" nebula-link=""></a>
+      <div id="nav-div-1">
+        <a class="nav-link" href="/" nebula-link="">Home</a>
+        <a class="nav-link" href="/gallery" nebula-link="">Gallery</a>
+        <a class="nav-link" href="/music" nebula-link="">Music</a>
+        <a class="nav-link nav-link-now" href="/about" nebula-link="">About</a>
+      </div>
+      <a href="javascript:void(0);" class="icon">
+        <div class="hamburger-icon" id="icon">
+          <div class="icon-1" id="a"></div>
+          <div class="icon-2" id="b"></div>
+          <div class="icon-3" id="c"></div>
+          <div class="clear"></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="main-page-body" style="grid-template-columns: 1fr;">
+      <div>
+        <h1 class="body-greeting">About</h1>
+        <p class="body-text-body">
+          This is a placeholder for the about page. Share your story, background, and creative journey here.
+        </p>
+      </div>
+    </div>
+
+    <div id="mobile-navmenu" style="display:none;height:0px;">
+      <div>
+        <a href="/" style="display:none;" nebula-link="">Home</a>
+        <a href="/gallery" style="display:none;" nebula-link="">Gallery</a>
+        <a href="/music" style="display:none;" nebula-link="">Music</a>
+        <a href="/about" class="nav-link-now" style="display:none;" nebula-link="">About</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="content">
+      <div class="left box"></div>
+      <div class="middle box">
+        <a href="mailto:cambryzek@gmail.com">cambryzek@gmail.com</a>
+      </div>
+      <div class="right box"></div>
+    </div>
+  </footer>
+
+  <script src="/socket.io/socket.io.js" nebula-static="1"></script>
+  <script src="/jquery.js" nebula-static="2"></script>
+  <script src="/script.js" nebula-static="3"></script>
+
+</body></html>

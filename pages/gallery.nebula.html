@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <link rel="alternate" href="https://cameronbryzek.com/gallery" hreflang="en"/>
-  <link rel="stylesheet" href="/style/gallery.css"></link>
-  <link rel="stylesheet" href="/style/navbar.css"></link>
+  <link rel="stylesheet" href="/style/style.css">
+  <link rel="stylesheet" href="/style/gallery.css">
+  <link rel="stylesheet" href="/style/navbar.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery - Cameron Bryzek</title>
   <meta name="description" content="Cameron Bryzek">
 </head>
 <body>
+  <div id="site-content-main">
   <div id="nav">
     <a nebula-link class="home-link" href="/"><img class="home-img" src="./favicon.ico"></a>
     <div id="nav-div-1"><a class="nav-link" href="/" nebula-link>Home</a><a nebula-link class="nav-link nav-link-now" href="/gallery">Gallery</a><a nebula-link class="nav-link" href="/music">Music</a><!--<a class="nav-link" href="/progress" nebula-link>Progress Bars</a>--></div>
@@ -21,18 +23,42 @@
     </div>
     </a>
   </div>
-  <h1 id="title">Gallery</h1>
-  <div class="armor-display">
-    <img src="./blackarmor.jpg" />
-    <img src="./bluearmor.jpg" />
-    <img src="./brownarmor.jpg" />
+  <div class="gallery-hero">
+    <h1 id="title">Gallery</h1>
+    <p class="gallery-subtitle">Handcrafted leather armour and accessories, ranging from everyday objects to full suits of armour.</p>
   </div>
-  <hr style=color:white;margin-bottom:30px;width:90%;>
-  <div class="gallery-container-complete">
-  <div class="grid-container">
-  </div>
-  </div>
+
+  <section class="featured-armor-section">
+    <h2 class="section-title">Featured Armour Sets</h2>
+    <div class="armor-display">
+      <div class="armor-card">
+        <img src="./forestarmour.jpg" alt="Forest Armour" />
+        <p class="armor-caption">Forest Armour<span class="armor-year">2025</span></p>
+      </div>
+      <div class="armor-card">
+        <img src="./vyrlliarmour.jpg" alt="Vyrlli Armour" />
+        <p class="armor-caption">Vyrlli Armour<span class="armor-year">2022</span></p>
+      </div>
+      <div class="armor-card">
+        <img src="./galdranarmour.jpg" alt="Galdran Armour" />
+        <p class="armor-caption">Galdran Armour<span class="armor-year">2021</span></p>
+      </div>
+      <div class="armor-card">
+        <img src="./rivergladearmour.jpg" alt="Riverglade Armour" />
+        <p class="armor-caption">Riverglade Armour<span class="armor-year">2020</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-projects-section">
+    <h2 class="section-title">All Projects</h2>
+    <div class="gallery-container-complete">
+      <div class="grid-container">
+      </div>
+    </div>
+  </section>
   <div id="mobile-navmenu" style="display:none;height:0px;"><div><a nebula-link href="/" style="display:none;">Home</a><a nebula-link class="nav-link-now" href="/gallery" style="display:none;">Gallery</a><a href="/music" nebula-link style="display:none;">Music</a></div></div>
+  </div>
   <footer>
     <div class="content">
       <div class="left box">
@@ -41,12 +67,6 @@
         <a href="//instagram.com/by_lanterns_light">@by_lanterns_light</a> -->
       </div>
       <div class="middle box">
-        <hr style=color:white;margin-bottom:80px;width:90%;>
-        <br>
-        <img src="./favicon.ico" width=100>
-        <br>
-        <br>
-        <br>
         <a href="mailto:cambryzek@gmail.com">cambryzek@gmail.com</a>
       </div>
       <div class="right box">

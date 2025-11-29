@@ -1,16 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Nebula.js - Not Found</title>
+    <title>404 - Page Not Found | Cameron Bryzek</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/navbar.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      body, html {
+      .error-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 70vh;
+        text-align: center;
+        padding: var(--spacing-xl);
+      }
+
+      .error-code {
+        font-family: var(--font-serif);
+        font-size: clamp(6rem, 15vw, 12rem);
+        font-weight: 500;
+        color: var(--accent-primary);
         margin: 0;
-        background: black;
+        line-height: 1;
+        letter-spacing: -0.05em;
+      }
+
+      .error-message {
+        font-family: var(--font-sans);
+        font-size: clamp(1.25rem, 3vw, 1.75rem);
+        color: var(--text-secondary);
+        margin: var(--spacing-lg) 0;
+      }
+
+      .error-link {
+        display: inline-block;
+        margin-top: var(--spacing-md);
+        padding: var(--spacing-sm) var(--spacing-lg);
+        background: var(--accent-secondary);
+        color: var(--pure-white);
+        text-decoration: none;
+        border-radius: var(--radius-md);
+        font-family: var(--font-sans);
+        font-weight: 500;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .error-link:hover {
+        background: var(--accent-primary);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
       }
     </style>
   </head>
 
   <body>
-    <h1>404</h1> <vr></vr> <img src="/__neb/core/NebulaJS.png">
+    <div id="nav">
+      <a class="home-link" href="/"><img class="home-img" src="./favicon.ico"></a>
+      <div id="nav-div-1">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/gallery">Gallery</a>
+        <a class="nav-link" href="/music">Music</a>
+      </div>
+    </div>
+
+    <div class="error-container">
+      <h1 class="error-code">404</h1>
+      <p class="error-message">The page you're looking for has wandered off into the realm of fantasy.</p>
+      <a href="/" class="error-link">Return Home</a>
+    </div>
   </body>
 </html>

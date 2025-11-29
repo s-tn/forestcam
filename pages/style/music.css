@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Andada+Pro&display=swap');
+/* Import base styles */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap');
 
 @font-face {
   font-family: "Garamond Pro";
@@ -8,126 +7,141 @@
 }
 
 body {
-  background-color: #232f46 !important;
+  background-color: var(--bg-primary);
   margin: 0;
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
 }
 
 #title {
-  color: white;
-  font-family: 'Lupa', serif;
-  font-size: 60px;
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 600;
+  margin: var(--spacing-lg) 0 var(--spacing-md);
+  letter-spacing: -0.02em;
 }
 
 #music-container {
-  width: calc(100%);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg) var(--spacing-xxl);
 }
 
 #music-left-videos {
-  --width: calc(100% - 280px);
   width: 100%;
-  float: left;
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 20px;
-  margin: auto;
-  padding-top: 0;
-  background: transparent;
-  height: auto;
-}
-
-#music-right-schedule {
-  width: 186px;
-  float: left;
-  height: auto;
-  margin-right: 10px;
-  display: inline-block;
-  padding: 20px;
-  background: rgb(0, 0, 0, 0.25);
-  border-radius: 10px;
-  --border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin: 0 auto;
 }
 
 .music-video-over {
-  --border: 2px solid white;
-  border-radius: 10px;
-  padding: 30px;
-  background: rgb(0, 0, 0, 0.25);
-  width: 70%;
-  margin: auto;
-  margin-bottom: 90px;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  background: var(--pure-white);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.music-video-over:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 
 .music-video-left {
-  margin-right: 30px;
-  width: calc(100% - 40px);
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 20px;
-  padding-top: 30px;
-  padding-bottom: 0;
+  padding: 0 0 var(--spacing-md);
   background: transparent;
 }
 
 .music-video-right {
-  width: calc(100%);
+  width: 100%;
   display: block;
-  aspect-ratio: 20 / 11.25;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--charcoal);
 }
 
 .music-video-right iframe {
   width: 100%;
   height: 100%;
-  border-radius: 5px;
-  --border: 1px solid white;
   border: none;
   outline: none;
 }
 
 .music-video-title {
-  color: white;
-  font-size: 20px;
-  font-weight: 100;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--font-serif);
+  display: block;
+  margin-bottom: var(--spacing-xs);
 }
 
 .music-video-name {
-  color: white;
-  font-size: 25px;
+  color: var(--text-primary);
+  font-size: 1.25rem;
   display: block;
   font-weight: 600;
-  margin-bottom: 15px;
+  font-family: var(--font-serif);
+  margin-bottom: var(--spacing-sm);
 }
 
 .music-video-date {
   display: block;
-  color: #eee;
-  font-size: 13px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+}
+
+#music-right-schedule {
+  width: 100%;
+  max-width: 300px;
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-lg);
+  background: var(--pure-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .timeline-entry {
   display: block;
-  margin-bottom: 10px;
-  color: white;
-  font-size: 15px;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  padding: var(--spacing-sm);
+  border-left: 2px solid var(--accent-primary);
+  padding-left: var(--spacing-sm);
 }
 
 .timeline-date {
-  color: #ddd;
-  display: inline-block;
-  font-size: 12px;
+  color: var(--text-secondary);
+  display: block;
+  font-size: 0.75rem;
+  margin-bottom: var(--spacing-xs);
+  font-family: var(--font-sans);
 }
 
 .timeline-name {
   display: block;
+  font-weight: 500;
+  font-family: var(--font-serif);
 }
 
-.middle.box a {
-  transition: all 0.3s ease;
-}
+@media screen and (max-width: 768px) {
+  #music-container {
+    padding: 0 var(--spacing-md) var(--spacing-xl);
+  }
 
-.middle.box a:hover {
-  color: #ccc;
+  .music-video-over {
+    padding: var(--spacing-md);
+  }
 }

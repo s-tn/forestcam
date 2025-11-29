@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <link rel="alternate" href="https://cameronbryzek.com/projects" hreflang="en"/>
+  <link rel="stylesheet" href="/style/style.css">
   <link rel="stylesheet" href="/style/music.css">
   <link rel="stylesheet" href="/style/navbar.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <meta name="description" content="Cameron Bryzek">
 </head>
 <body>
+  <div id="site-content-main">
   <div id="nav">
     <a class="home-link" href="/" nebula-link><img class="home-img" src="./favicon.ico"></a>
     <div id="nav-div-1"><a class="nav-link" nebula-link href="/">Home</a><a class="nav-link" href="/gallery" nebula-link>Gallery</a><a class="nav-link nav-link-now" href="/music" nebula-link>Music</a><!--<a class="nav-link" href="/progress" nebula-link>Progress Bars</a>--></div>
@@ -21,7 +23,11 @@
     </div>
     </a>
   </div>
-  <h1 id="title">Music</h1>
+  <div class="music-hero">
+    <h1 id="title">Music</h1>
+    <p class="music-subtitle">Compositions and performances exploring fantasy orchestral soundscapes.</p>
+  </div>
+  <section class="music-section">
   <div id="music-container">
     <div id="music-left-videos">
       <!--<div class="music-video-over">
@@ -65,10 +71,12 @@
       </div>-->
     </div>
     <!--<div id="music-right-schedule">
-      
+
     </div>-->
   </div>
+  </section>
   <div id="mobile-navmenu" style="display:none;height:0px;"><div><a href="/" style="display:none;" nebula-link>Home</a><a href="/gallery" style="display:none;" nebula-link>Gallery</a><a href="/music" style="display:none;" class="nav-link-now" nebula-link>Music</a></div></div>
+  </div>
   <footer>
     <div class="content">
       <div class="left box">

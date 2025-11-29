@@ -154,7 +154,7 @@ body {
 }
 
 .main-page-body img:hover {
-  transform: translateY(-4px);
+  transform: scale(1.02);
   box-shadow: var(--shadow-lg);
 }
 

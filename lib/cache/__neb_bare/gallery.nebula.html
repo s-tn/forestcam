@@ -1,5 +1,177 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html><html lang="en"><head>
   <link rel="alternate" href="https://cameronbryzek.com/gallery" hreflang="en">
+  <style>/* Japandi-inspired Typography */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap');
+
+/* Japandi Color Palette */
+:root {
+  /* Primary Colors */
+  --sage-green: #7fb069;
+  --forest-green: #6a9857;
+  --charcoal: #111827;
+  --slate-gray: #6b7280;
+  --deep-brown: #1f1d1b;
+  --pure-white: #FFFFFF;
+
+  /* Extended Palette */
+  --warm-beige: #f5f1ed;
+  --soft-cream: #faf8f5;
+  --muted-sage: #a8c69f;
+  --dark-slate: #374151;
+  --light-gray: #d1d5db;
+  --warm-gray: #9ca3af;
+  --accent-terracotta: #c97d60;
+
+  /* Semantic Colors */
+  --bg-primary: var(--soft-cream);
+  --bg-secondary: var(--warm-beige);
+  --bg-dark: var(--charcoal);
+  --text-primary: var(--deep-brown);
+  --text-secondary: var(--slate-gray);
+  --text-light: var(--pure-white);
+  --accent-primary: var(--sage-green);
+  --accent-secondary: var(--forest-green);
+
+  /* Typography */
+  --font-serif: 'Source Serif Pro', 'Georgia', serif;
+  --font-sans: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 4rem;
+  --spacing-xxl: 6rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+body {
+  background-color: var(--bg-primary);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  min-height: 100vh;
+  width: 100%;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.body-text-body {
+  padding: 0;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.7;
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.body-text-body-sub {
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-top: var(--spacing-md);
+  font-size: clamp(0.875rem, 1.3vw, 0.95rem);
+  margin-bottom: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.body-greeting {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.bold-body-text {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--accent-secondary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid transparent;
+}
+
+.bold-body-text:hover {
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+  cursor: pointer;
+}
+
+
+.main-page-body {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 400px;
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  gap: var(--spacing-xxl);
+  align-items: center;
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  text-align: left;
+}
+
+.main-page-body > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 580px;
+}
+
+.main-page-body > div > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.main-page-body img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  object-fit: cover;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-self: end;
+}
+
+.main-page-body img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+@media screen and (max-width: 950px) {
+  .main-page-body {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+  }
+
+  .main-page-body img {
+    margin: var(--spacing-lg) auto;
+    max-width: 90%;
+  }
+}</style>
   <style>/* Import base styles */
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600;700&family=Source+Serif+Pro:wght@300;400;500;600&display=swap');
 
@@ -16,13 +188,101 @@ body {
   width: 100%;
 }
 
+.gallery-hero {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-xxl) var(--spacing-lg) var(--spacing-xl);
+}
+
 #title {
   color: var(--text-primary);
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-size: clamp(2.25rem, 5vw, 3rem);
   font-weight: 600;
-  margin: var(--spacing-lg) 0 var(--spacing-md);
+  margin: 0 0 var(--spacing-md);
   letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.gallery-subtitle {
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.7;
+  margin: 0;
+  text-align: center;
+}
+
+.featured-armor-section {
+  max-width: 1400px;
+  margin: 0 auto var(--spacing-xxl);
+  padding: 0 var(--spacing-lg);
+}
+
+.gallery-projects-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg) var(--spacing-xxl);
+}
+
+.section-title {
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  margin: 0 0 var(--spacing-lg);
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.armor-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.armor-card {
+  background: var(--pure-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.armor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.armor-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(1.08);
+}
+
+.armor-caption {
+  padding: var(--spacing-md);
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.armor-year {
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  display: block;
+  margin-top: 0.25rem;
 }
 
 .gallery-container-complete {
@@ -31,42 +291,6 @@ body {
   align-items: center;
   flex-direction: column;
   font-family: var(--font-sans);
-  padding: 0 var(--spacing-lg) var(--spacing-xxl);
-  max-width: 1600px;
-  margin: 0 auto;
-}
-
-.armor-display {
-  width: 100%;
-  max-width: 1400px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-lg);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-xl);
-}
-
-.armor-display img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.armor-display img:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-}
-
-.gallery-container-complete hr {
-  width: 90%;
-  max-width: 1200px;
-  border: none;
-  border-top: 1px solid rgba(127, 176, 105, 0.2);
-  margin: var(--spacing-xl) auto;
 }
 
 .grid-container {
@@ -78,8 +302,8 @@ body {
 }
 
 .grid-container div {
-  width: 100%;
-  margin: 0 0 var(--spacing-md) 0;
+  width: calc(100% - var(--spacing-md));
+  margin: 0 var(--spacing-xs) var(--spacing-md) var(--spacing-xs);
   display: inline-block;
   padding: var(--spacing-sm);
   background: var(--pure-white);
@@ -535,6 +759,7 @@ footer .middle.box {
   <meta name="description" content="Cameron Bryzek">
 </head>
 <body>
+  <div id="site-content-main">
   <div id="nav">
     <a nebula-link="" class="home-link" href="/"><img class="home-img" src="./favicon.ico"></a>
     <div id="nav-div-1"><a class="nav-link" href="/" nebula-link="">Home</a><a nebula-link="" class="nav-link nav-link-now" href="/gallery">Gallery</a><a nebula-link="" class="nav-link" href="/music">Music</a><!--<a class="nav-link" href="/progress" nebula-link>Progress Bars</a>--></div>
@@ -547,17 +772,42 @@ footer .middle.box {
     </div>
     </a>
   </div>
-  <h1 id="title">Gallery</h1>
-  <div class="armor-display">
-    <img src="./blackarmor.jpg">
-    <img src="./bluearmor.jpg">
-    <img src="./brownarmor.jpg">
+  <div class="gallery-hero">
+    <h1 id="title">Gallery</h1>
+    <p class="gallery-subtitle">Handcrafted leather armour and accessories, ranging from everyday objects to full suits of armour.</p>
   </div>
-  <div class="gallery-container-complete">
-  <div class="grid-container">
-  </div>
-  </div>
+
+  <section class="featured-armor-section">
+    <h2 class="section-title">Featured Armour Sets</h2>
+    <div class="armor-display">
+      <div class="armor-card">
+        <img src="./forestarmour.jpg" alt="Forest Armour">
+        <p class="armor-caption">Forest Armour<span class="armor-year">2025</span></p>
+      </div>
+      <div class="armor-card">
+        <img src="./vyrlliarmour.jpg" alt="Vyrlli Armour">
+        <p class="armor-caption">Vyrlli Armour<span class="armor-year">2022</span></p>
+      </div>
+      <div class="armor-card">
+        <img src="./galdranarmour.jpg" alt="Galdran Armour">
+        <p class="armor-caption">Galdran Armour<span class="armor-year">2021</span></p>
+      </div>
+      <div class="armor-card">
+        <img src="./rivergladearmour.jpg" alt="Riverglade Armour">
+        <p class="armor-caption">Riverglade Armour<span class="armor-year">2020</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-projects-section">
+    <h2 class="section-title">All Projects</h2>
+    <div class="gallery-container-complete">
+      <div class="grid-container">
+      </div>
+    </div>
+  </section>
   <div id="mobile-navmenu" style="display:none;height:0px;"><div><a nebula-link="" href="/" style="display:none;">Home</a><a nebula-link="" class="nav-link-now" href="/gallery" style="display:none;">Gallery</a><a href="/music" nebula-link="" style="display:none;">Music</a></div></div>
+  </div>
   <footer>
     <div class="content">
       <div class="left box">

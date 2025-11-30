@@ -255,17 +255,50 @@ document.getElementById('add-gallery-btn').addEventListener('click', () => {
 // ============================================
 
 function loadMusicData() {
-  $.getJSON('/musicdata', (data) => {
-    musicData = data.videos || [];
-    renderMusic();
-  });
+  console.log('Loading music data...');
+
+  // Use fetch as fallback if jQuery isn't ready
+  if (typeof $ === 'undefined' || !$.getJSON) {
+    fetch('/musicdata')
+      .then(response => response.json())
+      .then(data => {
+        console.log('Music data loaded (fetch):', data);
+        musicData = data.videos || [];
+        renderMusic();
+      })
+      .catch(err => {
+        console.error('Error loading music data:', err);
+      });
+  } else {
+    $.getJSON('/musicdata', (data) => {
+      console.log('Music data loaded (jQuery):', data);
+      musicData = data.videos || [];
+      renderMusic();
+    }).fail((jqXHR, textStatus, errorThrown) => {
+      console.error('Error loading music data:', textStatus, errorThrown);
+    });
+  }
 }
 
 function renderMusic() {
+  console.log('Rendering music, musicData:', musicData);
   const list = document.getElementById('music-list');
+
+  if (!list) {
+    console.error('music-list element not found!');
+    return;
+  }
+
   list.innerHTML = '';
 
+  if (!musicData || musicData.length === 0) {
+    console.log('No music data to render');
+    list.innerHTML = '<p style="padding: 2rem; text-align: center; color: #6b7280;">No music videos found. Add one using the form above.</p>';
+    return;
+  }
+
   musicData.forEach((item, index) => {
+    console.log('Creating music item:', index, item);
     const musicItem = createMusicItem(item, index);
     list.appendChild(musicItem);
   });

@@ -3,31 +3,38 @@
     {
       "copyright": "May 1, 2025",
       "video": "WVsethBiHw8",
-      "title": "Reed College Orchestra Spring Concert 2025"
+      "title": "Reed College Orchestra Spring Concert 2025",
+      "type": "performance"
     },
     {
       "copyright": "December 5, 2024",
       "video": "ilCX5ZO9Gg4",
-      "title": "Reed College Orchestra Fall Concert 2024"
-    },{
+      "title": "Reed College Orchestra Fall Concert 2024",
+      "type": "performance"
+    },
+    {
       "copyright": "Wind After Rain © 2024 by Cameron Bryzek is licensed under CC BY 4.0.",
       "video": "Ei4Y7TcSv9o",
-      "title": "Wind After Rain"
+      "title": "Wind After Rain",
+      "type": "composition"
     },
     {
       "copyright": "Lichen © 2024 by Cameron Bryzek is licensed under CC BY 4.0.",
       "video": "iqLOo3tY5-g",
-      "title": "Lichen"
+      "title": "Lichen",
+      "type": "composition"
     },
     {
       "copyright": "In the Den of Dragons © 2024 by Cameron Bryzek is licensed under CC BY 4.0.",
       "video": "zIIzx8HjBzA",
-      "title": "In the Den of Dragons"
+      "title": "In the Den of Dragons",
+      "type": "composition"
     },
     {
       "copyright": "Overgrowth © 2024 by Cameron Bryzek is licensed under CC BY 4.0.",
       "video": "Q_4gZWx5ODU",
-      "title": "Overgrowth"
+      "title": "Overgrowth",
+      "type": "composition"
     }
   ],
   "timeline": [

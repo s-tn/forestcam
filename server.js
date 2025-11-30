@@ -54,6 +54,30 @@ module.exports = function(server, nebula) {
       data.splice(data.findIndex(e=>e.number==img), 1);
       fs.writeFileSync('gallery.json', JSON.stringify(data), () => {});
     })
+
+    // New socket events for music management
+    socket.on('updateMusicData', (videos) => {
+      var data = JSON.parse(fs.readFileSync('music.json', () => {}));
+      data.videos = videos;
+      fs.writeFileSync('music.json', JSON.stringify(data, null, 2), () => {});
+    })
+
+    socket.on('addMusic', (video) => {
+      var data = JSON.parse(fs.readFileSync('music.json', () => {}));
+      data.videos.push(video);
+      fs.writeFileSync('music.json', JSON.stringify(data, null, 2), () => {});
+    })
+
+    socket.on('deleteMusic', (index) => {
+      var data = JSON.parse(fs.readFileSync('music.json', () => {}));
+      data.videos.splice(index, 1);
+      fs.writeFileSync('music.json', JSON.stringify(data, null, 2), () => {});
+    })
+
+    // New socket event for gallery reordering
+    socket.on('reorderGallery', (galleryData) => {
+      fs.writeFileSync('gallery.json', JSON.stringify(galleryData), () => {});
+    })
   });
   
   server.on('request', (req, res) => {
@@ -70,7 +94,7 @@ module.exports = function(server, nebula) {
       return res.end(fs.readFileSync('./music.json'))
     }
     if (req.url.startsWith('/admin')) {
-      if (qs.parse(req.url.split('?')[1]).password=='j2405') {
+      if (qs.parse(req.url.split('?')[1]).password=='3eDVMA!RqoREHBGtM@vA') {
         return res.writeHead(200, {'content-type': 'text/html'}).end(fs.readFileSync('./public/admin.data.html'));
       }
     }

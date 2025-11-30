@@ -1,137 +1,599 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ForestCam Admin</title>
   <style>
-    #edit-bar-container, #edit-image-container, #edit-caption-container {
-      display: none;
-      border:1px solid;padding-left:20px;padding-bottom:16px;
-      margin-top: 30px;
-      margin-bottom: 30px;
+    /* Japandi Color Palette */
+    :root {
+      --sage-green: #7fb069;
+      --forest-green: #6a9857;
+      --charcoal: #111827;
+      --slate-gray: #6b7280;
+      --deep-brown: #1f1d1b;
+      --pure-white: #FFFFFF;
+      --warm-beige: #f5f1ed;
+      --soft-cream: #faf8f5;
+      --muted-sage: #a8c69f;
+      --dark-slate: #374151;
+      --light-gray: #d1d5db;
+      --warm-gray: #9ca3af;
+      --accent-terracotta: #c97d60;
+
+      --bg-primary: var(--soft-cream);
+      --bg-secondary: var(--warm-beige);
+      --bg-dark: var(--charcoal);
+      --text-primary: var(--deep-brown);
+      --text-secondary: var(--slate-gray);
+      --text-light: var(--pure-white);
+      --accent-primary: var(--sage-green);
+      --accent-secondary: var(--forest-green);
+
+      --font-serif: 'Source Serif Pro', 'Georgia', serif;
+      --font-sans: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2.5rem;
+      --spacing-xl: 4rem;
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
     }
 
-    .grid-container {
-      columns: 3 200px;
-      padding: 20px;
-      column-gap: 1.5rem;
-      width: 90%;
+    * {
+      box-sizing: border-box;
       margin: 0;
-      border: 1px solid black;
-    }
-
-    .image-delete-btn {
-      width: auto !important;
-      background: white !important;
-      position: absolute !important;
-      top: 10px;
-      left: 10px;
-      z-index: 99999;
-    }
-
-    .grid-container div {
-      width: calc(100% - 20px);
-      margin: 0 1.5rem 1.5rem 0;
-      display: inline-block;
-      position: relative;
-      padding: 5px;
-      border-radius: 5px;
-      border: 1px solid black;
-      transition: all .25s ease-in-out;
-      animation: 0.5s width east-in-out;
-    }
-    .grid-container div img:hover {
-      box-shadow: 0px 0px 10px -1px;
-    }
-    .grid-container div:hover {
-      width: calc(100% - 15px);
-    }
-    .grid-container div img {
-      width: 100%;
-      border-radius: 5px;
-      box-shadow: 0px 0px 3px -1px;
-      transition: box-shadow 0.3s ease-in-out;
-      cursor: pointer;
-    }
-    .grid-container p {
-      margin: 5px 0;
       padding: 0;
-      border: 1px solid black;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      padding: var(--spacing-lg);
+    }
+
+    .admin-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-lg);
+      letter-spacing: -0.02em;
+    }
+
+    /* Tab Navigation */
+    .tab-navigation {
+      display: flex;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-lg);
+      border-bottom: 2px solid var(--light-gray);
+    }
+
+    .tab-btn {
+      padding: var(--spacing-sm) var(--spacing-lg);
+      background: none;
+      border: none;
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-secondary);
       cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab-btn:hover {
+      color: var(--accent-primary);
+    }
+
+    .tab-btn.active {
+      color: var(--accent-secondary);
+      border-bottom-color: var(--accent-secondary);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Add New Section */
+    .add-section {
+      background: var(--pure-white);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .add-section h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin-bottom: var(--spacing-md);
+      color: var(--text-primary);
+    }
+
+    .form-group {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: var(--spacing-xs);
+      color: var(--text-primary);
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="file"],
+    .form-group select {
       width: 100%;
-      color: black;
-      text-align: left;
-      font-family: "Garamond Pro", serif;
+      padding: var(--spacing-sm);
+      border: 1px solid var(--light-gray);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent-primary);
+    }
+
+    .btn {
+      padding: var(--spacing-sm) var(--spacing-lg);
+      background-color: var(--accent-secondary);
+      color: var(--pure-white);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-danger {
+      background-color: var(--accent-terracotta);
+    }
+
+    .btn-danger:hover {
+      background-color: #b56d50;
+    }
+
+    /* Grid Layout for Gallery */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+    }
+
+    /* Item Card */
+    .item-card {
+      background: var(--pure-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .item-card.dragging {
+      opacity: 0.5;
+    }
+
+    .item-card.drag-over {
+      border: 2px dashed var(--accent-primary);
+    }
+
+    .item-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .drag-handle {
+      position: absolute;
+      top: var(--spacing-sm);
+      left: var(--spacing-sm);
+      background: var(--pure-white);
+      padding: var(--spacing-xs);
+      border-radius: var(--radius-sm);
+      cursor: grab;
+      font-size: 1.2rem;
+      z-index: 10;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .drag-handle:active {
+      cursor: grabbing;
+    }
+
+    .item-number {
+      position: absolute;
+      top: var(--spacing-sm);
+      right: var(--spacing-sm);
+      background: var(--accent-secondary);
+      color: var(--pure-white);
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 600;
+      z-index: 10;
+    }
+
+    .item-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .item-content {
+      padding: var(--spacing-md);
+    }
+
+    .item-caption {
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-sm);
+      cursor: pointer;
+      padding: var(--spacing-xs);
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      transition: all 0.3s ease;
+    }
+
+    .item-caption:hover {
+      background: var(--bg-secondary);
+      border-color: var(--light-gray);
+    }
+
+    .item-caption.editing {
+      border-color: var(--accent-primary);
+      background: var(--pure-white);
+    }
+
+    .item-actions {
+      display: flex;
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-sm);
+    }
+
+    .btn-small {
+      padding: var(--spacing-xs) var(--spacing-sm);
+      font-size: 0.875rem;
+    }
+
+    /* Music List Layout */
+    .music-list {
+      margin-top: var(--spacing-lg);
+    }
+
+    .music-item {
+      background: var(--pure-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .music-item.dragging {
+      opacity: 0.5;
+    }
+
+    .music-item:hover {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .music-item-content {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: var(--spacing-md);
+      align-items: center;
+    }
+
+    .music-video-preview {
+      width: 160px;
+      height: 90px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .music-video-preview iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .music-details {
+      flex: 1;
+    }
+
+    .music-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--spacing-xs);
+      cursor: pointer;
+      padding: var(--spacing-xs);
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+    }
+
+    .music-title:hover {
+      background: var(--bg-secondary);
+      border-color: var(--light-gray);
+    }
+
+    .music-meta {
+      display: flex;
+      gap: var(--spacing-md);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .music-copyright {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      padding: var(--spacing-xs);
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+    }
+
+    .music-copyright:hover {
+      background: var(--bg-secondary);
+      border-color: var(--light-gray);
+    }
+
+    .music-type-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .music-type-badge.composition {
+      background-color: var(--muted-sage);
+      color: var(--deep-brown);
+    }
+
+    .music-type-badge.performance {
+      background-color: var(--light-gray);
+      color: var(--deep-brown);
+    }
+
+    .music-type-badge:hover {
+      opacity: 0.8;
+    }
+
+    /* Progress Bars Section */
+    .progress-list {
+      margin-top: var(--spacing-lg);
+    }
+
+    .progress-item {
+      background: var(--pure-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .progress-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 24px;
+      background: var(--light-gray);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary));
+      transition: width 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: var(--spacing-xs);
+      color: var(--pure-white);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    /* Notification */
+    .notification {
+      position: fixed;
+      top: var(--spacing-lg);
+      right: var(--spacing-lg);
+      background: var(--pure-white);
+      padding: var(--spacing-md) var(--spacing-lg);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      z-index: 1000;
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+    }
+
+    .notification.show {
+      transform: translateX(0);
+    }
+
+    .notification.success {
+      border-left: 4px solid var(--accent-primary);
+    }
+
+    .notification.error {
+      border-left: 4px solid var(--accent-terracotta);
+    }
+
+    /* Inline Edit Input */
+    .inline-edit-input {
+      width: 100%;
+      padding: var(--spacing-xs);
+      border: 2px solid var(--accent-primary);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: inherit;
+      background: var(--pure-white);
+    }
+
+    .inline-edit-input:focus {
+      outline: none;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      .items-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .music-item-content {
+        grid-template-columns: 1fr;
+      }
+
+      .music-video-preview {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+      }
     }
   </style>
 </head>
 <body>
-  <hr>
-  <h1>Gallery</h1>
-  <input type="file" id="input">
-  <input id="caption" type="text" placeholder="Enter Caption">
-  <button id="initiate">Create</button>
-  <div id="root"></div><p>
-    <a target="_blank" id="open-url">URL Here</a>
-  </p>
+  <div class="admin-container">
+    <h1>ForestCam Admin</h1>
 
-  <h2>Gallery Editing</h2>
-  <div id="edit-caption-container">
-    <form id="caption-change" name="name" style="display:none;">
-      <h2>Edit Image Caption</h2>
-      <p class="caption-change">Caption:</p>
-      <input required class="caption-change" id="caption-input-new">
-      <br>
-      <input type="submit" value="Change" style="margin-top:30px;"><input type="button" value="Cancel" style="margin-left:10px;" onclick="$('#edit-caption-container').hide()">
-    </form>
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+      <button class="tab-btn active" data-tab="gallery">Gallery</button>
+      <button class="tab-btn" data-tab="music">Music</button>
+      <button class="tab-btn" data-tab="progress">Progress Bars</button>
+    </div>
+
+    <!-- Gallery Tab -->
+    <div id="gallery-tab" class="tab-content active">
+      <div class="add-section">
+        <h2>Add New Gallery Image</h2>
+        <div class="form-group">
+          <label for="gallery-image">Image</label>
+          <input type="file" id="gallery-image" accept="image/*">
+        </div>
+        <div class="form-group">
+          <label for="gallery-caption">Caption</label>
+          <input type="text" id="gallery-caption" placeholder="Enter image caption">
+        </div>
+        <button class="btn" id="add-gallery-btn">Add Image</button>
+      </div>
+
+      <div class="items-grid" id="gallery-grid"></div>
+    </div>
+
+    <!-- Music Tab -->
+    <div id="music-tab" class="tab-content">
+      <div class="add-section">
+        <h2>Add New Music Video</h2>
+        <div class="form-group">
+          <label for="music-youtube-id">YouTube Video ID</label>
+          <input type="text" id="music-youtube-id" placeholder="e.g., dQw4w9WgXcQ">
+        </div>
+        <div class="form-group">
+          <label for="music-title">Title</label>
+          <input type="text" id="music-title" placeholder="Enter video title">
+        </div>
+        <div class="form-group">
+          <label for="music-copyright">Copyright/Date</label>
+          <input type="text" id="music-copyright" placeholder="e.g., December 5, 2024">
+        </div>
+        <div class="form-group">
+          <label for="music-type">Type</label>
+          <select id="music-type">
+            <option value="composition">Composition</option>
+            <option value="performance">Performance</option>
+          </select>
+        </div>
+        <button class="btn" id="add-music-btn">Add Video</button>
+      </div>
+
+      <div class="music-list" id="music-list"></div>
+    </div>
+
+    <!-- Progress Bars Tab -->
+    <div id="progress-tab" class="tab-content">
+      <div class="add-section">
+        <h2>Create Progress Bar</h2>
+        <div class="form-group">
+          <label for="progress-name">Name</label>
+          <input type="text" id="progress-name" placeholder="Enter project name">
+        </div>
+        <div class="form-group">
+          <label for="progress-percent">Percentage (0-100)</label>
+          <input type="number" id="progress-percent" min="0" max="100" step="0.1" placeholder="0">
+        </div>
+        <button class="btn" id="add-progress-btn">Create Progress Bar</button>
+      </div>
+
+      <div class="progress-list" id="progress-list"></div>
+    </div>
   </div>
-  <div id="edit-image-container">
-    <form id="change-image" name="name" style="display:none;">
-      <h2>Edit Image</h2>
-      <p class="image-change">Upload New Image:</p>
-      <input required type="file" id="new-image-upload" class="image-change">
-      <br>
-    <input type="submit" value="Change" style="margin-top:30px;"><input type="button" value="Cancel" style="margin-left:10px;" onclick="$('#edit-image-container').hide()">
-    </form>
-  </div>
-  <div class="grid-container"></div>
 
-  <hr style="height:3px;background:#000000;">
-  <h1>Progress Bars</h1>
-
-  <div id="progress-change">
-  </div>
-
-  <button id="create-progress">+</button><br><br>
-
-  <form id="create-pbar" name="create" style="display:none;border:1px solid;padding-left:20px;padding-bottom:16px;">
-    <h2>Create Progress Bar</h2>
-    <p>Name:</p>
-    <input required class="name-input"><br><br>
-    <p>Percent:</p>
-    <input required min="0" max="100" type="number" class="percent-input" step="0.1"><span class="percent-input"> %</span>
-    <br>
-    <input type="submit" value="Create" style="margin-top:30px;">
-  </form>
-
-  <div id="edit-bar-container">
-    <form id="change-name" name="name" style="display:none;">
-      <h2>Edit Progress Bar</h2>
-      <select id="option-select">
-        <option value="">Select an Option</option>
-        <option value="name">Change Name</option>
-        <option value="num">Change Percentage</option>
-      </select>
-      <p class="percent-change" style="display:none;">Percent:</p>
-      <input required min="0" max="100" type="number" step="0.1" class="percent-change" style="display:none;"><span class="percent-change" style="display:none;"> %</span>
-      <p style="display:none;" class="name-change">Name:</p>
-      <input required class="name-change" style="display:none;">
-      <br>
-      <input type="submit" value="Change" style="display:none;margin-top:30px;">
-    </form>
-  </div>
-  <hr>
+  <!-- Notification -->
+  <div class="notification" id="notification"></div>
 
   <script src="//code.jquery.com/jquery.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
   <script src="/admin.js"></script>
 </body>
 </html>

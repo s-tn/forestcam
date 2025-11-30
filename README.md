@@ -73,7 +73,7 @@ git push origin main
 This project is configured for Replit deployment (see `.replit` file):
 
 1. The app runs automatically on Replit using `npm start`
-2. Access the admin panel at: `/admin?password=j2405`
+2. Access the admin panel at: `/admin?password=<password>`
 3. The production URL is referenced in the code as: `https://forestcam--enderkingj.repl.co`
 
 ## Project Structure
@@ -103,7 +103,7 @@ forestcam/
 - `GET /gallerydata` - Returns gallery.json
 - `GET /progressdata` - Returns progress.json
 - `GET /musicdata` - Returns music.json
-- `GET /admin?password=j2405` - Admin panel (password protected)
+- `GET /admin?password=<password>` - Admin panel (password protected)
 
 ## Socket.IO Events
 
@@ -119,9 +119,9 @@ forestcam/
 
 ## Admin Access
 
-Access the admin panel to manage gallery images and progress bars:
-- URL: `/admin?password=j2405`
-- Password: `j2405`
+Access the admin panel to manage gallery images, music videos, and progress bars:
+- URL: `/admin?password=<password>`
+- Password: Contact site owner for access
 
 ## Technologies Used
 

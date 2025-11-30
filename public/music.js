@@ -8,8 +8,8 @@ $.getJSON('/musicdata', (data) => {
   const performances = [];
 
   data.videos.forEach((e, i) => {
-    // Check if copyright contains "CC BY 4.0" to identify compositions
-    if (e.copyright.includes('CC BY 4.0')) {
+    // Check the type field to identify compositions vs performances
+    if (e.type === 'composition') {
       compositions.push(e);
     } else {
       performances.push(e);

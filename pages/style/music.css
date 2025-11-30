@@ -40,21 +40,35 @@ body {
   text-align: center;
 }
 
-.music-section {
+.compositions-section,
+.performances-section {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg) var(--spacing-xxl);
-  display: flex;
-  justify-content: center;
 }
 
-#music-container {
+.performances-section {
+  padding-top: 0;
+}
+
+.section-title {
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  margin: 0 0 var(--spacing-lg);
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.music-container {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-#music-left-videos {
+#compositions-videos,
+#performances-videos {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -171,7 +185,8 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .music-section {
+  .compositions-section,
+  .performances-section {
     padding: 0 var(--spacing-md) var(--spacing-xl);
   }
 
@@ -179,7 +194,8 @@ body {
     padding: var(--spacing-sm);
   }
 
-  #music-left-videos {
+  #compositions-videos,
+  #performances-videos {
     gap: var(--spacing-lg);
   }
 }

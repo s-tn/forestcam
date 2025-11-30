@@ -218,21 +218,35 @@ body {
   text-align: center;
 }
 
-.music-section {
+.compositions-section,
+.performances-section {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg) var(--spacing-xxl);
-  display: flex;
-  justify-content: center;
 }
 
-#music-container {
+.performances-section {
+  padding-top: 0;
+}
+
+.section-title {
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  margin: 0 0 var(--spacing-lg);
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.music-container {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-#music-left-videos {
+#compositions-videos,
+#performances-videos {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -349,7 +363,8 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .music-section {
+  .compositions-section,
+  .performances-section {
     padding: 0 var(--spacing-md) var(--spacing-xl);
   }
 
@@ -357,7 +372,8 @@ body {
     padding: var(--spacing-sm);
   }
 
-  #music-left-videos {
+  #compositions-videos,
+  #performances-videos {
     gap: var(--spacing-lg);
   }
 }</style>
@@ -784,53 +800,21 @@ footer .middle.box {
     <h1 id="title">Music</h1>
     <p class="music-subtitle">Compositions and performances exploring fantasy orchestral soundscapes.</p>
   </div>
-  <section class="music-section">
-  <div id="music-container">
-    <div id="music-left-videos">
-      <!--<div class="music-video-over">
-        <div class="music-video-left">
-          <div>
-            <span class="music-video-title">
-              BCA Valentine's Day 2022
-            </span>
-            <span class="music-video-date">February 14, 2022</span>
-          </div>
-        </div>
-        <div class="music-video-right">
-          <iframe src="https://www.youtube.com/embed/VsrV033t1yg?autoplay"></iframe>
-        </div>
-      </div>
-      <div class="music-video-over">
-        <div class="music-video-left">
-          <div>
-            <span class="music-video-title">
-              BCA Lunar New Year 2022
-            </span>
-            <span class="music-video-date">February 1, 2022</span>
-          </div>
-        </div>
-        <div class="music-video-right">
-          <iframe src="https://www.youtube.com/embed/GtGlYNAaVgw?autoplay"></iframe>
-        </div>
-      </div>
-      <div class="music-video-over">
-        <div class="music-video-left">
-          <div>
-            <span class="music-video-title">
-              BCA Valentine's Day 2022
-            </span>
-            <span class="music-video-date">February 14, 2022</span>
-          </div>
-        </div>
-        <div class="music-video-right">
-          <iframe src="https://www.youtube.com/embed/ecggWkG0xqI?autoplay"></iframe>
-        </div>
-      </div>-->
-    </div>
-    <!--<div id="music-right-schedule">
 
-    </div>-->
-  </div>
+  <section class="compositions-section">
+    <h2 class="section-title">Compositions</h2>
+    <div class="music-container">
+      <div id="compositions-videos">
+      </div>
+    </div>
+  </section>
+
+  <section class="performances-section">
+    <h2 class="section-title">Performances</h2>
+    <div class="music-container">
+      <div id="performances-videos">
+      </div>
+    </div>
   </section>
   <div id="mobile-navmenu" style="display:none;height:0px;"><div><a href="/" style="display:none;" nebula-link="">Home</a><a href="/gallery" style="display:none;" nebula-link="">Gallery</a><a href="/music" style="display:none;" class="nav-link-now" nebula-link="">Music</a></div></div>
   </div>

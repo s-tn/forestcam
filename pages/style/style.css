@@ -104,6 +104,13 @@ body {
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.1;
+  padding-left: 0;
+}
+
+@media screen and (max-width: 950px) {
+  .body-greeting {
+    padding-left: var(--spacing-md);
+  }
 }
 
 .bold-body-text {
@@ -166,7 +173,7 @@ body {
   .main-page-body {
     grid-template-columns: 1fr;
     padding: var(--spacing-lg) var(--spacing-md);
-    text-align: center;
+    text-align: left;
   }
 
   .main-page-body img {

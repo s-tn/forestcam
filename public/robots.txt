@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block admin and data endpoints
+Disallow: /admin
+Disallow: /gallerydata
+Disallow: /progressdata
+Disallow: /musicdata
+
+Sitemap: https://cameronbryzek.com/sitemap.xml

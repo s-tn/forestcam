@@ -645,6 +645,48 @@ footer .middle.box {
   gap: var(--spacing-sm);
 }
 
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--spacing-md);
+}
+
+.social-icons a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+  border-bottom: none !important;
+  padding: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1;
+}
+
+.social-icons a::after,
+.social-icons a::before {
+  display: none !important;
+}
+
+.social-icons a svg {
+  width: 32px;
+  height: 32px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.social-icons a:hover {
+  color: var(--accent-secondary);
+  transform: translateY(-3px);
+  border: none !important;
+  border-bottom: none !important;
+}
+
 @media screen and (max-width: 768px) {
   footer .content .box {
     width: 100%;
@@ -653,6 +695,15 @@ footer .middle.box {
 
   footer hr {
     width: 50px;
+  }
+
+  .social-icons {
+    gap: var(--spacing-md);
+  }
+
+  .social-icons a svg {
+    width: 36px;
+    height: 36px;
   }
 }</style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

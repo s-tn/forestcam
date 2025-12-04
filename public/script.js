@@ -45,21 +45,17 @@
     }
   }
 
-  let mobileMenuInitialized = false;
-
-  // Mobile menu initialization
+  // Mobile menu initialization - runs on every page load
   neb.addEventListener('load', {initial: true, promise: true}, function(e) {
-    // Only initialize once
-    if (!mobileMenuInitialized) {
-      mobileMenuInitialized = true;
+    const icon = document.getElementById("icon");
+    const mobileMenu = document.getElementById("mobile-navmenu");
 
-      const icon = document.getElementById("icon");
-      const mobileMenu = document.getElementById("mobile-navmenu");
+    if (icon && mobileMenu) {
+      // Re-attach click listener on every page load (DOM gets replaced)
+      icon.addEventListener('click', toggleMobileMenu);
 
-      if (icon && mobileMenu) {
-        icon.addEventListener('click', toggleMobileMenu);
-
-        // Add close button to mobile menu
+      // Add close button if it doesn't exist
+      if (!mobileMenu.querySelector('.mobile-menu-close')) {
         const closeButton = document.createElement('button');
         closeButton.className = 'mobile-menu-close';
         closeButton.innerHTML = '&times;';

@@ -293,7 +293,7 @@ body {
   top: 0;
   bottom: 0;
   display: none;
-  z-index: 999999999999999999;
+  z-index: 1030;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -405,23 +405,35 @@ body {
 }
 
 #mobile-navmenu {
-  background: rgba(250, 248, 245, 0.98);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(250, 248, 245, 1);
   width: 100%;
   height: 0;
-  padding: 10px 5px 10px 5px;
+  padding: 0;
   margin: auto;
   position: fixed;
   top: 0;
   left: 0;
-  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 999;
+  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0s 0.5s;
+  z-index: 1020;
   overflow: hidden;
   border-bottom: 1px solid rgba(127, 176, 105, 0.2);
+  visibility: hidden;
+  pointer-events: none;
 }
 
-#mobile-navmenu div {
+#mobile-navmenu.active {
+  visibility: visible;
+  pointer-events: auto;
+  height: 100vh;
+  padding: 10px 5px 10px 5px;
+  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0s 0s;
+}
+
+#mobile-navmenu > div {
   margin: auto;
   position: absolute;
   width: 100%;
@@ -430,12 +442,52 @@ body {
   text-align: center;
   left: 0;
   right: 0;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: var(--spacing-lg);
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 1, 1);
+}
+
+#mobile-navmenu.active > div {
+  opacity: 1;
+  transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1) 0.25s;
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 2rem;
+  line-height: 1;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s cubic-bezier(0.4, 0, 1, 1);
+  z-index: 1030;
+  padding: 0;
+  opacity: 0;
+}
+
+#mobile-navmenu.active .mobile-menu-close {
+  opacity: 1;
+  transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1) 0.25s;
+}
+
+.mobile-menu-close:hover {
+  color: var(--accent-secondary);
+  transform: rotate(90deg);
 }
 
 #mobile-navmenu a {
@@ -446,7 +498,9 @@ body {
   text-decoration: none;
   display: block;
   padding: var(--spacing-sm);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: var(--radius-md);
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -466,7 +520,7 @@ body {
 
 @keyframes spin {
   0% {
-    transform: rotage(0deg)
+    transform: rotate(0deg)
   }
   100% {
     transform: rotate(-90deg)
@@ -594,12 +648,34 @@ footer .middle.box {
   <meta name="twitter:description" content="Track Cameron Bryzek's ongoing creative projects including music compositions, leather armour crafting, and physics research.">
   <meta name="twitter:image" content="https://cameronbryzek.com/forestarmour.jpg">
   <meta name="twitter:image:alt" content="Cameron Bryzek">
+
+  <!-- SEO: JSON-LD Structured Data - BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://cameronbryzek.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Progress",
+        "item": "https://cameronbryzek.com/progress"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div id="nav">
     <a class="home-link" href="/" nebula-link=""><img class="home-img" src="./favicon.ico"></a>
     <div id="nav-div-1"><a class="nav-link" nebula-link="" href="/">Home</a><a class="nav-link" href="/gallery" nebula-link="">Gallery</a><a class="nav-link" href="/music" nebula-link="">Music</a><!--<a class="nav-link nav-link-now" href="/progress" nebula-link>Progress Bars</a>--></div>
-    <a href="javascript:void(0);" class="icon">
+    <a href="javascript:void(0);" class="icon" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-navmenu">
       <div class="hamburger-icon" id="icon">
         <div class="icon-1" id="a"></div>
         <div class="icon-2" id="b"></div>
@@ -610,7 +686,7 @@ footer .middle.box {
   </div>
   <h1 id="title">Progress Bars</h1>
   <div id="bars"></div>
-  <div id="mobile-navmenu" style="display:none;height:0px;"><div><a href="/" style="display:none;" nebula-link="">Home</a><a href="/gallery" style="display:none;" nebula-link="">Gallery</a><a href="/music" style="display:none;" nebula-link="">Music</a><a class="nav-link-now" href="/progress" style="display:none;" nebula-link="">Progress Bars</a></div></div>
+  <div id="mobile-navmenu" role="navigation" aria-label="Mobile navigation"><div><a href="/" nebula-link="">Home</a><a href="/gallery" nebula-link="">Gallery</a><a href="/music" nebula-link="">Music</a><a class="nav-link-now" href="/progress" nebula-link="">Progress Bars</a></div></div>
   <footer>
     <div class="content">
       <div class="left box">

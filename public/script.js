@@ -10,27 +10,37 @@
   navigator.serviceWorker.register('/pwa.js', {scope: '/'});
   
   neb.addEventListener('load', {initial: true, promise: true}, function(e) {
+    var iconContainer = document.querySelector('.icon');
     var icon = document.getElementById("icon");
     var icon1 = document.getElementById("a");
     var icon2 = document.getElementById("b");
     var icon3 = document.getElementById("c");
-  
-    if (icon) {
-      icon.addEventListener('click', function() {
-        icon1.classList.toggle('a');
-        icon2.classList.toggle('c');
-        icon3.classList.toggle('b');
-        if ($('#mobile-navmenu')[0].style.height === "0px") {
-          $('#mobile-navmenu').show()
-          $('#mobile-navmenu')[0].style.height = "calc(100vh - 20px)"
-          $('#mobile-navmenu')[0].style.padding = "10px 5px 10px 5px"
-          $('#mobile-navmenu a').fadeIn(500)
-        } else {
-          $('#mobile-navmenu')[0].style.height = "0"
-          $('#mobile-navmenu a').fadeOut(500, () => $('#mobile-navmenu')[0].style.padding = "0")
-        }
-      });
-    };
+    var mobileMenu = document.getElementById("mobile-navmenu");
+
+    function toggleMobileMenu() {
+      icon1.classList.toggle('a');
+      icon2.classList.toggle('c');
+      icon3.classList.toggle('b');
+      mobileMenu.classList.toggle('active');
+
+      // Update ARIA attribute
+      const isExpanded = mobileMenu.classList.contains('active');
+      iconContainer.setAttribute('aria-expanded', isExpanded);
+    }
+
+    if (icon && mobileMenu) {
+      icon.addEventListener('click', toggleMobileMenu);
+
+      // Add close button to mobile menu
+      if (!mobileMenu.querySelector('.mobile-menu-close')) {
+        const closeButton = document.createElement('button');
+        closeButton.className = 'mobile-menu-close';
+        closeButton.innerHTML = '&times;';
+        closeButton.setAttribute('aria-label', 'Close navigation menu');
+        closeButton.addEventListener('click', toggleMobileMenu);
+        mobileMenu.insertBefore(closeButton, mobileMenu.firstChild);
+      }
+    }
   });
   
   const socket = io();

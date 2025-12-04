@@ -59,56 +59,91 @@
     "creator": {
       "@type": "Person",
       "name": "Cameron Bryzek",
+      "@id": "https://cameronbryzek.com/#person",
       "url": "https://cameronbryzek.com"
     },
     "hasPart": [
       {
-        "@type": "VisualArtwork",
+        "@type": "CreativeWork",
         "name": "Forest Armour",
         "artform": "Leatherworking",
         "creator": {
           "@type": "Person",
-          "name": "Cameron Bryzek"
+          "name": "Cameron Bryzek",
+          "@id": "https://cameronbryzek.com/#person"
         },
         "dateCreated": "2025",
         "image": "https://cameronbryzek.com/forestarmour.jpg",
-        "material": "Leather"
+        "artMedium": "Leather",
+        "genre": ["Fantasy", "Leatherwork", "Medieval Armour"],
+        "description": "Handcrafted fantasy leather armour featuring forest-inspired design elements"
       },
       {
-        "@type": "VisualArtwork",
+        "@type": "CreativeWork",
         "name": "Vyrlli Armour",
         "artform": "Leatherworking",
         "creator": {
           "@type": "Person",
-          "name": "Cameron Bryzek"
+          "name": "Cameron Bryzek",
+          "@id": "https://cameronbryzek.com/#person"
         },
         "dateCreated": "2022",
         "image": "https://cameronbryzek.com/vyrlliarmour.jpg",
-        "material": "Leather"
+        "artMedium": "Leather",
+        "genre": ["Fantasy", "Leatherwork", "Medieval Armour"],
+        "description": "Custom leather armour set with intricate fantasy detailing"
       },
       {
-        "@type": "VisualArtwork",
+        "@type": "CreativeWork",
         "name": "Galdran Armour",
         "artform": "Leatherworking",
         "creator": {
           "@type": "Person",
-          "name": "Cameron Bryzek"
+          "name": "Cameron Bryzek",
+          "@id": "https://cameronbryzek.com/#person"
         },
         "dateCreated": "2021",
         "image": "https://cameronbryzek.com/galdranarmour.jpg",
-        "material": "Leather"
+        "artMedium": "Leather",
+        "genre": ["Fantasy", "Leatherwork", "Medieval Armour"],
+        "description": "Handcrafted medieval-style leather armour"
       },
       {
-        "@type": "VisualArtwork",
+        "@type": "CreativeWork",
         "name": "Riverglade Armour",
         "artform": "Leatherworking",
         "creator": {
           "@type": "Person",
-          "name": "Cameron Bryzek"
+          "name": "Cameron Bryzek",
+          "@id": "https://cameronbryzek.com/#person"
         },
         "dateCreated": "2020",
         "image": "https://cameronbryzek.com/rivergladearmour.jpg",
-        "material": "Leather"
+        "artMedium": "Leather",
+        "genre": ["Fantasy", "Leatherwork", "Medieval Armour"],
+        "description": "Fantasy-inspired leather armour with flowing design elements"
+      }
+    ]
+  }
+  </script>
+
+  <!-- SEO: JSON-LD Structured Data - BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://cameronbryzek.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Gallery",
+        "item": "https://cameronbryzek.com/gallery"
       }
     ]
   }
@@ -119,7 +154,7 @@
   <div id="nav">
     <a nebula-link class="home-link" href="/"><img class="home-img" src="./favicon.ico"></a>
     <div id="nav-div-1"><a class="nav-link" href="/" nebula-link>Home</a><a nebula-link class="nav-link nav-link-now" href="/gallery">Gallery</a><a nebula-link class="nav-link" href="/music">Music</a><!--<a class="nav-link" href="/progress" nebula-link>Progress Bars</a>--></div>
-    <a href="javascript:void(0);" class="icon">
+    <a href="javascript:void(0);" class="icon" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-navmenu">
       <div class="hamburger-icon" id="icon">
         <div class="icon-1" id="a"></div>
         <div class="icon-2" id="b"></div>
@@ -137,19 +172,19 @@
     <h2 class="section-title">Armour Sets</h2>
     <div class="armor-display">
       <div class="armor-card">
-        <img src="./forestarmour.jpg" alt="Forest Armour handcrafted by Cameron Bryzek" />
+        <img src="./forestarmour.jpg" alt="Forest Armour handcrafted by Cameron Bryzek" loading="lazy" />
         <p class="armor-caption">Forest Armour<span class="armor-year">2025</span></p>
       </div>
       <div class="armor-card">
-        <img src="./vyrlliarmour.jpg" alt="Vyrlli Armour leather work by Cameron Bryzek" />
+        <img src="./vyrlliarmour.jpg" alt="Vyrlli Armour leather work by Cameron Bryzek" loading="lazy" />
         <p class="armor-caption">Vyrlli Armour<span class="armor-year">2022</span></p>
       </div>
       <div class="armor-card">
-        <img src="./galdranarmour.jpg" alt="Galdran Armour created by Cameron Bryzek" />
+        <img src="./galdranarmour.jpg" alt="Galdran Armour created by Cameron Bryzek" loading="lazy" />
         <p class="armor-caption">Galdran Armour<span class="armor-year">2021</span></p>
       </div>
       <div class="armor-card">
-        <img src="./rivergladearmour.jpg" alt="Riverglade Armour handmade by Cameron Bryzek" />
+        <img src="./rivergladearmour.jpg" alt="Riverglade Armour handmade by Cameron Bryzek" loading="lazy" />
         <p class="armor-caption">Riverglade Armour<span class="armor-year">2020</span></p>
       </div>
     </div>
@@ -162,7 +197,7 @@
       </div>
     </div>
   </section>
-  <div id="mobile-navmenu" style="display:none;height:0px;"><div><a nebula-link href="/" style="display:none;">Home</a><a nebula-link class="nav-link-now" href="/gallery" style="display:none;">Gallery</a><a href="/music" nebula-link style="display:none;">Music</a></div></div>
+  <div id="mobile-navmenu" role="navigation" aria-label="Mobile navigation"><div><a nebula-link href="/">Home</a><a nebula-link class="nav-link-now" href="/gallery">Gallery</a><a href="/music" nebula-link>Music</a></div></div>
   </div>
   <footer>
     <div class="content">

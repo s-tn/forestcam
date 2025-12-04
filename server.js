@@ -1,4 +1,5 @@
-const fs = require('fs');
+const fs = require('fs').promises;
+const fsSync = require('fs');
 const qs = require('querystring');
 const express = require('express');
 
@@ -6,117 +7,174 @@ module.exports = function(server, nebula) {
   const io = nebula.plugins['socket.io'];
 
   nebula.server.use('/imgs', express.static('imgs'));
-  
+
   io.on('connection', (socket) => {
     socket.join(socket.id)
-  
-    socket.on('upload', (data, num, caption) => {
+
+    socket.on('upload', async (data, num, caption) => {
       console.log(num, caption)
-      createImg(data, num, caption)
-    })
-  
-    socket.on('removeBar', num => {
-      var data = JSON.parse(fs.readFileSync('progress.json', () => {}))
-      delete data.progress[num]
-      delete data.projects.splice(data.projects.indexOf(num), 1)
-      console.log(data)
-      fs.writeFileSync('progress.json', JSON.stringify(data), () => {})
-    })
-  
-    socket.on('changeName', (value, num) => {
-      var data = JSON.parse(fs.readFileSync('progress.json', () => {}))
-      data.progress[num].name = value
-      fs.writeFileSync('progress.json', JSON.stringify(data), () => {})
-    })
-  
-    socket.on('createPBar', (name, value) => {
-      createProgressBar(name, value)
-    })
-  
-    socket.on('changeProgress', (value, num) => {
-      var data = JSON.parse(fs.readFileSync('progress.json', () => {}))
-      data.progress[num].progress = value
-      fs.writeFileSync('progress.json', JSON.stringify(data), () => {})
+      await createImg(data, num, caption)
     })
 
-    socket.on('changeCaption', (caption, img) => {
-      var data = JSON.parse(fs.readFileSync('gallery.json', () => {}));
-      data[data.findIndex(e=>e.number==img)].caption = caption;
-      fs.writeFileSync('gallery.json', JSON.stringify(data), () => {});
+    socket.on('removeBar', async (num) => {
+      try {
+        const data = JSON.parse(await fs.readFile('progress.json', 'utf-8'))
+        delete data.progress[num]
+        data.projects.splice(data.projects.indexOf(num), 1)
+        console.log(data)
+        await fs.writeFile('progress.json', JSON.stringify(data))
+      } catch (error) {
+        console.error('Error removing progress bar:', error)
+      }
     })
 
-    socket.on('changeImage', (img, num) => {
-      fs.writeFileSync('./imgs/'+num+'.png', img, 'base64', () => {})
+    socket.on('changeName', async (value, num) => {
+      try {
+        const data = JSON.parse(await fs.readFile('progress.json', 'utf-8'))
+        data.progress[num].name = value
+        await fs.writeFile('progress.json', JSON.stringify(data))
+      } catch (error) {
+        console.error('Error changing name:', error)
+      }
     })
 
-    socket.on('deleteImage', (caption, img) => {
-      var data = JSON.parse(fs.readFileSync('gallery.json', () => {}));
-      data.splice(data.findIndex(e=>e.number==img), 1);
-      fs.writeFileSync('gallery.json', JSON.stringify(data), () => {});
+    socket.on('createPBar', async (name, value) => {
+      await createProgressBar(name, value)
+    })
+
+    socket.on('changeProgress', async (value, num) => {
+      try {
+        const data = JSON.parse(await fs.readFile('progress.json', 'utf-8'))
+        data.progress[num].progress = value
+        await fs.writeFile('progress.json', JSON.stringify(data))
+      } catch (error) {
+        console.error('Error changing progress:', error)
+      }
+    })
+
+    socket.on('changeCaption', async (caption, img) => {
+      try {
+        const data = JSON.parse(await fs.readFile('gallery.json', 'utf-8'))
+        data[data.findIndex(e=>e.number==img)].caption = caption
+        await fs.writeFile('gallery.json', JSON.stringify(data))
+      } catch (error) {
+        console.error('Error changing caption:', error)
+      }
+    })
+
+    socket.on('changeImage', async (img, num) => {
+      try {
+        await fs.writeFile('./imgs/'+num+'.png', img, 'base64')
+      } catch (error) {
+        console.error('Error changing image:', error)
+      }
+    })
+
+    socket.on('deleteImage', async (caption, img) => {
+      try {
+        const data = JSON.parse(await fs.readFile('gallery.json', 'utf-8'))
+        data.splice(data.findIndex(e=>e.number==img), 1)
+        await fs.writeFile('gallery.json', JSON.stringify(data))
+      } catch (error) {
+        console.error('Error deleting image:', error)
+      }
     })
 
     // New socket events for music management
-    socket.on('updateMusicData', (videos) => {
-      var data = JSON.parse(fs.readFileSync('music.json', () => {}));
-      data.videos = videos;
-      fs.writeFileSync('music.json', JSON.stringify(data, null, 2), () => {});
+    socket.on('updateMusicData', async (videos) => {
+      try {
+        const data = JSON.parse(await fs.readFile('music.json', 'utf-8'))
+        data.videos = videos
+        await fs.writeFile('music.json', JSON.stringify(data, null, 2))
+      } catch (error) {
+        console.error('Error updating music data:', error)
+      }
     })
 
-    socket.on('addMusic', (video) => {
-      var data = JSON.parse(fs.readFileSync('music.json', () => {}));
-      data.videos.push(video);
-      fs.writeFileSync('music.json', JSON.stringify(data, null, 2), () => {});
+    socket.on('addMusic', async (video) => {
+      try {
+        const data = JSON.parse(await fs.readFile('music.json', 'utf-8'))
+        data.videos.push(video)
+        await fs.writeFile('music.json', JSON.stringify(data, null, 2))
+      } catch (error) {
+        console.error('Error adding music:', error)
+      }
     })
 
-    socket.on('deleteMusic', (index) => {
-      var data = JSON.parse(fs.readFileSync('music.json', () => {}));
-      data.videos.splice(index, 1);
-      fs.writeFileSync('music.json', JSON.stringify(data, null, 2), () => {});
+    socket.on('deleteMusic', async (index) => {
+      try {
+        const data = JSON.parse(await fs.readFile('music.json', 'utf-8'))
+        data.videos.splice(index, 1)
+        await fs.writeFile('music.json', JSON.stringify(data, null, 2))
+      } catch (error) {
+        console.error('Error deleting music:', error)
+      }
     })
 
     // New socket event for gallery reordering
-    socket.on('reorderGallery', (galleryData) => {
-      fs.writeFileSync('gallery.json', JSON.stringify(galleryData), () => {});
+    socket.on('reorderGallery', async (galleryData) => {
+      try {
+        await fs.writeFile('gallery.json', JSON.stringify(galleryData))
+      } catch (error) {
+        console.error('Error reordering gallery:', error)
+      }
     })
   });
   
-  server.on('request', (req, res) => {
+  server.on('request', async (req, res) => {
     if (res.headersSent) return;
     if (res.writableEnded) return;
-    
-    if (req.url=='/gallerydata') {
-      return res.end(fs.readFileSync('./gallery.json'))
-    }
-    if (req.url=='/progressdata') {
-      return res.end(fs.readFileSync('./progress.json'))
-    }
-    if (req.url=='/musicdata') {
-      return res.end(fs.readFileSync('./music.json'))
-    }
-    if (req.url.startsWith('/admin')) {
-      if (qs.parse(req.url.split('?')[1]).password=='3eDVMA!RqoREHBGtM@vA') {
-        return res.writeHead(200, {'content-type': 'text/html'}).end(fs.readFileSync('./public/admin.data.html'));
+
+    try {
+      if (req.url=='/gallerydata') {
+        const data = await fs.readFile('./gallery.json', 'utf-8')
+        return res.end(data)
       }
+      if (req.url=='/progressdata') {
+        const data = await fs.readFile('./progress.json', 'utf-8')
+        return res.end(data)
+      }
+      if (req.url=='/musicdata') {
+        const data = await fs.readFile('./music.json', 'utf-8')
+        return res.end(data)
+      }
+      if (req.url.startsWith('/admin')) {
+        if (qs.parse(req.url.split('?')[1]).password=='3eDVMA!RqoREHBGtM@vA') {
+          const adminHtml = await fs.readFile('./public/admin.data.html', 'utf-8')
+          return res.writeHead(200, {'content-type': 'text/html'}).end(adminHtml);
+        }
+      }
+    } catch (error) {
+      console.error('Error handling request:', error)
+      res.writeHead(500).end('Internal Server Error')
     }
   })
 }
 
-function createImg(data, num, caption) {
-  fs.writeFileSync('./imgs/'+num+'.png', data, 'base64', () => {})
-  var imgs = JSON.parse(fs.readFileSync('gallery.json', () => {}))
-  imgs.push({
-    number: num,
-    caption: caption,
-  });
-  fs.writeFileSync('gallery.json', JSON.stringify(imgs), () => {})
-  console.log('https://forestcam--enderkingj.repl.co/imgs/'+num+".png")
+async function createImg(data, num, caption) {
+  try {
+    await fs.writeFile('./imgs/'+num+'.png', data, 'base64')
+    const imgs = JSON.parse(await fs.readFile('gallery.json', 'utf-8'))
+    imgs.push({
+      number: num,
+      caption: caption,
+    });
+    await fs.writeFile('gallery.json', JSON.stringify(imgs))
+    console.log('https://forestcam--enderkingj.repl.co/imgs/'+num+".png")
+  } catch (error) {
+    console.error('Error creating image:', error)
+  }
 }
 
-function createProgressBar(name, value) {
-  var data = JSON.parse(fs.readFileSync('progress.json', () => {}))
-  var num = data.projects.length + 1
-  data.progress[num] = {progress:value,name:name}
-  data.projects.push(num)
-  console.log(data)
-  fs.writeFileSync('progress.json', JSON.stringify(data), () => {})
+async function createProgressBar(name, value) {
+  try {
+    const data = JSON.parse(await fs.readFile('progress.json', 'utf-8'))
+    const num = data.projects.length + 1
+    data.progress[num] = {progress:value,name:name}
+    data.projects.push(num)
+    console.log(data)
+    await fs.writeFile('progress.json', JSON.stringify(data))
+  } catch (error) {
+    console.error('Error creating progress bar:', error)
+  }
 }

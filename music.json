@@ -1,6 +1,12 @@
 {
   "videos": [
     {
+      "copyright": "November 15, 2025",
+      "video": "NTZV1soFPDI",
+      "title": "Reed College Fall Choral Concert 2025",
+      "type": "performance"
+    },
+    {
       "copyright": "May 1, 2025",
       "video": "WVsethBiHw8",
       "title": "Reed College Orchestra Spring Concert 2025",
@@ -10,6 +16,12 @@
       "copyright": "December 5, 2024",
       "video": "ilCX5ZO9Gg4",
       "title": "Reed College Orchestra Fall Concert 2024",
+      "type": "performance"
+    },
+    {
+      "copyright": "December 1, 2023",
+      "video": "TJrLv6BwPmc",
+      "title": "Reed College Winter Choral Concert 2023",
       "type": "performance"
     },
     {

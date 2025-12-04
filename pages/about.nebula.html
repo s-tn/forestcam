@@ -46,6 +46,50 @@
   <meta name="twitter:description" content="Glen Rock-based physics student, fantasy orchestral composer, and master leatherworker creating handcrafted leather armour and epic fantasy music.">
   <meta name="twitter:image" content="https://cameronbryzek.com/forestarmour.jpg">
   <meta name="twitter:image:alt" content="Cameron Bryzek">
+
+  <!-- SEO: JSON-LD Structured Data - ProfilePage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://cameronbryzek.com/#person",
+      "name": "Cameron Bryzek",
+      "description": "Physics and music student, composer, reactor operator, and leatherworker",
+      "url": "https://cameronbryzek.com/about",
+      "image": "https://cameronbryzek.com/forestarmour.jpg",
+      "sameAs": [
+        "https://www.instagram.com/cambryzek/",
+        "https://x.com/cambryzek",
+        "https://www.linkedin.com/in/cameron-bryzek/",
+        "https://www.youtube.com/@cambryzek"
+      ]
+    }
+  }
+  </script>
+
+  <!-- SEO: JSON-LD Structured Data - BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://cameronbryzek.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://cameronbryzek.com/about"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div id="site-content-main">
@@ -57,7 +101,7 @@
         <a class="nav-link" href="/music" nebula-link>Music</a>
         <a class="nav-link nav-link-now" href="/about" nebula-link>About</a>
       </div>
-      <a href="javascript:void(0);" class="icon">
+      <a href="javascript:void(0);" class="icon" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-navmenu">
         <div class="hamburger-icon" id="icon">
           <div class="icon-1" id="a"></div>
           <div class="icon-2" id="b"></div>
@@ -76,12 +120,12 @@
       </div>
     </div>
 
-    <div id="mobile-navmenu" style="display:none;height:0px;">
+    <div id="mobile-navmenu" role="navigation" aria-label="Mobile navigation">
       <div>
-        <a href="/" style="display:none;" nebula-link>Home</a>
-        <a href="/gallery" style="display:none;" nebula-link>Gallery</a>
-        <a href="/music" style="display:none;" nebula-link>Music</a>
-        <a href="/about" class="nav-link-now" style="display:none;" nebula-link>About</a>
+        <a href="/" nebula-link>Home</a>
+        <a href="/gallery" nebula-link>Gallery</a>
+        <a href="/music" nebula-link>Music</a>
+        <a href="/about" class="nav-link-now" nebula-link>About</a>
       </div>
     </div>
   </div>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Menu Animation Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+
+    .test-container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 { color: #333; margin-top: 0; }
+    h2 { color: #666; font-size: 18px; }
+
+    .test-button {
+      background: #7fb069;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px 5px;
+    }
+
+    .test-button:hover {
+      background: #6a9557;
+    }
+
+    .status {
+      padding: 10px;
+      border-radius: 4px;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    .status.pass {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .status.fail {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    .status.pending {
+      background: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeaa7;
+    }
+
+    #test-results {
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .test-line {
+      margin: 5px 0;
+      padding: 5px;
+      border-left: 3px solid #ccc;
+      padding-left: 10px;
+    }
+
+    .test-line.pass {
+      border-color: #28a745;
+      background: #f0f9f4;
+    }
+
+    .test-line.fail {
+      border-color: #dc3545;
+      background: #fdf3f4;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 Mobile Menu Animation Test Suite</h1>
+
+  <div class="test-container">
+    <h2>Test Controls</h2>
+    <button class="test-button" onclick="runAllTests()">Run All Tests</button>
+    <button class="test-button" onclick="openMenuManual()">Manually Open Menu</button>
+    <button class="test-button" onclick="closeMenuManual()">Manually Close Menu</button>
+    <button class="test-button" onclick="location.reload()">Reload Page</button>
+  </div>
+
+  <div class="test-container">
+    <h2>Test Status</h2>
+    <div id="overall-status" class="status pending">⏳ Tests not run yet</div>
+  </div>
+
+  <div class="test-container">
+    <h2>Test Results</h2>
+    <div id="test-results"></div>
+  </div>
+
+  <script>
+    let testResults = [];
+
+    function log(message, pass = null) {
+      const line = document.createElement('div');
+      line.className = 'test-line';
+      if (pass === true) line.classList.add('pass');
+      if (pass === false) line.classList.add('fail');
+      line.textContent = message;
+      document.getElementById('test-results').appendChild(line);
+
+      if (pass !== null) {
+        testResults.push(pass);
+      }
+    }
+
+    function updateOverallStatus() {
+      const status = document.getElementById('overall-status');
+      const allPass = testResults.every(r => r === true);
+      const anyFail = testResults.some(r => r === false);
+
+      if (anyFail) {
+        status.className = 'status fail';
+        status.textContent = `❌ ${testResults.filter(r => !r).length} test(s) failed`;
+      } else if (allPass && testResults.length > 0) {
+        status.className = 'status pass';
+        status.textContent = `✅ All ${testResults.length} tests passed!`;
+      }
+    }
+
+    async function wait(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function getComputedOpacity(element) {
+      return parseFloat(window.getComputedStyle(element).opacity);
+    }
+
+    function getComputedVisibility(element) {
+      return window.getComputedStyle(element).visibility;
+    }
+
+    function isElementVisible(element) {
+      const style = window.getComputedStyle(element);
+      const opacity = parseFloat(style.opacity);
+      const visibility = style.visibility;
+      const display = style.display;
+
+      return opacity > 0 && visibility !== 'hidden' && display !== 'none';
+    }
+
+    async function runAllTests() {
+      document.getElementById('test-results').innerHTML = '';
+      testResults = [];
+
+      log('=== Starting Mobile Menu Tests ===');
+      log('');
+
+      // Navigate to actual site in iframe
+      log('Loading ForestCam site...');
+      const iframe = document.createElement('iframe');
+      iframe.style.cssText = 'position:fixed;top:-9999px;width:375px;height:667px;';
+      document.body.appendChild(iframe);
+
+      await new Promise(resolve => {
+        iframe.onload = resolve;
+        iframe.src = 'http://localhost:5555';
+      });
+
+      await wait(1000); // Wait for page to fully load
+
+      const iframeDoc = iframe.contentDocument;
+      const mobileMenu = iframeDoc.getElementById('mobile-navmenu');
+      const hamburger = iframeDoc.querySelector('.icon');
+      const menuContent = iframeDoc.querySelector('#mobile-navmenu > div');
+      const closeButton = iframeDoc.querySelector('.mobile-menu-close');
+
+      if (!mobileMenu || !hamburger) {
+        log('❌ ERROR: Could not find mobile menu elements', false);
+        document.body.removeChild(iframe);
+        updateOverallStatus();
+        return;
+      }
+
+      log('✓ Found mobile menu elements');
+      log('');
+
+      // Test 1: Initial state
+      log('TEST 1: Initial State');
+      const initialVisible = isElementVisible(mobileMenu);
+      log(`  Menu visibility: ${getComputedVisibility(mobileMenu)}`, !initialVisible);
+      log(`  Menu opacity: ${getComputedOpacity(mobileMenu)}`);
+      if (menuContent) {
+        log(`  Content opacity: ${getComputedOpacity(menuContent)}`);
+        const contentVisible = isElementVisible(menuContent);
+        log(`  Content visible: ${contentVisible}`, !contentVisible);
+      }
+      log('');
+
+      // Test 2: Opening animation
+      log('TEST 2: Opening Animation');
+      hamburger.click();
+      await wait(100); // Check immediately after click
+
+      const duringOpenVisible = getComputedVisibility(mobileMenu);
+      log(`  Menu visibility during open: ${duringOpenVisible}`, duringOpenVisible === 'visible');
+
+      if (menuContent) {
+        const contentOpacityDuringOpen = getComputedOpacity(menuContent);
+        log(`  Content opacity at start: ${contentOpacityDuringOpen}`);
+
+        // Content should be invisible or fading in
+        const contentShouldBeHidden = contentOpacityDuringOpen < 0.5;
+        log(`  Content hidden during slide: ${contentShouldBeHidden}`, contentShouldBeHidden);
+      }
+
+      await wait(600); // Wait for animation to complete
+
+      const afterOpenContentOpacity = menuContent ? getComputedOpacity(menuContent) : 0;
+      log(`  Content opacity after open: ${afterOpenContentOpacity}`, afterOpenContentOpacity === 1);
+      log('');
+
+      // Test 3: Closing animation
+      log('TEST 3: Closing Animation');
+      if (closeButton) {
+        closeButton.click();
+      } else {
+        hamburger.click();
+      }
+
+      await wait(100); // Check during animation
+
+      if (menuContent) {
+        const contentOpacityDuringClose = getComputedOpacity(menuContent);
+        log(`  Content opacity during close: ${contentOpacityDuringClose}`);
+
+        // Content should be invisible immediately or very quickly
+        const contentQuicklyHidden = contentOpacityDuringClose < 0.9;
+        log(`  Content hidden during slide-up: ${contentQuicklyHidden}`, contentQuicklyHidden);
+      }
+
+      await wait(600); // Wait for animation to complete
+
+      const afterCloseVisible = isElementVisible(mobileMenu);
+      log(`  Menu visible after close: ${afterCloseVisible}`, !afterCloseVisible);
+      log('');
+
+      // Test 4: Multiple open/close cycles
+      log('TEST 4: Multiple Cycles (checking for blur)');
+      for (let i = 0; i < 3; i++) {
+        hamburger.click();
+        await wait(250); // Mid-animation
+
+        if (menuContent) {
+          const opacity = getComputedOpacity(menuContent);
+          const shouldBeHiddenOrFading = opacity < 0.8;
+          log(`  Cycle ${i+1} open - content opacity: ${opacity.toFixed(2)}`, shouldBeHiddenOrFading);
+        }
+
+        await wait(400);
+
+        hamburger.click();
+        await wait(250); // Mid-animation
+
+        if (menuContent) {
+          const opacity = getComputedOpacity(menuContent);
+          const shouldBeHiddenOrFading = opacity < 0.8;
+          log(`  Cycle ${i+1} close - content opacity: ${opacity.toFixed(2)}`, shouldBeHiddenOrFading);
+        }
+
+        await wait(400);
+      }
+
+      log('');
+      log('=== Tests Complete ===');
+
+      document.body.removeChild(iframe);
+      updateOverallStatus();
+    }
+
+    function openMenuManual() {
+      window.open('http://localhost:5555', '_blank');
+    }
+
+    function closeMenuManual() {
+      alert('Use the close button or hamburger on the opened site');
+    }
+  </script>
+</body>
+</html>

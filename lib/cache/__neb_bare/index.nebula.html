@@ -343,7 +343,7 @@ body {
   top: 0;
   bottom: 0;
   display: none;
-  z-index: 999999999999999999;
+  z-index: 1030;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -455,23 +455,35 @@ body {
 }
 
 #mobile-navmenu {
-  background: rgba(250, 248, 245, 0.98);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(250, 248, 245, 1);
   width: 100%;
   height: 0;
-  padding: 10px 5px 10px 5px;
+  padding: 0;
   margin: auto;
   position: fixed;
   top: 0;
   left: 0;
-  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 999;
+  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0s 0.5s;
+  z-index: 1020;
   overflow: hidden;
   border-bottom: 1px solid rgba(127, 176, 105, 0.2);
+  visibility: hidden;
+  pointer-events: none;
 }
 
-#mobile-navmenu div {
+#mobile-navmenu.active {
+  visibility: visible;
+  pointer-events: auto;
+  height: 100vh;
+  padding: 10px 5px 10px 5px;
+  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0s 0s;
+}
+
+#mobile-navmenu > div {
   margin: auto;
   position: absolute;
   width: 100%;
@@ -480,12 +492,52 @@ body {
   text-align: center;
   left: 0;
   right: 0;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: var(--spacing-lg);
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 1, 1);
+}
+
+#mobile-navmenu.active > div {
+  opacity: 1;
+  transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1) 0.25s;
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 2rem;
+  line-height: 1;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s cubic-bezier(0.4, 0, 1, 1);
+  z-index: 1030;
+  padding: 0;
+  opacity: 0;
+}
+
+#mobile-navmenu.active .mobile-menu-close {
+  opacity: 1;
+  transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1) 0.25s;
+}
+
+.mobile-menu-close:hover {
+  color: var(--accent-secondary);
+  transform: rotate(90deg);
 }
 
 #mobile-navmenu a {
@@ -496,7 +548,9 @@ body {
   text-decoration: none;
   display: block;
   padding: var(--spacing-sm);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: var(--radius-md);
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -516,7 +570,7 @@ body {
 
 @keyframes spin {
   0% {
-    transform: rotage(0deg)
+    transform: rotate(0deg)
   }
   100% {
     transform: rotate(-90deg)
@@ -653,10 +707,14 @@ footer .middle.box {
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://cameronbryzek.com/#person",
     "name": "Cameron Bryzek",
     "url": "https://cameronbryzek.com",
     "image": "https://cameronbryzek.com/forestarmour.jpg",
     "email": "cambryzek@gmail.com",
+    "honorificPrefix": "Mx.",
+    "gender": "Non-Binary",
+    "nationality": "American",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "334 Hamilton Avenue",
@@ -736,15 +794,39 @@ footer .middle.box {
         "name": "Bergen County Academies - Engineering Academy"
       }
     ],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Reed Research Reactor"
-    },
+    "worksFor": [
+      {
+        "@type": "Organization",
+        "name": "Reed Research Reactor",
+        "description": "Licensed reactor operator"
+      },
+      {
+        "@type": "Organization",
+        "name": "Reed College Physics Department",
+        "description": "Laboratory Teaching Assistant"
+      }
+    ],
+    "memberOf": [
+      {
+        "@type": "Organization",
+        "name": "Reed College Orchestra",
+        "url": "https://www.reed.edu/music/orchestra/"
+      },
+      {
+        "@type": "Organization",
+        "name": "US Aikido Federation"
+      }
+    ],
     "performerIn": [
       {
         "@type": "MusicGroup",
         "name": "Reed College Orchestra"
       }
+    ],
+    "award": [
+      "Young Writer's Award - Simon's Rock Workshop",
+      "First Kyu in Aikido - US Aikido Federation",
+      "Reactor Operator License - Reed Research Reactor"
     ],
     "sameAs": [
       "https://www.instagram.com/cambryzek/",
@@ -755,13 +837,46 @@ footer .middle.box {
     ]
   }
   </script>
+
+  <!-- SEO: JSON-LD Structured Data - WebSite Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Cameron Bryzek Portfolio",
+    "url": "https://cameronbryzek.com",
+    "description": "Cameron Bryzek - Physics student, fantasy music composer, and master leatherworker creating orchestral compositions and handcrafted leather armour.",
+    "author": {
+      "@type": "Person",
+      "name": "Cameron Bryzek",
+      "@id": "https://cameronbryzek.com/#person"
+    },
+    "inLanguage": "en-US"
+  }
+  </script>
+
+  <!-- SEO: JSON-LD Structured Data - BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://cameronbryzek.com/"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div id="site-content-main">
   <div id="nav">
     <a class="home-link" href="/"><img class="home-img" src="./favicon.ico" nebula-link=""></a>
     <div id="nav-div-1"><a class="nav-link nav-link-now" href="/" nebula-link="">Home</a><a class="nav-link" href="/gallery" nebula-link="">Gallery</a><a class="nav-link" href="/music" nebula-link="">Music</a><!--<a class="nav-link" href="/progress" nebula-link>Progress Bars</a>--></div>
-    <a href="javascript:void(0);" class="icon">
+    <a href="javascript:void(0);" class="icon" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-navmenu">
       <div class="hamburger-icon" id="icon">
         <div class="icon-1" id="a"></div>
         <div class="icon-2" id="b"></div>
@@ -774,15 +889,15 @@ footer .middle.box {
     <div>
       <h1 class="body-greeting">Cameron Bryzek</h1>
       <p class="body-text-body">
-        I'm Cameron, a musician and leatherworker with a passion for the fantasy genre. Drawing inspiration from epic fantasy novels, narrative driven video games, and orchestral scores, my work includes crafting intricate leather armour and composing music that transports us to fantastical worlds. 
+        I'm Cameron, a musician and leatherworker with a passion for the fantasy genre. Drawing inspiration from epic fantasy novels, narrative driven video games, and orchestral scores, my work includes crafting intricate leather armour and composing music that transports us to fantastical worlds.
       </p>
       <p class="body-text-body-sub">
         Explore my <a href="/gallery" class="bold-body-text" nebula-link="">Gallery</a> to see handcrafted leather projects, or visit the <a href="/music" class="bold-body-text" nebula-link="">Music</a> section to hear my compositions and performances.
       </p>
     </div>
-    <img src="/forestarmour.jpg" alt="Cameron Bryzek - Forest Armor">
+    <img src="/forestarmour.jpg" alt="Cameron Bryzek - Forest Armor" loading="lazy">
   </div>
-  <div id="mobile-navmenu" style="display:none;height:0px;"><div><a href="/" class="nav-link-now" style="display:none;" nebula-link="">Home</a><a href="/gallery" style="display:none;" nebula-link="">Gallery</a><a href="/music" style="display:none;" nebula-link="">Music</a></div></div>
+  <div id="mobile-navmenu" role="navigation" aria-label="Mobile navigation"><div><a href="/" class="nav-link-now" nebula-link="">Home</a><a href="/gallery" nebula-link="">Gallery</a><a href="/music" nebula-link="">Music</a></div></div>
   <span style="visibility:hidden">Do you hate getting things stuck to the roof of your mouth? You're not alone; you might have arachibutyrophobia. Arachibutyrophobia is the fear of getting peanut butter stuck to the roof of your mouth and being choked.</span>
   </div>
   <footer>

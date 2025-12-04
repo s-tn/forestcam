@@ -56,10 +56,14 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://cameronbryzek.com/#person",
     "name": "Cameron Bryzek",
     "url": "https://cameronbryzek.com",
     "image": "https://cameronbryzek.com/forestarmour.jpg",
     "email": "cambryzek@gmail.com",
+    "honorificPrefix": "Mx.",
+    "gender": "Non-Binary",
+    "nationality": "American",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "334 Hamilton Avenue",
@@ -139,15 +143,39 @@
         "name": "Bergen County Academies - Engineering Academy"
       }
     ],
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Reed Research Reactor"
-    },
+    "worksFor": [
+      {
+        "@type": "Organization",
+        "name": "Reed Research Reactor",
+        "description": "Licensed reactor operator"
+      },
+      {
+        "@type": "Organization",
+        "name": "Reed College Physics Department",
+        "description": "Laboratory Teaching Assistant"
+      }
+    ],
+    "memberOf": [
+      {
+        "@type": "Organization",
+        "name": "Reed College Orchestra",
+        "url": "https://www.reed.edu/music/orchestra/"
+      },
+      {
+        "@type": "Organization",
+        "name": "US Aikido Federation"
+      }
+    ],
     "performerIn": [
       {
         "@type": "MusicGroup",
         "name": "Reed College Orchestra"
       }
+    ],
+    "award": [
+      "Young Writer's Award - Simon's Rock Workshop",
+      "First Kyu in Aikido - US Aikido Federation",
+      "Reactor Operator License - Reed Research Reactor"
     ],
     "sameAs": [
       "https://www.instagram.com/cambryzek/",
@@ -158,13 +186,46 @@
     ]
   }
   </script>
+
+  <!-- SEO: JSON-LD Structured Data - WebSite Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Cameron Bryzek Portfolio",
+    "url": "https://cameronbryzek.com",
+    "description": "Cameron Bryzek - Physics student, fantasy music composer, and master leatherworker creating orchestral compositions and handcrafted leather armour.",
+    "author": {
+      "@type": "Person",
+      "name": "Cameron Bryzek",
+      "@id": "https://cameronbryzek.com/#person"
+    },
+    "inLanguage": "en-US"
+  }
+  </script>
+
+  <!-- SEO: JSON-LD Structured Data - BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://cameronbryzek.com/"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div id="site-content-main">
   <div id="nav">
     <a class="home-link" href="/"><img class="home-img" src="./favicon.ico" nebula-link></a>
     <div id="nav-div-1"><a class="nav-link nav-link-now" href="/" nebula-link>Home</a><a class="nav-link" href="/gallery" nebula-link>Gallery</a><a class="nav-link" href="/music" nebula-link>Music</a><!--<a class="nav-link" href="/progress" nebula-link>Progress Bars</a>--></div>
-    <a href="javascript:void(0);" class="icon">
+    <a href="javascript:void(0);" class="icon" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-navmenu">
       <div class="hamburger-icon" id="icon">
         <div class="icon-1" id="a"></div>
         <div class="icon-2" id="b"></div>
@@ -177,15 +238,15 @@
     <div>
       <h1 class="body-greeting">Cameron Bryzek</h1>
       <p class="body-text-body">
-        I'm Cameron, a musician and leatherworker with a passion for the fantasy genre. Drawing inspiration from epic fantasy novels, narrative driven video games, and orchestral scores, my work includes crafting intricate leather armour and composing music that transports us to fantastical worlds. 
+        I'm Cameron, a musician and leatherworker with a passion for the fantasy genre. Drawing inspiration from epic fantasy novels, narrative driven video games, and orchestral scores, my work includes crafting intricate leather armour and composing music that transports us to fantastical worlds.
       </p>
       <p class="body-text-body-sub">
         Explore my <a href="/gallery" class="bold-body-text" nebula-link>Gallery</a> to see handcrafted leather projects, or visit the <a href="/music" class="bold-body-text" nebula-link>Music</a> section to hear my compositions and performances.
       </p>
     </div>
-    <img src="/forestarmour.jpg" alt="Cameron Bryzek - Forest Armor">
+    <img src="/forestarmour.jpg" alt="Cameron Bryzek - Forest Armor" loading="lazy">
   </div>
-  <div id="mobile-navmenu" style="display:none;height:0px;"><div><a href="/" class="nav-link-now" style="display:none;" nebula-link>Home</a><a href="/gallery" style="display:none;" nebula-link>Gallery</a><a href="/music" style="display:none;" nebula-link>Music</a></div></div>
+  <div id="mobile-navmenu" role="navigation" aria-label="Mobile navigation"><div><a href="/" class="nav-link-now" nebula-link>Home</a><a href="/gallery" nebula-link>Gallery</a><a href="/music" nebula-link>Music</a></div></div>
   <span style="visibility:hidden">Do you hate getting things stuck to the roof of your mouth? You're not alone; you might have arachibutyrophobia. Arachibutyrophobia is the fear of getting peanut butter stuck to the roof of your mouth and being choked.</span>
   </div>
   <footer>

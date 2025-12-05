@@ -79,25 +79,66 @@ function FilterImages(data) {
   return data
 }
 
-$.getJSON('/gallerydata', (data) => {
-  data = FilterImages(data)
+function getColumnCount() {
+  const width = window.innerWidth
+  if (width <= 768) return 1    // Mobile: 1 column
+  if (width <= 1024) return 2   // Tablet: 2 columns
+  return 3                       // Desktop: 3 columns
+}
 
-  // Create 3 columns for masonry layout
+function distributeGallery(data) {
   const gridContainer = $('.grid-container')[0]
-  gridContainer.innerHTML = `
-    <div class="gallery-column" data-column="0"></div>
-    <div class="gallery-column" data-column="1"></div>
-    <div class="gallery-column" data-column="2"></div>
-  `
+  if (!gridContainer) {
+    console.error('Grid container not found')
+    return
+  }
+
+  const numColumns = getColumnCount()
+  console.log(`Gallery: ${data.length} items, ${numColumns} column(s), width: ${window.innerWidth}px`)
+
+  // Create only the number of columns we need for current screen size
+  let columnsHTML = ''
+  for (let i = 0; i < numColumns; i++) {
+    columnsHTML += `<div class="gallery-column" data-column="${i}"></div>`
+  }
+  gridContainer.innerHTML = columnsHTML
 
   const columns = gridContainer.querySelectorAll('.gallery-column')
 
-  // Distribute items across columns in round-robin fashion (left-to-right)
+  // Distribute ALL items across active columns in round-robin fashion (left-to-right)
   data.forEach((e, index) => {
-    const columnIndex = index % 3
+    const columnIndex = index % numColumns
     columns[columnIndex].insertAdjacentHTML('beforeend', `<div>
       <img class='grid-item grid-item-${e.number}' src='/imgs/${e.number}.png' alt='${e.caption}'>
       <p>${e.caption}</p>
     </div>`)
   })
+
+  console.log(`Gallery distribution complete: Column 0 has ${columns[0].children.length} items${numColumns > 1 ? `, Column 1 has ${columns[1].children.length} items` : ''}${numColumns > 2 ? `, Column 2 has ${columns[2].children.length} items` : ''}`)
+}
+
+let galleryData = null
+
+$.getJSON('/gallerydata', (data) => {
+  galleryData = FilterImages(data)
+  distributeGallery(galleryData)
+})
+
+// Re-distribute on window resize
+let resizeTimeout
+let lastColumnCount = getColumnCount()
+
+window.addEventListener('resize', function() {
+  if (!galleryData) return
+
+  clearTimeout(resizeTimeout)
+  resizeTimeout = setTimeout(() => {
+    const newColumnCount = getColumnCount()
+    // Only redistribute if column count actually changed
+    if (newColumnCount !== lastColumnCount) {
+      console.log(`Column count changed: ${lastColumnCount} → ${newColumnCount}`)
+      lastColumnCount = newColumnCount
+      distributeGallery(galleryData)
+    }
+  }, 250)
 })

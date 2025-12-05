@@ -349,10 +349,40 @@ body {
   margin: 0 auto;
   padding: 0 var(--spacing-md);
   align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Mobile: Force single column layout */
+@media (max-width: 768px) {
+  .grid-container {
+    flex-direction: column;
+  }
+
+  .gallery-column {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Tablet: Allow two columns */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .gallery-column {
+    flex: 1;
+    min-width: calc(50% - var(--spacing-md) / 2);
+    max-width: calc(50% - var(--spacing-md) / 2);
+  }
+}
+
+/* Desktop: Three columns */
+@media (min-width: 1025px) {
+  .gallery-column {
+    flex: 1;
+    min-width: calc(33.333% - var(--spacing-md) * 2 / 3);
+    max-width: calc(33.333% - var(--spacing-md) * 2 / 3);
+  }
 }
 
 .gallery-column {
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
@@ -1176,7 +1206,6 @@ footer .middle.box {
   <script src="/jquery.js" nebula-static="2"></script>
   <script src="/socket.io/socket.io.js" nebula-static="1"></script>
   <script src="/script.js" nebula-static="3"></script>
-  <script src="/index.js"></script>
   <script src="/images.js"></script>
 
 

@@ -1,8 +1,4 @@
-console.log('hi')
-
 $.getJSON('/musicdata', (data) => {
-  console.log(data)
-
   // Split videos into compositions and performances
   const compositions = [];
   const performances = [];

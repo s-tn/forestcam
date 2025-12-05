@@ -101,7 +101,3 @@ $.getJSON('/gallerydata', (data) => {
     </div>`)
   })
 })
-
-//`<div class="gallery-entry">
-//  <img src="/imgs/${e}" class="gallery-img">
-//  <span class="gallery-caption">${data.captions[e]}</span><br><br><br></div>`

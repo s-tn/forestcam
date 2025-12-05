@@ -51,8 +51,17 @@
     const mobileMenu = document.getElementById("mobile-navmenu");
 
     if (icon && mobileMenu) {
-      // Re-attach click listener on every page load (DOM gets replaced)
+      // Remove old listeners first to prevent duplicates
+      icon.removeEventListener('click', toggleMobileMenu);
+      icon.removeEventListener('touchend', toggleMobileMenu);
+
+      // Re-attach listeners on every page load (DOM gets replaced)
       icon.addEventListener('click', toggleMobileMenu);
+      // Add touchend for better mobile support
+      icon.addEventListener('touchend', function(e) {
+        e.preventDefault(); // Prevent double-firing with click
+        toggleMobileMenu();
+      });
 
       // Add close button if it doesn't exist
       if (!mobileMenu.querySelector('.mobile-menu-close')) {
@@ -61,6 +70,10 @@
         closeButton.innerHTML = '&times;';
         closeButton.setAttribute('aria-label', 'Close navigation menu');
         closeButton.addEventListener('click', toggleMobileMenu);
+        closeButton.addEventListener('touchend', function(e) {
+          e.preventDefault();
+          toggleMobileMenu();
+        });
         mobileMenu.insertBefore(closeButton, mobileMenu.firstChild);
       }
     }

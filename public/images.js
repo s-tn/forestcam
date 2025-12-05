@@ -15,10 +15,18 @@ function FilterImages(data) {
   ]
 
   function GetMonth(month) {
-    month = Months.indexOf(month)
+    var index = Months.indexOf(month)
 
-    if (month.toString().length==1) month = '0'+month
-    return month.toString()
+    // If month not found, return default to prevent NaN
+    if (index === -1) {
+      console.warn('Month not found:', month)
+      return '00'
+    }
+
+    // Convert to 1-based month (01-12) instead of 0-based index
+    var monthNum = index + 1
+    if (monthNum.toString().length==1) monthNum = '0'+monthNum
+    return monthNum.toString()
   }
 
   function SortYears(array) {
@@ -26,48 +34,71 @@ function FilterImages(data) {
   }
   
   function GetDate(str) {
-    var year = parseInt(str.split(' ').pop());
+    var parts = str.trim().split(' ')
+    var year = parseInt(parts[parts.length - 1]);
+    var monthName = parts[0]
 
-    var month = GetMonth(str.split(' ')[0])
+    // Validate year
+    if (isNaN(year) || year < 1900 || year > 2100) {
+      console.warn('Invalid year:', year, 'in string:', str)
+      year = 1900 // Default to old date so it sorts to bottom
+    }
 
-    return parseInt(year+month)
+    var month = GetMonth(monthName)
+
+    var dateNum = parseInt(year.toString() + month)
+
+    // Final validation
+    if (isNaN(dateNum)) {
+      console.warn('Failed to parse date from:', str)
+      return 190000 // Very old date to sort to bottom
+    }
+
+    return dateNum
   }
 
-  var orders = [[], [], []]
-
-  var currentDoing = 0;
-
-  function SplitParts(order) {
-    order.map(e=>{
-      if (currentDoing==3) currentDoing = 0
-      orders[currentDoing].push(e)
-      currentDoing++
-    })
-
-    return orders;
-  }
-  
   var dateMap = data.map(e=>{
-    console.log(e.caption)
-    var a = e.caption.split('-')[1].replace(/^\s*/gi, '')
-    var date = GetDate(a);
+    var captionParts = e.caption.split('-')
+    if (captionParts.length < 2) {
+      console.warn('Invalid caption format (no hyphen):', e.caption)
+      return {date: 190000, ...e} // Default to old date
+    }
+
+    var dateStr = captionParts[1].trim()
+    var date = GetDate(dateStr);
+
+    console.log('Parsed:', e.caption, '→ date:', date, '(', dateStr, ')')
 
     return {date: date, ...e}
   })
 
   data = SortYears(dateMap)
-  return SplitParts(data)
+  console.log('Sorted gallery items (newest first):', data.map(e => `${e.caption} (${e.date})`))
+
+  // Return sorted array directly - let CSS Grid handle the columns
+  return data
 }
 
 $.getJSON('/gallerydata', (data) => {
   data = FilterImages(data)
-  data.map((e, i) => {
-    e.forEach(e=>{
-      $('.grid-container')[0].insertAdjacentHTML('beforeend', `  <div>
-        <img class='grid-item grid-item-${e.number}' src='/imgs/${e.number}.png' alt='${e.caption}'>
-        <p>${e.caption}</p>
-      </div>`)
-    })
+
+  // Create 3 columns for masonry layout
+  const gridContainer = $('.grid-container')[0]
+  gridContainer.innerHTML = `
+    <div class="gallery-column" data-column="0"></div>
+    <div class="gallery-column" data-column="1"></div>
+    <div class="gallery-column" data-column="2"></div>
+  `
+
+  const columns = gridContainer.querySelectorAll('.gallery-column')
+
+  // Distribute items across columns in round-robin fashion (left-to-right)
+  data.forEach((e, index) => {
+    const columnIndex = index % 3
+    columns[columnIndex].insertAdjacentHTML('beforeend', `<div>
+      <img class='grid-item grid-item-${e.number}' src='/imgs/${e.number}.png' alt='${e.caption}'>
+      <p>${e.caption}</p>
+    </div>`)
   })
 })
 

@@ -6,6 +6,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 
+  <!-- SEO: DNS Prefetch for External Domains -->
+  <link rel="dns-prefetch" href="https://www.youtube.com">
+  <link rel="dns-prefetch" href="https://open.spotify.com">
+  <link rel="dns-prefetch" href="https://www.linkedin.com">
+
+  <!-- SEO: Preload Critical Resources -->
+  <link rel="preload" href="/forestarmour.jpg" as="image">
+  <link rel="preload" href="/vyrlliarmour.jpg" as="image">
+  <link rel="preload" href="/galdranarmour.jpg" as="image">
+  <link rel="preload" href="/rivergladearmour.jpg" as="image">
+
   <!-- SEO: Canonical URL -->
   <link rel="canonical" href="https://cameronbryzek.com/gallery">
   <link rel="alternate" href="https://cameronbryzek.com/gallery" hreflang="en">
@@ -974,7 +985,16 @@ footer .middle.box {
           "@id": "https://cameronbryzek.com/#person"
         },
         "dateCreated": "2025",
-        "image": "https://cameronbryzek.com/forestarmour.jpg",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://cameronbryzek.com/forestarmour.jpg",
+          "contentUrl": "https://cameronbryzek.com/forestarmour.jpg",
+          "description": "Forest Armour handcrafted by Cameron Bryzek",
+          "creator": {
+            "@type": "Person",
+            "name": "Cameron Bryzek"
+          }
+        },
         "artMedium": "Leather",
         "genre": ["Fantasy", "Leatherwork", "Medieval Armour"],
         "description": "Handcrafted fantasy leather armour featuring forest-inspired design elements"
@@ -989,7 +1009,16 @@ footer .middle.box {
           "@id": "https://cameronbryzek.com/#person"
         },
         "dateCreated": "2022",
-        "image": "https://cameronbryzek.com/vyrlliarmour.jpg",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://cameronbryzek.com/vyrlliarmour.jpg",
+          "contentUrl": "https://cameronbryzek.com/vyrlliarmour.jpg",
+          "description": "Vyrlli Armour leather work by Cameron Bryzek",
+          "creator": {
+            "@type": "Person",
+            "name": "Cameron Bryzek"
+          }
+        },
         "artMedium": "Leather",
         "genre": ["Fantasy", "Leatherwork", "Medieval Armour"],
         "description": "Custom leather armour set with intricate fantasy detailing"
@@ -1004,7 +1033,16 @@ footer .middle.box {
           "@id": "https://cameronbryzek.com/#person"
         },
         "dateCreated": "2021",
-        "image": "https://cameronbryzek.com/galdranarmour.jpg",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://cameronbryzek.com/galdranarmour.jpg",
+          "contentUrl": "https://cameronbryzek.com/galdranarmour.jpg",
+          "description": "Galdran Armour created by Cameron Bryzek",
+          "creator": {
+            "@type": "Person",
+            "name": "Cameron Bryzek"
+          }
+        },
         "artMedium": "Leather",
         "genre": ["Fantasy", "Leatherwork", "Medieval Armour"],
         "description": "Handcrafted medieval-style leather armour"
@@ -1019,7 +1057,16 @@ footer .middle.box {
           "@id": "https://cameronbryzek.com/#person"
         },
         "dateCreated": "2020",
-        "image": "https://cameronbryzek.com/rivergladearmour.jpg",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://cameronbryzek.com/rivergladearmour.jpg",
+          "contentUrl": "https://cameronbryzek.com/rivergladearmour.jpg",
+          "description": "Riverglade Armour handmade by Cameron Bryzek",
+          "creator": {
+            "@type": "Person",
+            "name": "Cameron Bryzek"
+          }
+        },
         "artMedium": "Leather",
         "genre": ["Fantasy", "Leatherwork", "Medieval Armour"],
         "description": "Fantasy-inspired leather armour with flowing design elements"
@@ -1052,8 +1099,8 @@ footer .middle.box {
 </head>
 <body>
   <div id="site-content-main">
-  <div id="nav">
-    <a nebula-link="" class="home-link" href="/"><img class="home-img" src="./favicon.ico"></a>
+  <nav id="nav">
+    <a nebula-link="" class="home-link" href="/"><img class="home-img" src="./favicon.ico" alt="Cameron Bryzek Portfolio Home"></a>
     <div id="nav-div-1"><a class="nav-link" href="/" nebula-link="">Home</a><a nebula-link="" class="nav-link nav-link-now" href="/gallery">Gallery</a><a nebula-link="" class="nav-link" href="/music">Music</a><!--<a class="nav-link" href="/progress" nebula-link>Progress Bars</a>--></div>
     <a href="javascript:void(0);" class="icon" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-navmenu">
       <div class="hamburger-icon" id="icon">
@@ -1063,7 +1110,7 @@ footer .middle.box {
         <div class="clear"></div>
     </div>
     </a>
-  </div>
+  </nav>
   <div class="gallery-hero">
     <h1 id="title">Gallery</h1>
     <p class="gallery-subtitle">Handcrafted leather armour and accessories, ranging from everyday objects to full suits of armour.</p>
@@ -1098,7 +1145,7 @@ footer .middle.box {
       </div>
     </div>
   </section>
-  <div id="mobile-navmenu" role="navigation" aria-label="Mobile navigation"><div><a nebula-link="" href="/">Home</a><a nebula-link="" class="nav-link-now" href="/gallery">Gallery</a><a href="/music" nebula-link="">Music</a></div></div>
+  <nav id="mobile-navmenu" role="navigation" aria-label="Mobile navigation"><div><a nebula-link="" href="/">Home</a><a nebula-link="" class="nav-link-now" href="/gallery">Gallery</a><a href="/music" nebula-link="">Music</a></div></nav>
   </div>
   <footer>
     <div class="content">

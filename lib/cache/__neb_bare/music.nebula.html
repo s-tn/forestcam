@@ -7,6 +7,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="preconnect" href="https://www.youtube.com">
 
+  <!-- SEO: DNS Prefetch for External Domains -->
+  <link rel="dns-prefetch" href="https://open.spotify.com">
+  <link rel="dns-prefetch" href="https://www.linkedin.com">
+  <link rel="dns-prefetch" href="https://i.ytimg.com">
+
   <!-- SEO: Canonical URL -->
   <link rel="canonical" href="https://cameronbryzek.com/music">
   <link rel="alternate" href="https://cameronbryzek.com/music" hreflang="en">
@@ -1041,11 +1046,96 @@ footer .middle.box {
     ]
   }
   </script>
+
+  <!-- SEO: JSON-LD Structured Data - VideoObject Schema for Compositions -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "VideoObject",
+        "name": "Overgrowth",
+        "description": "Fantasy orchestral composition by Cameron Bryzek",
+        "thumbnailUrl": "https://img.youtube.com/vi/Q_4gZWx5ODU/maxresdefault.jpg",
+        "uploadDate": "2024-01-01",
+        "contentUrl": "https://www.youtube.com/watch?v=Q_4gZWx5ODU",
+        "embedUrl": "https://www.youtube.com/embed/Q_4gZWx5ODU",
+        "publisher": {
+          "@type": "Person",
+          "name": "Cameron Bryzek",
+          "url": "https://cameronbryzek.com"
+        },
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "creator": {
+          "@type": "Person",
+          "name": "Cameron Bryzek"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "In the Den of Dragons",
+        "description": "Fantasy orchestral composition by Cameron Bryzek",
+        "thumbnailUrl": "https://img.youtube.com/vi/zIIzx8HjBzA/maxresdefault.jpg",
+        "uploadDate": "2024-01-01",
+        "contentUrl": "https://www.youtube.com/watch?v=zIIzx8HjBzA",
+        "embedUrl": "https://www.youtube.com/embed/zIIzx8HjBzA",
+        "publisher": {
+          "@type": "Person",
+          "name": "Cameron Bryzek",
+          "url": "https://cameronbryzek.com"
+        },
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "creator": {
+          "@type": "Person",
+          "name": "Cameron Bryzek"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Lichen",
+        "description": "Fantasy orchestral composition by Cameron Bryzek",
+        "thumbnailUrl": "https://img.youtube.com/vi/iqLOo3tY5-g/maxresdefault.jpg",
+        "uploadDate": "2024-01-01",
+        "contentUrl": "https://www.youtube.com/watch?v=iqLOo3tY5-g",
+        "embedUrl": "https://www.youtube.com/embed/iqLOo3tY5-g",
+        "publisher": {
+          "@type": "Person",
+          "name": "Cameron Bryzek",
+          "url": "https://cameronbryzek.com"
+        },
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "creator": {
+          "@type": "Person",
+          "name": "Cameron Bryzek"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Wind After Rain",
+        "description": "Fantasy orchestral composition by Cameron Bryzek",
+        "thumbnailUrl": "https://img.youtube.com/vi/Ei4Y7TcSv9o/maxresdefault.jpg",
+        "uploadDate": "2024-01-01",
+        "contentUrl": "https://www.youtube.com/watch?v=Ei4Y7TcSv9o",
+        "embedUrl": "https://www.youtube.com/embed/Ei4Y7TcSv9o",
+        "publisher": {
+          "@type": "Person",
+          "name": "Cameron Bryzek",
+          "url": "https://cameronbryzek.com"
+        },
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "creator": {
+          "@type": "Person",
+          "name": "Cameron Bryzek"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div id="site-content-main">
-  <div id="nav">
-    <a class="home-link" href="/" nebula-link=""><img class="home-img" src="./favicon.ico"></a>
+  <nav id="nav">
+    <a class="home-link" href="/" nebula-link=""><img class="home-img" src="./favicon.ico" alt="Cameron Bryzek Portfolio Home"></a>
     <div id="nav-div-1"><a class="nav-link" nebula-link="" href="/">Home</a><a class="nav-link" href="/gallery" nebula-link="">Gallery</a><a class="nav-link nav-link-now" href="/music" nebula-link="">Music</a><!--<a class="nav-link" href="/progress" nebula-link>Progress Bars</a>--></div>
     <a href="javascript:void(0);" class="icon" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-navmenu">
       <div class="hamburger-icon" id="icon">
@@ -1055,7 +1145,7 @@ footer .middle.box {
         <div class="clear"></div>
     </div>
     </a>
-  </div>
+  </nav>
   <div class="music-hero">
     <h1 id="title">Music</h1>
     <p class="music-subtitle">Compositions and performances exploring fantasy orchestral soundscapes.</p>
@@ -1076,7 +1166,7 @@ footer .middle.box {
       </div>
     </div>
   </section>
-  <div id="mobile-navmenu" role="navigation" aria-label="Mobile navigation"><div><a href="/" nebula-link="">Home</a><a href="/gallery" nebula-link="">Gallery</a><a href="/music" class="nav-link-now" nebula-link="">Music</a></div></div>
+  <nav id="mobile-navmenu" role="navigation" aria-label="Mobile navigation"><div><a href="/" nebula-link="">Home</a><a href="/gallery" nebula-link="">Gallery</a><a href="/music" class="nav-link-now" nebula-link="">Music</a></div></nav>
   </div>
   <footer>
     <div class="content">

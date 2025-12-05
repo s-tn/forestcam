@@ -7,6 +7,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
+  <!-- SEO: DNS Prefetch for External Domains -->
+  <link rel="dns-prefetch" href="https://www.youtube.com">
+  <link rel="dns-prefetch" href="https://open.spotify.com">
+  <link rel="dns-prefetch" href="https://www.linkedin.com">
+
+  <!-- SEO: Preload Critical Resources -->
+  <link rel="preload" href="/forestarmour.jpg" as="image">
+
   <!-- SEO: Canonical URL -->
   <link rel="canonical" href="https://cameronbryzek.com/">
   <link rel="alternate" href="https://cameronbryzek.com/" hreflang="en">
@@ -922,11 +930,40 @@ footer .middle.box {
     ]
   }
   </script>
+
+  <!-- SEO: JSON-LD Structured Data - Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cameron Bryzek Portfolio",
+    "url": "https://cameronbryzek.com",
+    "logo": "https://cameronbryzek.com/favicon.ico",
+    "description": "Professional portfolio showcasing fantasy music compositions and handcrafted leather armour by Cameron Bryzek",
+    "founder": {
+      "@type": "Person",
+      "@id": "https://cameronbryzek.com/#person"
+    },
+    "email": "cambryzek@gmail.com",
+    "sameAs": [
+      "https://www.instagram.com/cambryzek/",
+      "https://x.com/cambryzek",
+      "https://www.linkedin.com/in/cambryzek/",
+      "https://www.youtube.com/@cambryzek",
+      "https://open.spotify.com/artist/6bYOtbT2lOVGmBitPJIRMD"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "cambryzek@gmail.com",
+      "contactType": "Portfolio Inquiries"
+    }
+  }
+  </script>
 </head>
 <body>
   <div id="site-content-main">
-  <div id="nav">
-    <a class="home-link" href="/"><img class="home-img" src="./favicon.ico" nebula-link=""></a>
+  <nav id="nav">
+    <a class="home-link" href="/"><img class="home-img" src="./favicon.ico" alt="Cameron Bryzek Portfolio Home" nebula-link=""></a>
     <div id="nav-div-1"><a class="nav-link nav-link-now" href="/" nebula-link="">Home</a><a class="nav-link" href="/gallery" nebula-link="">Gallery</a><a class="nav-link" href="/music" nebula-link="">Music</a><!--<a class="nav-link" href="/progress" nebula-link>Progress Bars</a>--></div>
     <a href="javascript:void(0);" class="icon" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-navmenu">
       <div class="hamburger-icon" id="icon">
@@ -936,8 +973,8 @@ footer .middle.box {
         <div class="clear"></div>
     </div>
     </a>
-  </div>
-  <div class="main-page-body">
+  </nav>
+  <main class="main-page-body">
     <div>
       <h1 class="body-greeting">Cameron Bryzek</h1>
       <p class="body-text-body">
@@ -948,8 +985,8 @@ footer .middle.box {
       </p>
     </div>
     <img src="/forestarmour.jpg" alt="Cameron Bryzek - Forest Armor" loading="lazy">
-  </div>
-  <div id="mobile-navmenu" role="navigation" aria-label="Mobile navigation"><div><a href="/" class="nav-link-now" nebula-link="">Home</a><a href="/gallery" nebula-link="">Gallery</a><a href="/music" nebula-link="">Music</a></div></div>
+  </main>
+  <nav id="mobile-navmenu" role="navigation" aria-label="Mobile navigation"><div><a href="/" class="nav-link-now" nebula-link="">Home</a><a href="/gallery" nebula-link="">Gallery</a><a href="/music" nebula-link="">Music</a></div></nav>
   <span style="visibility:hidden">Do you hate getting things stuck to the roof of your mouth? You're not alone; you might have arachibutyrophobia. Arachibutyrophobia is the fear of getting peanut butter stuck to the roof of your mouth and being choked.</span>
   </div>
   <footer>

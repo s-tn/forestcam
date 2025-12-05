@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- SEO: Charset Declaration -->
+    <meta charset="UTF-8">
+
+    <!-- SEO: Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO: Title -->
     <title>404 - Page Not Found | Cameron Bryzek</title>
+
+    <!-- SEO: Meta Description -->
+    <meta name="description" content="The page you're looking for couldn't be found. Return to Cameron Bryzek's portfolio to explore handcrafted leather armour and fantasy music compositions.">
+
+    <!-- SEO: Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="404 - Page Not Found">
+    <meta property="og:description" content="This page couldn't be found. Explore Cameron Bryzek's portfolio of leather armour and music.">
+    <meta property="og:url" content="https://cameronbryzek.com/404">
+    <meta property="og:site_name" content="Cameron Bryzek Portfolio">
+
+    <!-- SEO: Twitter Card Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="404 - Page Not Found">
+    <meta name="twitter:description" content="This page couldn't be found. Explore Cameron Bryzek's portfolio of leather armour and music.">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="/style/navbar.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       .error-container {
         display: flex;
@@ -56,19 +79,19 @@
   </head>
 
   <body>
-    <div id="nav">
-      <a class="home-link" href="/"><img class="home-img" src="./favicon.ico"></a>
+    <nav id="nav">
+      <a class="home-link" href="/"><img class="home-img" src="./favicon.ico" alt="Cameron Bryzek Portfolio Home"></a>
       <div id="nav-div-1">
         <a class="nav-link" href="/">Home</a>
         <a class="nav-link" href="/gallery">Gallery</a>
         <a class="nav-link" href="/music">Music</a>
       </div>
-    </div>
+    </nav>
 
-    <div class="error-container">
+    <main class="error-container">
       <h1 class="error-code">404</h1>
       <p class="error-message">The page you're looking for has wandered off into the realm of fantasy.</p>
       <a href="/" class="error-link">Return Home</a>
-    </div>
+    </main>
   </body>
 </html>
